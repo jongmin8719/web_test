@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="../../resource/css/style.css">
+<link rel="stylesheet" href="../../resource/css/zero.css">
+</head>
+
+<body>
+<div class="wrap">
+	<div class="container">
+		<div class="content">
+			<!-- 본인인증 -->
+			<div class="authentication addBtn-pb48">
+				<div class="agree_msg">
+					<h1>서비스 가입을 원해요!</h1>
+					<p>
+						만 14세 미만 아동의 서비스 가입 및 이용을
+						위해 보호자 동의가 필요해요.
+					</p>
+				</div>
+
+				<form action="">
+					<fieldset>
+						<legend>본인인증 정보 입력</legend>
+						<!-- 인증관련 동의 -->
+						<div class="agree_w toggleWrap open">
+							<dl>
+								<!-- 전체동의 -->
+								<dt class="agree_all">
+									<div class="inner">
+										<label for="">
+											<input type="checkbox" checked="checked">
+											<a href="#none" class="trigger"><strong>본인인증 필수항목 모두 동의</strong></a>
+										</label>
+									</div>
+								</dt>
+								<!-- //전체동의 -->
+								<!-- 약관목록 -->
+								<dd class="agree_con toggleCon" style="display:block;">
+									<ul>
+										<li>
+											<div class="inner">
+												<label for="">
+													<input type="checkbox" checked="checked">
+													<strong>통신사 이용약관</strong>
+													<a href="#none" class="btn_view">보기</a>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="inner">
+												<label for="">
+													<input type="checkbox" checked="checked">
+													<strong>본인확인 서비스 이용약관</strong>
+													<a href="#none" class="btn_view">보기</a>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="inner">
+												<label for="">
+													<input type="checkbox" checked="checked">
+													<strong>개인 정보 수집·이용·취급·위탁 동의</strong>
+													<a href="#none" class="btn_view">보기</a>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="inner">
+												<label for="">
+													<input type="checkbox" checked="checked">
+													<strong>고유식별 정보 처리 동의</strong>
+													<a href="#none" class="btn_view">보기</a>
+												</label>
+											</div>
+										</li>
+									</ul>
+								</dd>
+								<!-- //약관목록 -->
+							</dl>
+						</div>
+						<!-- //인증관련 동의 -->
+						<!-- 정보입력 -->
+						<div class="ipt_section">
+							<!-- 이름 -->
+							<div class="name">
+								<input type="text" value="홍길동" placeholder="이름(실명)" class="input">
+							</div>
+							<!-- //이름 -->
+							<!-- 주민등록번호 -->
+							<div class="citizen_code">
+								<div class="code_1">
+									<input type="tel" value="880818" placeholder="주민번호 앞자리" class="input">
+								</div>
+								<div>
+									<span>-</span>
+								</div>
+								<div class="code_2">
+									<div class="ipt_bx">
+										<input type="tel" value="2" placeholder="2" class="input">
+									</div>
+									<div class="code_after">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</div>
+								</div>
+							</div>
+							<!-- //주민등록번호 -->
+							<!-- 전화번호 -->
+							<div class="phone">
+								<div class="tel_select">
+									<a href="#none" class="on">KT</a><!-- 통신사 선택 시 클래스 "on" 추가 -->
+								</div>
+								<div class="ipt_bx">
+									<input type="tel" value="010-0000-0000" placeholder="휴대폰번호" class="input"><!-- 2022-04-20 -->
+								</div>
+							</div>
+							<!-- //전화번호 -->
+							<!-- 인증번호 -->
+							<div class="ipt_code">
+								<div class="ipt_bx">
+									<input type="tel" value="001122" placeholder="인증번호 6자리" class="input"><!-- 2022-04-20 -->
+									<span class="time">0:00</span><!-- 인증번호 전송 시 클래스 "on" 추가 -->
+								</div>
+								<div class="btn_request">
+									<a href="#none">인증번호 재요청</a>
+								</div>
+							</div>
+							<!-- //인증번호 -->
+						</div>
+						<!-- //정보입력 -->
+					</fieldset>
+				</form>
+			</div>
+			<!-- 본인인증 -->
+			<!-- 하단 고정버튼 -->
+			<div class="btn_botFix_w">
+				<div class="inner bg_white">
+					<a href="#none" class="btn_default round_r8 btn-style-h48 on"><!-- 활성화 시 on 클래스 추가 -->
+						동의하기
+					</a>
+				</div>
+			</div>
+			<!-- //하단 고정버튼 -->
+		</div>
+		<!-- content -->
+	</div>
+	<!-- // container -->
+</div>
+<!-- // wrap -->
+<script type="text/javascript" src="../../resource/js/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../resource/js/lib/swipe.js"></script>
+<script type="text/javascript" src="../../resource/js/checkpay_ui.js"></script>
+</body>
+</html>
+<!-- 2022-11-30 -->
+<!-- 토글버튼 -->
+<script>
+	$(function(){
+		$('.ipt_section input').on({
+			click: function(){
+				for(let inputCnt=0; inputCnt < $('.ipt_section .input').length; inputCnt++){
+					$('html, body').stop().animate({scrollTop : $(this).offset().top}, 300)
+				}
+			}
+		})
+
+		$('.toggleWrap .trigger').on({
+			click: function(){
+				$('.toggleWrap').toggleClass('open');
+				$('.toggleWrap .toggleCon').slideToggle(300)
+			}
+		})
+	})
+</script>
+<!-- //토글버튼 -->
+<!-- //2022-11-30 -->
