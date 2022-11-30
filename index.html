@@ -92,8 +92,9 @@
 </body>
 </html>
 <script>
-	alert(window.visualViewport.height);
 	window.addEventListener('resize', function(){
-		alert(window.visualViewport.height);
+		if(window.innerHeight > window.visualViewport.height){
+			alert(window.visualViewport.height);
+		}
 	})
 </script>
