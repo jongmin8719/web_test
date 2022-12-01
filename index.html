@@ -41,7 +41,7 @@
 								<div class="cert active"><!-- 인증번호 입력 활성화 시 active 클래스 추가 -->
 									<h3>인증번호</h3>
 									<div class="ipt_bx">
-										<input type="text" value="123456">
+										<input type="text" value="123456" id="keypad">
 										<span class="time">01:20</span>
 									</div>
 									<div class="btn_cert">
@@ -92,10 +92,10 @@
 </body>
 </html>
 <script>
-	alert(window.visualViewport.height);
-	visualViewport.addEventListener('resize', function(){
-		if(window.innerHeight > window.visualViewport.height){
-			alert(window.visualViewport.height);
-		}
-	})
+$(document).ready(function(){
+	setTimeout(function(){
+        $('#keypad').focus();
+        $('#keypad').click();
+	}, 500);
+});
 </script>
