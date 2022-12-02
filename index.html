@@ -92,9 +92,14 @@
 </body>
 </html>
 <script>
-$(function(){
-	setTimeout(function(){
-		$('#keypad').click();
-	}, 500);
-})
+	let vport = visualViewport.height;
+	alert(window.innerHeight);
+	alert(vport);
+	vport.addEventListener('resize', function(){
+		console.log(vport.height)
+	})
+	if(vport >= window.innerHeight){
+		window.height(vport);
+		console.log(window.innerHeight)
+	}
 </script>
