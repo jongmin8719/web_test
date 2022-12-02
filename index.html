@@ -92,35 +92,14 @@
 </body>
 </html>
 <script>
-/*
-$("input").each(function(){
-
-	$(this).bind("focus", function(){
-
-		$(".btn_botFix_w").css("position", "absolute");
-
-	});
-
-	$(this).bind("blur",function(){
-
-		$(".btn_botFix_w").css("position", "fixed");
-
-	});
-
-});
-*/
-/*
 $(function(){
 	let vport = visualViewport;
 	let alertBtn = $('.btn_cert a');
 
 	alertBtn.on({
 		click : function(){
-			$('html, body').stop().animate({scrollTop : $(window).offset.top}, 300)
-			$(window).height(visualViewport.height)
-			$('.btn_botFix_w').css('top', vport.height - 58)
+			$('.btn_botFix_w').css('bottom', vport.height - 58)
 		}
 	})
 });
-*/
 </script>
