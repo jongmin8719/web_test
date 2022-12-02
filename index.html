@@ -92,21 +92,16 @@
 </body>
 </html>
 <script>
+<script>
 	let vport = visualViewport.height;
-	window.addEventListener('resize', function(){
-		if(vport > window.innerHeight){
-			alert('창 높이');
-			alert(window.innerHeight);
-			alert('뷰포트 높이(ios)');
-			alert(vport);
-		}
-		return false;
+	let alertBtn = document.querySelector('.btn_botFix_w a')
+	console.log(alertBtn)
+
+	alertBtn.addEventListener('click', function(){
+		alert('창 높이');
+		alert(window.innerHeight);
+		alert('뷰포트 높이(ios)');
+		alert(vport);
 	})
-	vport.addEventListener('resize', function(){
-		console.log(vport.height)
-	})
-	if(vport >= window.innerHeight){
-		window.height(vport);
-		console.log(window.innerHeight)
-	}
+</script>
 </script>
