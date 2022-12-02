@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="content">
 			<!-- PG -->
-			<div class="biz_pg_w">
+			<div class="biz_pg_w" style="position:relative;">
 				<!-- 제로페이 pg 회원가입 -->
 				<div class="pg_join addBtn-pb58"><!-- 2022-06-24 하단 고정버튼 생성 시 addBtn-pb58 추가 -->
 					<p class="txt_bold">
@@ -83,7 +83,6 @@
 				<!-- //하단 고정버튼 -->
 			</div>
 			<!-- //PG -->
-			<div class="make-scrollable"></div>
 		</div>
 	</div><!-- // container -->
 </div><!-- // wrap -->
@@ -92,15 +91,6 @@
 <script type="text/javascript" src="../../resource/js/checkpay_ui.js"></script>
 </body>
 </html>
-<style>
-.make-scrollable {
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 1px;
-	height: calc(100% + 1px); /* height를 100%보다 1px높게 잡아 실제로 scroll이 되도록 만듭니다.*/
-}
-</style>
 <script>
 $("input").each(function(){
 
