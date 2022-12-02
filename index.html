@@ -102,6 +102,22 @@
 }
 </style>
 <script>
+$("input").each(function(){
+
+	$(this).bind("focus", function(){
+
+		$(".btn_botFix_w").css("position", "absolute");
+
+	});
+
+	$(this).bind("blur",function(){
+
+		$(".btn_botFix_w").css("position", "fixed");
+
+	});
+
+});
+/*
 $(function(){
 	let vport = visualViewport;
 	let alertBtn = $('.btn_cert a');
@@ -114,3 +130,5 @@ $(function(){
 		}
 	})
 });
+*/
+</script>
