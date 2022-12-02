@@ -92,16 +92,15 @@
 </body>
 </html>
 <script>
-$(function(){
 	let vport = visualViewport;
 	let alertBtn = $('.btn_cert a');
 
 	alertBtn.on({
 		click : function(){
-			$('body').height(visualViewport.height)
-			$('.wrap').height(visualViewport.height)
+			$('html, body').stop().animate({scrollTop : $(window).offset.top}, 300)
+			$('body').height(visualViewport.height - 58)
+			$('.wrap').height(visualViewport.height - 58)
 			$('.btn_botFix_w').css('top', vport.height - 58)
 		}
 	})
-});
 </script>
