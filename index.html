@@ -98,7 +98,9 @@
 	alertBtn.addEventListener('click', function(){
 		alert('창 높이');
 		alert(window.innerHeight);
-		alert('뷰포트 높이(ios)');
-		alert(vport.height);
+		setTimeout(function(){
+			alert('뷰포트 높이(ios)');
+			alert(vport.height);
+		}, 1000)
 	})
 </script>
