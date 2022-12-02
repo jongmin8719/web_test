@@ -94,10 +94,12 @@
 <script>
 	let vport = visualViewport.height;
 	window.addEventListener('resize', function(){
-		alert('창 높이');
-		alert(window.innerHeight);
-		alert('뷰포트 높이(ios)');
-		alert(vport);
+		if(vport > window.innerHeight){
+			alert('창 높이');
+			alert(window.innerHeight);
+			alert('뷰포트 높이(ios)');
+			alert(vport);
+		}
 		return false;
 	})
 	vport.addEventListener('resize', function(){
