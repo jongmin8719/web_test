@@ -112,13 +112,13 @@
 				setTimeout(function(){
 					$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>');
 					vdomW = $('.vDom').innerWidth();
-
+					alert(vdomW);
 					// 가상 돔 넓이 적용
 					var inputWidth =  vdomW;
 					iptSize.css('width', inputWidth);
 					$('.pay_area .payment_ipt .won').show();
 					$('.vDom').remove();
-				},10)
+				},100)
 			}
 			// 키보드 입력
 			iptSize.on('keydown, keyup', function(e) {
