@@ -82,6 +82,72 @@
 	url('../font/GmarketSansLight.woff2') format('woff2'),
 	url('../font/GmarketSansLight.woff') format('woff');
 }
+/* yyyy-mm-dd 폰트 추가 */
+/* 프리텐다드 추가 */
+@font-face {
+	font-family: 'PretendardT';
+	font-display: swap;
+	src: local('Pretendard Thin'),
+	url('../font/pretendard/Pretendard-Thin.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-Thin.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardEL';
+	font-display: swap;
+	src: local('Pretendard ExtraLight'),
+	url('../font/pretendard/Pretendard-ExtraLight.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-ExtraLight.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardL';
+	font-display: swap;
+	src: local('Pretendard Light'),
+	url('../font/pretendard/Pretendard-Light.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardR';
+	font-display: swap;
+	src: local('Pretendard Regular'),
+	url('../font/pretendard/Pretendard-Regular.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-Regular.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardM';
+	font-display: swap;
+	src: local('Pretendard Medium'),
+	url('../font/pretendard/Pretendard-Medium.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-Medium.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardSB';
+	font-display: swap;
+	src: local('Pretendard SemiBold'),
+	url('../font/pretendard/Pretendard-SemiBold.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-SemiBold.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardB';
+	font-display: swap;
+	src: local('Pretendard Bold'),
+	url('../font/pretendard/Pretendard-Bold.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-Bold.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardEB';
+	font-display: swap;
+	src: local('Pretendard ExtraBold'),
+	url('../font/pretendard/Pretendard-ExtraBold.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-ExtraBold.woff') format('woff');
+}
+@font-face {
+	font-family: 'PretendardBK';
+	font-display: swap;
+	src: local('Pretendard Black'), 
+	url('../font/pretendard/Pretendard-Black.woff2') format('woff2'),
+	url('../font/pretendard/Pretendard-Black.woff') format('woff');
+}
+/* //yyyy-mm-dd 폰트 추가 */
 
 /* reset */
 html, body, h1, h2, h3, h4, h5, h6, div, fieldset, p, span{padding:0;margin:0;border:0;font-size:13px;font-weight:300;color:#4a4d5d;font-family:'NanumSquareR', 'Sans-serif';line-height:1.2;-webkit-tap-highlight-color:transparent;}/* 2021-12-17 */
@@ -1054,12 +1120,14 @@ body *:focus {outline:none;}
 .p_acc_sltbx ul li a {font-size:inherit;color:inherit;letter-spacing:inherit;}/* 2022-09-30 결제 ui 통합 */
 .p_acc_sltbx ul li:first-child {margin:0;}
 .p_acc_sltbx ul li .ic_b {display:inline-block;margin-right:9px;width:10px;height:10px;border-radius:6px;vertical-align:-1px;}
+/* 2022-12-15 계좌추가 */
+/* 은행 */
 .p_acc_sltbx ul li .ic_b.ic_b1 {background-color:#15a849;}/* 농협은행 */
 .p_acc_sltbx ul li .ic_b.ic_b2 {background-color:#0182cd;}/* 우리은행 */
 .p_acc_sltbx ul li .ic_b.ic_b3 {background-color:#776c61;}/* 국민은행 */
-.p_acc_sltbx ul li .ic_b.ic_b4 {background-color:#2c79d3;}/* 신한은행 */
+.p_acc_sltbx ul li .ic_b.ic_b4 {background-color:#0146ff;}/* 신한은행 */
 .p_acc_sltbx ul li .ic_b.ic_b5 {background-color:#009f9b;}/* 하나은행 */
-.p_acc_sltbx ul li .ic_b.ic_b6 {background-color:#0099da;}/* 기업은행 */
+.p_acc_sltbx ul li .ic_b.ic_b6 {background-color:#1799da;}/* 기업은행 */
 .p_acc_sltbx ul li .ic_b.ic_b7 {background-color:#d71921;}/* 부산은행 */
 .p_acc_sltbx ul li .ic_b.ic_b8 {background-color:#ed3024;}/* 우체국은행 */
 .p_acc_sltbx ul li .ic_b.ic_b9 {background-color:#007dc4;}/* 대구은행 */
@@ -1071,10 +1139,35 @@ body *:focus {outline:none;}
 .p_acc_sltbx ul li .ic_b.ic_b15 {background-color:#0055a7;}/* 신협은행 */
 .p_acc_sltbx ul li .ic_b.ic_b16 {background-color:#2692e5;}/* 전북은행 */
 .p_acc_sltbx ul li .ic_b.ic_b17 {background-color:#0274bb;}/* 수협은행 */
-.p_acc_sltbx ul li .ic_b.ic_b18 {background-color:#2c79d3;}/* 제주은행 */
+.p_acc_sltbx ul li .ic_b.ic_b18 {background-color:#0146ff;}/* 제주은행 */
 .p_acc_sltbx ul li .ic_b.ic_b19 {background-color:#1a57cb;}/* KDB 산업은행 */
-.p_acc_sltbx ul li .ic_b.ic_b20 {background-color:#51458c;}/* 케이뱅크 */
+.p_acc_sltbx ul li .ic_b.ic_b20 {background-color:#291e72;}/* 케이뱅크 */
 .p_acc_sltbx ul li .ic_b.ic_b21 {background-color:#fdde23;}/* 카카오 뱅크 */
+.p_acc_sltbx ul li .ic_b.ic_b22 {background-color:#0561ff;}/* 토스 뱅크 */
+.p_acc_sltbx ul li .ic_b.ic_b23 {background-color:#0f265c;}/* 산립조합중앙회 */
+.p_acc_sltbx ul li .ic_b.ic_b24 {background-color:#00964c;}/* 저축은행중앙회 */
+/* 증권사 */
+.p_acc_sltbx ul li .ic_b.ic_b25 {background-color:#054587;}/* 현대차증권 */
+.p_acc_sltbx ul li .ic_b.ic_b26 {background-color:#15a849;}/* nh증권 */
+.p_acc_sltbx ul li .ic_b.ic_b27 {background-color:#e0002c;}/* sk증권 */
+.p_acc_sltbx ul li .ic_b.ic_b28 {background-color:#62a744;}/* 교보증권 */
+.p_acc_sltbx ul li .ic_b.ic_b29 {background-color:#53575a;}/* 대신증권 */
+.p_acc_sltbx ul li .ic_b.ic_b30 {background-color:#ef7d00;}/* 미래에셋증권 */
+.p_acc_sltbx ul li .ic_b.ic_b31 {background-color:#189459;}/* DB증권 */
+.p_acc_sltbx ul li .ic_b.ic_b32 {background-color:#e42d12;}/* 메리츠증권 */
+.p_acc_sltbx ul li .ic_b.ic_b33 {background-color:#164193;}/* 삼성증권 */
+.p_acc_sltbx ul li .ic_b.ic_b34 {background-color:#0146ff;}/* 신한증권 */
+.p_acc_sltbx ul li .ic_b.ic_b35 {background-color:#c30d19;}/* 유진투자증권 */
+.p_acc_sltbx ul li .ic_b.ic_b36 {background-color:#095d94;}/* 이베스트투자증권 */
+.p_acc_sltbx ul li .ic_b.ic_b37 {background-color:#e6087e;}/* 키움증권 */
+.p_acc_sltbx ul li .ic_b.ic_b38 {background-color:#009f9b;}/* 하나증권 */
+.p_acc_sltbx ul li .ic_b.ic_b39 {background-color:#7a634f;}/* 한국투자증권 */
+.p_acc_sltbx ul li .ic_b.ic_b40 {background-color:#ed6b06;}/* 한화증권 */
+.p_acc_sltbx ul li .ic_b.ic_b41 {background-color:#000;}/* 다올투자증권 */
+.p_acc_sltbx ul li .ic_b.ic_b42 {background-color:#776c61;}/* KB증권 */
+.p_acc_sltbx ul li .ic_b.ic_b43 {background-color:#0561ff;}/* 토스증권 */
+.p_acc_sltbx ul li .ic_b.ic_b44 {background-color:#007dc4;}/* 하이투자증권 */
+/* //2022-12-15 계좌추가 */
 
 /* 레이어 > 영수증 받기 */
 .p_ly_emipt {display:flex;margin-top:23px;}
@@ -4362,18 +4455,20 @@ p.refund_info {margin-top:16px;font-size:13px;font-family:'NanumSquareR';color:#
 .integrated_payment .tit.no_clamp h2 {display:inline;}
 .integrated_payment .tit.no_clamp h2 a {position:relative;font-size:inherit;font-family:inherit;color:inherit;word-break:break-all;letter-spacing:inherit;line-height:inherit;}/* 2022-12-08 결제수정 */
 .integrated_payment .tit.no_clamp h2 a::after {content:"";display:inline-block;background:url(../../resource/images/zero/ico_integ_stInfo_arr.png)no-repeat 0 0;background-size:10px 5px;width:10px;height:5px;margin-left:6px;vertical-align:4px;}
-/* 2022-12-08 결제수정 */
+/* 2022-12-15 결제수정 */
 /* 금액입력 */
 .integrated_payment .payment_ipt {position:relative;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding-bottom:4px;margin-top:12px;box-sizing:border-box;}/* 2022-12-08 결제수정 */
 .integrated_payment .payment_ipt::after {content:"";display:block;position:absolute;bottom:0;left:0;right:0;width:100%;height:3px;background-color:rgba(204,204,204, .6);}
 .integrated_payment .payment_ipt.pay_on::after {background-color:#0d84ff;}
 .integrated_payment .payment_ipt.pay_comp::after {display:none;}
 .integrated_payment .payment_ipt input {position:relative;font-size:32px;font-family:'NanumSquareEB';color:#222;border:0 none;background:transparent;min-width:0;max-width:calc(100% - 30px);caret-color:transparent;line-height:1.54;box-sizing:border-box;}
+.integrated_payment .payment_ipt input:disabled {color:#222;-webkit-text-fill-color:#222;}
 .integrated_payment .payment_ipt input::placeholder {font-size:28px;font-family:'NanumSquareB' !important;color:#ccc;vertical-align:-1px;}
-.integrated_payment .payment_ipt .won {margin-left:2px;margin-top:7px;}/* 2022-12-08 결제수정 */
+.integrated_payment .payment_ipt .won {margin-left:2px;margin-top:7px;}
 .integrated_payment .payment_ipt .remove {position:absolute;top:0;right:0;width:30px;height:100%;background: transparent url(../../resource/images/zero/ico_integ_iptRemove.png) no-repeat right calc(50% - 2px);background-size:20px 20px;text-indent:-99999px;}
 .integrated_payment .payment_ipt .vDom {font-size:32px;font-family:'NanumSquareEB';}
 .integrated_payment .payment_ipt strong {font-size:28px;font-family:'NanumSquareEB';color:#222;align-self:flex-start;margin-top:1px;flex-shrink:1;}
+/* //2022-12-15 결제수정 */
 /* 커스텀커서 관련 애니메이션 css */
 .integrated_payment .payment_ipt__ghost,
 .integrated_payment .payment_ipt__caret-container {font-size:32px;font-family:'NanumSquareEB';}
@@ -4583,7 +4678,14 @@ p.refund_info {margin-top:16px;font-size:13px;font-family:'NanumSquareR';color:#
 .new_store .join_info dl dd p {font-size:inherit;font-family:inherit;color:inherit;line-height:1.72;margin-top:-2px;}
 .new_store .join_info dl dd li {font-size:inherit;font-family:inherit;color:inherit;line-height:1.72;}
 .new_store .join_info dl dd ol ~ ul {margin-top:11px;}
+/* 2022-12-15 */
+.new_store .join_info .tbl_bx table tr > * {font-size:13px;font-family:'NanumSquareR';color:#333;text-align:center;border-left:1px solid #000;border-top:1px solid #000;font-weight:normal;padding: 5px;}
+.new_store .join_info .tbl_bx table tr > *:last-child {border-right:1px solid #000;}
+.new_store .join_info .tbl_bx thead th {font-size:10px;}
+.new_store .join_info .tbl_bx thead th span {font-size:13px;}
+.new_store .join_info .tbl_bx tbody td {border-bottom: 1px solid #000;}
 .new_store .step_txt {font-size:20px;font-family:'NanumSquareEB';color:#222;line-height:1.5;padding:28px 0 0;letter-spacing:-0.025em;}
+/* //2022-12-15 */
 /* 사업자 등록번호 입력 */
 .new_store .bn_number_ipt {padding: 0 20px;}
 .new_store .bn_number_ipt * {letter-spacing:-0.025em;}
@@ -4718,26 +4820,89 @@ p.refund_info {margin-top:16px;font-size:13px;font-family:'NanumSquareR';color:#
 
 /* 화면 기본세팅 */
 .br_gift_rn {display:flex;flex-direction:row;align-items:flex-start;width:100%;height:calc(100vh - 47px);}
+.br_gift_rn * {letter-spacing:-0.025em;line-height:1.43;}
 .br_gift_rn > div {width:100%;height:100%;}
+.br_gift_rn span, .br_gift_rn strong {font-size:inherit;font-family:inherit;color:inherit;}
+/* 상품권 리스트 */
+.br_gift_rn .gift_list {display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:flex-start;}
+.br_gift_rn .gift_list * {line-height:1.42;}
+.br_gift_rn .gift_list > div {width:100%;}
+/* 배너박스 */
+.br_gift_rn .banner_bx {padding:4px 20px;box-sizing:border-box;}
+.br_gift_rn .banner_bx a {display:block;width:100%;height:64px;background-color:#d00;overflow:hidden;border-radius:8px;}
+.br_gift_rn .banner_bx a img {width:100%;}
+/* 필터 */
+.br_gift_rn .banner_bx + .filter {margin-top:18px;}
+.br_gift_rn .filter {display:flex;justify-content:space-between;padding:0 20px;box-sizing:border-box;margin-top:7px;}
+.br_gift_rn .filter .sort a {display:block;font-size:13px;font-family:'NanumSquareR';color:#333;padding-right:12px;background:url(../../resource/images/brand/br_ico_gift_sort.png) no-repeat right center;background-size:10px;}
+.br_gift_rn .filter .cate {display:flex;align-items:center;justify-content:space-between;}
+.br_gift_rn .filter .cate a {position:relative;display:block;width:35px;font-size:13px;font-family:'NanumSquareR';color:#7e7e7e;padding-left:16px;}
+.br_gift_rn .filter .cate a ~ a {margin-left:8px;}
+.br_gift_rn .filter .cate a::before {content:"";display:block;position:absolute;top:2px;left:0;width:14px;height:14px; background-image:url(../../resource/images/brand/br_ico_gift_cate_off.png);background-repeat:no-repeat;background-position:0 0;background-size:14px;}
+.br_gift_rn .filter .cate a.on {color:#333;}
+.br_gift_rn .filter .cate a.on::before {content:"선택됨";background-image:url(../../resource/images/brand/br_ico_gift_cate_on.png);text-indent:-9999px;}
+/* 상품권 리스트 */
+.br_gift_rn .list_area {display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;padding:0 20px;margin-top:14px;box-sizing:border-box;}
+.br_gift_rn .list_area .item {width:calc(50% - 10px);height:auto;}
+.br_gift_rn .list_area .item:nth-child(2) ~ .item {margin-top:29px;}
+.br_gift_rn .list_area .item a {display:block;}
+/* 상품 이미지 */
+.br_gift_rn .list_area .item_img {position:relative;border-radius:8px;overflow:hidden;}
+.br_gift_rn .list_area .item_img .img {position:relative;background-color:#f5f5f5;}
+.br_gift_rn .list_area .item_img img {width:100%;}
+.br_gift_rn .list_area .item .out {position:absolute;top:0;left:0;display:none;align-items:center;justify-content:center;font-size:14px;font-family:'PretendardB';color:#fff;width:100%;height:100%;background:rgba(0,0,0, 0.5);}
+.br_gift_rn .list_area .item.item_out .out {display:flex;}
+/* 라벨 */
+.br_gift_rn .list_area .special_price,
+.br_gift_rn .list_area .remainder {position:absolute;display:none;align-items:center;font-size:10px;font-family:'PretendardM';color:#fff;height:16px;padding:0 5px;border-radius:3px;}
+/* 특가 및 수량 라벨 활성화 */
+.br_gift_rn .list_area .label_special .special_price,
+.br_gift_rn .list_area .label_remainder .remainder {display:flex;}
+.br_gift_rn .list_area .special_price span, 
+.br_gift_rn .list_area .remainder span {display:inline-block;font-family:'PretendardB';vertical-align:top;}
+/* 특가 */
+.br_gift_rn .list_area .special_price {top:8px;right:8px;background:#e66557;}
+/* 잔여량 */
+.br_gift_rn .list_area .remainder {bottom:8px;left:8px;background-color:rgba(34,34,34, 0.5);}
+.br_gift_rn .list_area .remainder span {margin-right:3px;}
+.br_gift_rn .list_area .remainder.imminent {background-color:rgba(34,34,34, 0.7);}
+.br_gift_rn .list_area .remainder.imminent span {margin-right:0;}
+/* 상품정보 */
+.br_gift_rn .list_area .item_info {margin-top:10px;}
+.br_gift_rn .list_area .item_info .brand {font-size:12px;font-family:'NanumSquareB';color:#7e7e7e;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.br_gift_rn .list_area .item_info .name {font-size:14px;font-family:'NanumSquareR';color:#222;height:36px;margin-top:4px;line-height:1.28;}
+/* 가격 */
+.br_gift_rn .list_area .item_price {font-size:15px;font-family:'NanumSquareB';color:#222;margin-top:2pximage.pngimage.png;}
+.br_gift_rn .list_area .item_price * {display:inline-block;vertical-align:top;}
+.br_gift_rn .list_area .item_price .discount {font-family:'NanumSquareEB';color:#0d84ff;margin-right:5px;}
 /* 구매상세 */
 .br_gift_rn .buy_detail {display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;}
-.br_gift_rn .buy_detail * {letter-spacing:-0.025em;line-height:1.43;}
 .br_gift_rn .buy_detail .top_bx {flex-grow:0;flex-shrink:0;width:100%;background-color:#fff;padding:16px 0 30px;}
 /* 이미지 박스 */
 .br_gift_rn .buy_detail .img_bx {display:flex;flex-direction:row;width:100%;align-items:center;justify-content:center;}
-.br_gift_rn .buy_detail .img_bx .inner {position:relative;display:flex;flex-direction:row;align-items:center;justify-content:center;min-width:136px;min-height:136px;max-width:150px;max-height:150px;background-color:#F9F9F9;border-radius:8px;}
-.br_gift_rn .buy_detail .img_bx .img {display:inline-block;width:80%;text-align:center;}
-.br_gift_rn .buy_detail .img_bx .img img {display:inline-block;width:100%;object-fit:contain;}
-.br_gift_rn .buy_detail .img_bx .stemp {position:absolute;top:8px;right:8px;width:48px;height:48px;background-image: url(../../resource/images/brand/ico_gift_active.png);background-repeat:no-repeat;background-position:center center;background-size:48px 48px;}
-.br_gift_rn .buy_detail .img_bx .stemp.complete {background-image: url(../../resource/images/brand/ico_gift_complete.png);}/* 사용완료 */
-.br_gift_rn .buy_detail .img_bx .stemp.present {background-image: url(../../resource/images/brand/ico_gift_present.png);}/* 선물 */
-.br_gift_rn .buy_detail .img_bx .stemp.end {background-image: url(../../resource/images/brand/ico_gift_end.png);}/* 기간만료 */
-.br_gift_rn .buy_detail .img_bx .stemp.refund {background-image: url(../../resource/images/brand/ico_gift_refund.png);}/* 환불완료 */
+.br_gift_rn .buy_detail .img_bx .inner {position:relative;display:flex;flex-direction:row;align-items:center;justify-content:center;border-radius:8px;}
+.br_gift_rn .buy_detail .img_bx .img {display:flex;flex-direction:row;align-items:center;justify-content:center;width:136px;height:136px;background-color:#f7f7f7;border-radius:8px;}
+.br_gift_rn .buy_detail .img_bx .img img {display:inline-block;width:80%;height:80px;object-fit:contain;}
 /* 상품권 명 및 잔액 */
 .br_gift_rn .buy_detail .name_bx {text-align:center;padding:0 40px;margin-top:14px;}
 .br_gift_rn .buy_detail .name_bx .brand {font-size:12px;font-family:'NanumSquareB';color:#7E7E7E;}
-.br_gift_rn .buy_detail .name_bx .gift_name {font-size:14px;font-family:'NanumSquareR';color:#222;margin-top:2px;}
+.br_gift_rn .buy_detail .name_bx .gift_name {font-size:14px;font-family:'NanumSquareB';color:#222;margin-top:2px;}
 .br_gift_rn .buy_detail .name_bx .balance {font-size:14px;font-family:'NanumSquareB';color:#222;margin-top:4px;}
+.br_gift_rn .buy_detail .name_bx .balance span {position:relative;font-size:inherit;font-family:inherit;color:inherit;}
+/* 상태별 스탬프 */
+.br_gift_rn .buy_detail .img_bx .stemp {position:absolute;top:10px;right:10px;width:56px;height:56px;background-image: url(../../resource/images/brand/ico_gift_active.png);background-repeat:no-repeat;background-position:center center;background-size:100% 100%;}
+/* 환불, 기간만료 */
+.br_gift_rn .buy_detail .top_bx.refund .img_bx .img,
+.br_gift_rn .buy_detail .top_bx.end .img_bx .img,
+.br_gift_rn .buy_detail .top_bx.use .img_bx .img {opacity:.4;}
+.br_gift_rn .buy_detail .top_bx.refund .name_bx .balance,
+.br_gift_rn .buy_detail .top_bx.end .name_bx .balance {color:#7e7e7e;}
+.br_gift_rn .buy_detail .top_bx.end .name_bx .balance span::after {content:"";position:absolute;top:50%;left:0;margin-top:-1px;width:100%;height:1px;background-color:#7e7e7e;}
+/* stemp 이미지 */
+.br_gift_rn .buy_detail .top_bx.refund .img_bx .stemp {background-image:url(../../resource/images/brand/ico_gift_refund.png);}/* 환불 */
+.br_gift_rn .buy_detail .top_bx.end .img_bx .stemp {background-image: url(../../resource/images/brand/ico_gift_end.png);}/* 기간만료 */
+.br_gift_rn .buy_detail .top_bx.use .img_bx .stemp {background-image: url(../../resource/images/brand/ico_gift_complete.png);}/* 사용완료 */
+.br_gift_rn .buy_detail .top_bx.present .img_bx .stemp {background-image: url(../../resource/images/brand/ico_gift_present.png);}/* 선물 */
 /* 상품권 정보 */
 .br_gift_rn .buy_detail .info_view {width:100%;padding:0 20px;background-color:#fff;box-sizing:border-box;}
 .br_gift_rn .buy_detail .info_view .inner {border-top:1px solid #F1F1F1;padding:22px 0;}
@@ -4745,6 +4910,7 @@ p.refund_info {margin-top:16px;font-size:13px;font-family:'NanumSquareR';color:#
 .br_gift_rn .buy_detail .info_view dl ~ dl {margin-top:10px;}
 .br_gift_rn .buy_detail .info_view dl dt {flex-shrink:0;font-size:14px;font-family:'NanumSquareR';color:#7E7E7E;}
 .br_gift_rn .buy_detail .info_view dl dd {font-size:14px;font-family:'NanumSquareR';color:#333;}
+.br_gift_rn .buy_detail .info_view .expired {color:#E60000;}
 /* 최하단 다중버튼 */
 .br_gift_rn .buy_detail .btn_bottom {width:100%;background-color:#f7f7f7;padding:20px 20px 40px;box-sizing:border-box;}
 .br_gift_rn .buy_detail .btn_bottom a {display:block;font-size:13px;font-family:'NanumSquareR';color:#555;text-align:center;padding:8px 0 7px;background-color:#f1f1f1;border:1px solid #E9E9E9;}
@@ -4770,6 +4936,10 @@ p.refund_info {margin-top:16px;font-size:13px;font-family:'NanumSquareR';color:#
 .br_gift_rn .dtl_history .history_con .status_w .status span {display:inline-block;max-width:calc(100% - 85px);font-size:inherit;font-family:inherit;color:inherit;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;vertical-align:top;}
 .br_gift_rn .dtl_history .history_con .status_w .date {font-size:11px;font-family:'NanumSquareR';color:#7e7e7e;margin-top:3px;line-height:1.4;}
 .br_gift_rn .dtl_history .history_con .bal {align-self:flex-start;flex-shrink:0;font-size:13px;font-family:'NanumSquareEB';color:#333;margin:18px 0 0 10px;max-width:80px;}
+/* 리스트 첫번째 항목 */
+.br_gift_rn .dtl_history .history_con ul li:first-child .inner {align-items:flex-start;min-height:63px;padding-top:6px;}
+.br_gift_rn .dtl_history .history_con ul li:first-child .inner .ico {margin-top:11px;}
+.br_gift_rn .dtl_history .history_con ul li:first-child .inner .bal {margin-top:0;}
 /* 상품 고시 및 거래조건 */
 .br_gift_rn .dtl_notice .notice_con {padding:0 20px 20px;}
 .br_gift_rn .dtl_notice .notice_con ul {padding-top:2px;margin-top:0;}
@@ -5191,3 +5361,5 @@ p.refund_info {margin-top:16px;font-size:13px;font-family:'NanumSquareR';color:#
 .row-bothpadding20-style.pdb {padding-bottom:20px;}
 .txtb {color:#0d84ff !important;}
 /* //추후 삭제예정 */
+
+
