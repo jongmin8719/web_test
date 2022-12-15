@@ -89,6 +89,31 @@
 <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
 </body>
 </html>
+<script>
+$(window).load(function() {
+	const loadIpt = $('.pay_area .payment_ipt input');
+	if(loadIpt.val() === ''){
+				// val값 없을 시 가림
+				$('.pay_area .payment_ipt').removeClass('pay_on');
+				$('.pay_area .payment_ipt .remove').hide();
+			}else{
+				// val값 있을 시 노출
+				$('.pay_area .payment_ipt').addClass('pay_on');
+				$('.pay_area .payment_ipt .remove').show();
+				// 가상 돔 생성
+				var iptValue = loadIpt.val();
+				$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>');
+				vdomW = $('.vDom').innerWidth();
+				console.log(vdomW);
+				// 가상 돔 넓이 적용
+				var inputWidth =  vdomW;
+				loadIpt.css('width', inputWidth);
+				$('.pay_area .payment_ipt .won').show();
+				$('.vDom').remove();
+			}
+})
+</script>
+
 <!-- 2022-12-06 -->
 <script>
 	$(function(){
@@ -99,27 +124,6 @@
 
 			$('.pay_area .payment_ipt .won').hide();
 
-			if(iptSize.val() === ''){
-				// val값 없을 시 가림
-				$('.pay_area .payment_ipt').removeClass('pay_on');
-				$('.pay_area .payment_ipt .remove').hide();
-			}else{
-				// val값 있을 시 노출
-				$('.pay_area .payment_ipt').addClass('pay_on');
-				$('.pay_area .payment_ipt .remove').show();
-				// 가상 돔 생성
-				var iptValue = iptSize.val();
-				setTimeout(function(){
-					$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>');
-					vdomW = $('.vDom').innerWidth();
-					alert(vdomW);
-					// 가상 돔 넓이 적용
-					var inputWidth =  vdomW;
-					iptSize.css('width', inputWidth);
-					$('.pay_area .payment_ipt .won').show();
-					$('.vDom').remove();
-				},100)
-			}
 			// 키보드 입력
 			iptSize.on('keydown, keyup', function(e) {
 				// 금액입력 시
