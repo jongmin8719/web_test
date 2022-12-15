@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>비플제로페이</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="zero.css">
+<link rel="stylesheet" href="resource/css/style.css">
+<link rel="stylesheet" href="resource/css/zero.css">
 </head>
 
 <body>
@@ -27,56 +27,44 @@
 						<div class="tit no_clamp"><!--비대면결제의 경우 "no_clamp" 추가(말줄임처리 삭제) -->
 							<h2>가맹점명 영등포점</h2><!-- 비대면결제의경우 a태그 추가 -->
 						</div>
-						<!-- 2022-12-06 -->
-						<div class="payment_ipt">
-							<input type="tel" value="" placeholder="결제금액 입력(원)">
+						<!-- 2022-12-15 식권 함께결제의 경우 'pay_comp' 클래스 고정 -->
+						<div class="payment_ipt pay_comp">
+							<input type="tel" value="200,000" placeholder="결제금액 입력(원)" disabled="disabled">
 							<strong class="won">원</strong>
-							<a href="#none" class="remove">내용삭제</a>
 						</div>
-						<!-- //2022-12-06 -->
+						<!-- //2022-12-15 -->
 						<p class="charge_info" style="display:none;">부족한 금액은 비플머니로 자동 충전됩니다.</p><!-- 충전금액 부족 시 노출, 클래스 "charge_info", 결제 불가 및 최소결제금액 메세지 노출, 클래스 "error_txt"로 변경 -->
 					</div>
 					<!-- //매장명 및 결제금액 -->
 					<!-- 충전/결제 정보 -->
-					<div class="pay_info"><!-- 금액 입력 후 결제하기 버튼 눌렀을 시 'amt_ipt' 클래스 추가 금액수정(입력 값 변경 or 인풋박스 커서 위치 시) 'amt_ipt' 클래스 제거 -->
-						<!-- 결제 수단 -->
+					<div class="pay_info amt_ipt"><!-- 2022-12-15 식권 함께결제의경우 'amt_ipt' 클래스 고정 -->
 						<div class="info_bx">
 							<h3 class="tit">결제 수단</h3>
-							<div class="list"><!-- 아이콘 있을 경우 "icon 추가" -->
+							<!-- 비플머니 충전 -->
+							<div class="list charge">
 								<dl>
-									<dt>모바일온누리상품권</dt>
-									<dd>10,000원</dd>
-								</dl>
-							</div>
-						</div>
-						<!-- // 결제 수단 -->
-						<div class="info_bx">
-							<h3 class="tit">나의 적립금</h3>
-							<div class="list point"><!-- 아이콘 있을 경우 "icon 추가" -->
-								<dl>
-									<dt>적립금 <strong>10,000원</strong> 사용하기</dt>
+									<dt>보유 비플머니</dt>
 									<dd>
-										<div class="point_ball">
-											<a href="#none" class="on"><!-- 활성화 클래스 on -->
-												<span class="ball">on/off</span>
-											</a>
-										</div>
+										<span>10,000</span>원<!-- 보유금액 부족 시 "fcRed" 클래스 추가 -->
 									</dd>
 								</dl>
+								<dl>
+									<dt class="charge_tooltip view"><!-- 툴팁 노출 시 "view" 추가 -->
+										충전 비플머니 
+										<a href="#none" class="btn_chargeInfo"><span class="blind">충전안내</span></a>
+										<div class="tooltip">
+											<p>비플머니는 1만원 단위로 충전됩니다.</p>
+										</div>
+									</dt>
+									<dd>0원</dd>
+								</dl>
+								<dl>
+									<dt>자동 충전 계좌</dt>
+									<dd><a href="#none" class="btn_acc">기업은행 1015</a></dd>
+								</dl>
 							</div>
+							<!-- //비플머니 충전 -->
 						</div>
-						<!-- 전달 메세지 -->
-						<div class="info_bx message_bx"><!-- 2022-11-08 'info_bx' 추가 -->
-							<h3 class="tit">전달 메시지</h3>
-							<div class="message">
-								<textarea name="" id="" placeholder=" 사장님에게 전달할 메시지를 입력하세요."></textarea>
-								<p class="count"><span>0/</span>200</p>
-							</div>
-							<p class="privacy_chk">
-								<label><input type="checkbox"> <span>개인정보 비공개 전송</span></label>
-							</p>
-						</div>
-						<!-- //전달 메세지 -->
 					</div>
 					<!-- //충전/결제 정보 -->
 				</div>
@@ -86,11 +74,11 @@
 			<!-- 하단 고정버튼 -->
 			<div class="btn_botFix_w">
 				<div class="inner bg_white">
-					<!-- 2022-12-06 -->
-					<a href="#none" class="btn_default round_r8 btn-style-h48 ipt_submit"><!-- 활성화 시 on 클래스 추가 -->
-						다음
+					<!-- 2022-12-15 식권 함께결제 결제진행 화면은 on클래스 및 결제하기 텍스트 고정 -->
+					<a href="#none" class="btn_default round_r8 btn-style-h48 ipt_submit on"><!-- 활성화 시 on 클래스 추가 -->
+						결제하기
 					</a>
-					<!-- //2022-12-06 -->
+					<!-- //2022-12-15 -->
 				</div>
 			</div>
 			<!-- //하단 고정버튼 -->
@@ -103,135 +91,140 @@
 </html>
 <!-- 2022-12-06 -->
 <script>
-$(function(){
-	const iptSize = $('.pay_area .payment_ipt input');
-	let fakeCaretInput = $('.integrated_payment .payment_ipt input'),
-	fakeCaretInputGhost = '.payment_ipt__caret-container span',
-	fakeCaret = '.payment_ipt__caret';
+	$(function(){
+		const iptSize = $('.pay_area .payment_ipt input');
+		let fakeCaretInput = $('.integrated_payment .payment_ipt input'),
+		fakeCaretInputGhost = '.payment_ipt__caret-container span',
+		fakeCaret = '.payment_ipt__caret';
 
-		$('.pay_info').hide(0);
-		$('.pay_area .payment_ipt .won').hide();
+			$('.pay_area .payment_ipt .won').hide();
 
-		if(iptSize.val() === ''){
-			// val값 없을 시 가림
-			$('.pay_area .payment_ipt').removeClass('pay_on');
-			$('.pay_area .payment_ipt .remove').hide();
-		}else{
-			// val값 있을 시 노출
-			$('.pay_area .payment_ipt').addClass('pay_on');
-			$('.pay_area .payment_ipt .remove').show();
-			iptW = iptSize.attr('size', iptSize.val().length - 1);
-			iptSize.css('width', iptW.width());
-		}
-		// 키보드 입력
-		iptSize.on('keydown, keyup', function(e) {
-			//엔터키 입력 시
-			if (e.keyCode === 13){
-				userPayIpt(e);
-				$('.payment_ipt__caret').hide();
-			}
-			// 금액입력 시
-			if($('.pay_area .payment_ipt input').val() !== ''){
-				$('.pay_area .payment_ipt .remove').show();
-			}else{
+			if(iptSize.val() === ''){
+				// val값 없을 시 가림
+				$('.pay_area .payment_ipt').removeClass('pay_on');
 				$('.pay_area .payment_ipt .remove').hide();
-			}
-		});
-		// 결제금액 입력 후 결제하기 버튼 클릭 시
-		$('.btn_botFix_w .ipt_submit').on({
-			click: function(e){
-				userPayIpt(e);
-			}
-		})
-		// 입력창 커서 활성화 시
-		$('.payment_ipt').on({
-			click: function(){
-				$('.pay_area .payment_ipt .won').hide();
-				$('.pay_info').hide(0);
-				$('.payment_ipt__caret').show();
-				$('.pay_info').removeClass('amt_ipt');
+			}else{
+				// val값 있을 시 노출
 				$('.pay_area .payment_ipt').addClass('pay_on');
-				$('.pay_area .payment_ipt').removeClass('pay_comp');
-				iptSize.width('100%');
+				$('.pay_area .payment_ipt .remove').show();
+				// 가상 돔 생성
+				var iptValue = iptSize.val();
+				setTimeout(function(){
+					$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>');
+					vdomW = $('.vDom').innerWidth();
+
+					// 가상 돔 넓이 적용
+					var inputWidth =  vdomW;
+					iptSize.css('width', inputWidth);
+					$('.pay_area .payment_ipt .won').show();
+					$('.vDom').remove();
+				},10)
 			}
-		})
-		$('.payment_ipt input').on({
-			focusin: function(){
-				$('.pay_area .payment_ipt').addClass('pay_on');
-				$('.pay_area .payment_ipt').removeClass('pay_comp');
-				if(iptSize.val() !== ''){
+			// 키보드 입력
+			iptSize.on('keydown, keyup', function(e) {
+				// 금액입력 시
+				if($('.pay_area .payment_ipt input').val() !== ''){
 					$('.pay_area .payment_ipt .remove').show();
-				}
-				// 커서 노출
-				fakeCaretInit();
-			},
-			focusout: function(){
-				// 포커스 out 시 커서 숨김
-				$('.payment_ipt__caret').hide();
-				// 커서 out 입력된 값 없을 시.(있을경우 작동x)
-				if(iptSize.val() === ''){
-					$('.pay_area .payment_ipt').removeClass('pay_on');
+				}else{
 					$('.pay_area .payment_ipt .remove').hide();
 				}
-			},
-		})
-
-		// 금액 입력 시 input영역 가변처리
-		function userPayIpt(e){
-			iptSize.removeAttr('size');
-			$('.pay_info').show(0);
-			$('.pay_info').addClass('amt_ipt');
-			$('.pay_area .payment_ipt .won').show();
-			$('.pay_area .payment_ipt').removeClass('pay_on');
-			$('.pay_area .payment_ipt').addClass('pay_comp');
-			$('.pay_area .payment_ipt .remove').hide();
-
-			// 가상 돔 생성
-			var iptValue = iptSize.val();
-			$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>'); 
-			// 가상 돔 넓이 적용
-			var inputWidth =  $('.vDom').width();
-			iptSize.css('width', inputWidth);
-			//백스페이스 입력
-			if(e.keyCode === 8) {
-				iptSize.css('width', inputWidth - 32);
-			}
-			// 가상 돔 삭제
-			$('.vDom').remove();
-		}
-// 커스텀 커서
-	function fakeCaretInit() {
-		if($(fakeCaretInput).length) {
-			$('<div class="payment_ipt__caret-container"><span id="payment_ipt__ghost" class="payment_ipt__ghost"></span></div><div class="payment_ipt__caret"></div>').insertBefore($(fakeCaretInput));
-			let fakeInputOffset = $(fakeCaretInput).offset(),
-				fakeCaretInputGhostOffset = $(fakeCaretInputGhost).offset(),
-				fakeCaretOffset = (fakeCaretInputGhostOffset.left - fakeInputOffset.left);
-
-			function setCaretXY(elem, real_element, caret) {
-				let rects = document.getElementById("payment_ipt__ghost").getClientRects();
-				let lastRect = rects[rects.length - 1];
-				let realElementOffset = $(real_element).offset();
-				let x = lastRect.left + lastRect.width - realElementOffset.left + document.body.scrollLeft;
-				
-				$(caret).css('left',x);
-			}
-			function moveCaret() {
-				$(fakeCaretInputGhost).text($(fakeCaretInput).val().substring(0, $(fakeCaretInput)[0].selectionStart).replace(/\n$/, '\n\u0001'));
-				setCaretXY(fakeCaretInputGhost, fakeCaretInput, fakeCaret);
-			}
-
-			$(fakeCaretInput).on("input keydown keyup propertychange click paste cut copy mousedown mouseup change", function () {
-				moveCaret();
 			});
-		}
-	}
+			// 결제금액 입력 후 결제하기 버튼 클릭 시
+			$('.btn_botFix_w .ipt_submit').on({
+				click: function(e){
+					userPayIpt(e);
+				}
+			})
+			// 입력창 커서 활성화 시
+			$('.payment_ipt').on({
+				click: function(){
+					$('.pay_area .payment_ipt .won').hide();
+					$('.pay_info').hide(0);
+					$('.payment_ipt__caret').show();
+					$('.pay_info').removeClass('amt_ipt');
+					$('.pay_area .payment_ipt').addClass('pay_on');
+					$('.pay_area .payment_ipt').removeClass('pay_comp');
+					iptSize.width('100%');
+				}
+			})
+			$('.payment_ipt input').on({
+				focusin: function(){
+					$('.pay_area .payment_ipt').addClass('pay_on');
+					$('.pay_area .payment_ipt').removeClass('pay_comp');
+					if(iptSize.val() !== ''){
+						$('.pay_area .payment_ipt .remove').show();
+					}
+					// 커서 노출
+					fakeCaretInit();
+				},
+				focusout: function(){
+					// 포커스 out 시 커서 숨김
+					$('.payment_ipt__caret').hide();
+					// 커서 out 입력된 값 없을 시.(있을경우 작동x)
+					if(iptSize.val() === ''){
+						$('.pay_area .payment_ipt').removeClass('pay_on');
+						$('.pay_area .payment_ipt .remove').hide();
+					}
+				},
+			})
 
-		// 적립금 사용버튼 토글
-		$('.point_ball a').on({
-			click : function(){
-				$(this).toggleClass('on');
+			// 금액 입력 시 input영역 가변처리
+			function userPayIpt(e){
+				iptSize.removeAttr('size');
+				$('.pay_info').show(0);
+				$('.pay_info').addClass('amt_ipt');
+				$('.pay_area .payment_ipt .won').show();
+				$('.pay_area .payment_ipt').removeClass('pay_on');
+				$('.pay_area .payment_ipt').addClass('pay_comp');
+				$('.pay_area .payment_ipt .remove').hide();
+
+				// 가상 돔 생성
+				var iptValue = iptSize.val();
+				$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>'); 
+				// 가상 돔 넓이 적용
+				var inputWidth =  $('.vDom').width();
+				console.log(inputWidth)
+				iptSize.css('width', inputWidth);
+				//백스페이스 입력
+				if(e.keyCode === 8) {
+					iptSize.css('width', inputWidth - 32);
+				}
+				// 가상 돔 삭제
+				$('.vDom').remove();
 			}
-		})
-})
-</script>
-<!-- //2022-12-06 -->
+	// 커스텀 커서
+		function fakeCaretInit() {
+			if($(fakeCaretInput).length) {
+				$('<div class="payment_ipt__caret-container"><span id="payment_ipt__ghost" class="payment_ipt__ghost"></span></div><div class="payment_ipt__caret"></div>').insertBefore($(fakeCaretInput));
+				let fakeInputOffset = $(fakeCaretInput).offset(),
+					fakeCaretInputGhostOffset = $(fakeCaretInputGhost).offset(),
+					fakeCaretOffset = (fakeCaretInputGhostOffset.left - fakeInputOffset.left);
+	
+				function setCaretXY(elem, real_element, caret) {
+					let rects = document.getElementById("payment_ipt__ghost").getClientRects();
+					let lastRect = rects[rects.length - 1];
+					let realElementOffset = $(real_element).offset();
+					let x = lastRect.left + lastRect.width - realElementOffset.left + document.body.scrollLeft;
+					
+					$(caret).css('left',x);
+				}
+				function moveCaret() {
+					$(fakeCaretInputGhost).text($(fakeCaretInput).val().substring(0, $(fakeCaretInput)[0].selectionStart).replace(/\n$/, '\n\u0001'));
+					setCaretXY(fakeCaretInputGhost, fakeCaretInput, fakeCaret);
+				}
+	
+				$(fakeCaretInput).on("input keydown keyup propertychange click paste cut copy mousedown mouseup change", function () {
+					moveCaret();
+				});
+			}
+		}
+	
+			// 적립금 사용버튼 토글
+			$('.point_ball a').on({
+				click : function(){
+					$(this).toggleClass('on');
+				}
+			})
+	})
+	</script>
+	<!-- //2022-12-06 -->
