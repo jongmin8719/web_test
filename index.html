@@ -89,33 +89,34 @@
 <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
 </body>
 </html>
-<script>
-$(window).load(function() {
-	const loadIpt = $('.pay_area .payment_ipt input');
-	if(loadIpt.val() === ''){
-				// val값 없을 시 가림
-				$('.pay_area .payment_ipt').removeClass('pay_on');
-				$('.pay_area .payment_ipt .remove').hide();
-			}else{
-				// val값 있을 시 노출
-				$('.pay_area .payment_ipt').addClass('pay_on');
-				$('.pay_area .payment_ipt .remove').show();
-				// 가상 돔 생성
-				var iptValue = loadIpt.val();
-				$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>');
-				vdomW = $('.vDom').innerWidth();
-				console.log(vdomW);
-				// 가상 돔 넓이 적용
-				var inputWidth =  vdomW;
-				loadIpt.css('width', inputWidth);
-				$('.pay_area .payment_ipt .won').show();
-				$('.vDom').remove();
-			}
-})
-</script>
-
 <!-- 2022-12-06 -->
 <script>
+
+	$(window).load(function() {
+		const loadIpt = $('.pay_area .payment_ipt input');
+		if(loadIpt.val() === ''){
+					// val값 없을 시 가림
+					$('.pay_area .payment_ipt').removeClass('pay_on');
+					$('.pay_area .payment_ipt .remove').hide();
+				}else{
+					// val값 있을 시 노출
+					$('.pay_area .payment_ipt').addClass('pay_on');
+					$('.pay_area .payment_ipt .remove').show();
+					// 가상 돔 생성
+					var iptValue = loadIpt.val();
+					setTimeout(function(){
+						$('.pay_area .payment_ipt').append('<div class="vDom">' + iptValue + '</div>');
+						vdomW = $('.vDom').innerWidth();
+						console.log(vdomW);
+						// 가상 돔 넓이 적용
+						var inputWidth =  vdomW;
+						loadIpt.css('width', inputWidth);
+						$('.pay_area .payment_ipt .won').show();
+						$('.vDom').remove();
+					},10)
+				}
+	})
+
 	$(function(){
 		const iptSize = $('.pay_area .payment_ipt input');
 		let fakeCaretInput = $('.integrated_payment .payment_ipt input'),
@@ -203,32 +204,32 @@ $(window).load(function() {
 				let fakeInputOffset = $(fakeCaretInput).offset(),
 					fakeCaretInputGhostOffset = $(fakeCaretInputGhost).offset(),
 					fakeCaretOffset = (fakeCaretInputGhostOffset.left - fakeInputOffset.left);
-	
+
 				function setCaretXY(elem, real_element, caret) {
 					let rects = document.getElementById("payment_ipt__ghost").getClientRects();
 					let lastRect = rects[rects.length - 1];
 					let realElementOffset = $(real_element).offset();
 					let x = lastRect.left + lastRect.width - realElementOffset.left + document.body.scrollLeft;
-					
+
 					$(caret).css('left',x);
 				}
 				function moveCaret() {
 					$(fakeCaretInputGhost).text($(fakeCaretInput).val().substring(0, $(fakeCaretInput)[0].selectionStart).replace(/\n$/, '\n\u0001'));
 					setCaretXY(fakeCaretInputGhost, fakeCaretInput, fakeCaret);
 				}
-	
+
 				$(fakeCaretInput).on("input keydown keyup propertychange click paste cut copy mousedown mouseup change", function () {
 					moveCaret();
 				});
 			}
 		}
-	
-			// 적립금 사용버튼 토글
-			$('.point_ball a').on({
-				click : function(){
-					$(this).toggleClass('on');
-				}
-			})
+
+		// 적립금 사용버튼 토글
+		$('.point_ball a').on({
+			click : function(){
+				$(this).toggleClass('on');
+			}
+		})
 	})
-	</script>
-	<!-- //2022-12-06 -->
+</script>
+<!-- //2022-12-06 -->
