@@ -2515,7 +2515,7 @@ p.refund_info {margin-top:16px;font-size:13px;font-family:'NanumSquareR';color:#
 /* 2023-02-13 */
 /* 메뉴 분류 */
 .st_info_con .category {padding:24px 20px 1px;overflow-x:auto;box-sizing:border-box;background:#fff;}
-.st_info_con .category.fixed {z-index:10;position:fixed;top:58px;left:0;padding:10px 20px;}
+.st_info_con .category.fixed {z-index:10;position:fixed;top:0;left:0;padding:10px 20px;}
 .st_info_con .category::-webkit-scrollbar {display:none;}
 .st_info_con .category ul {display:flex;}
 .st_info_con .category li {flex-shrink:0;display:block;}
