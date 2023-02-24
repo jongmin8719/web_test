@@ -484,11 +484,6 @@
 				$('.tab_wrap').height($('.tab_wrap > .tab_con').innerHeight());
 			// 스크롤 시 위치값 저장
 				cateScrollTop = $('.category').offset().top;
-			}else if($(window).scrollTop() < cateScrollTop){
-			// 상단 스크롤 시 초기화
-				$('.category').removeClass('fixed');
-				$('.tab_con .menu_bx').removeAttr('style');
-				alert('나옴?');
 			}
 		}
 
