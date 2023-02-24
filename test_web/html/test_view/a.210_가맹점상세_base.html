@@ -487,7 +487,9 @@
 				$('.tab_con .menu_bx').attr('style', 'padding-top:58px !important');
 			// 탭 컨텐츠 높이값
 				$('.tab_wrap').height($('.tab_wrap > .tab_con').innerHeight());
-			}else{
+			// 스크롤 시 위치값 저장
+				cateScrollTop = $('.category').offset().top
+			}else if($(window).scrollTop() < cateScrollTop){
 			// 상단 스크롤 시 초기화
 				$('.category').removeClass('fixed');
 				$('.tab_con .menu_bx').removeAttr('style');
