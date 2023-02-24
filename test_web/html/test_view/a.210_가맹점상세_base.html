@@ -489,14 +489,14 @@
 		$(window).on('scroll', scrollTopView)
 
 		function scrollTop(){
-			if(Math.floor($(window).scrollTop()) >= $('.tab_con.on .category').offset().top-46){
+			if(Math.floor($(window).scrollTop()) > $('.tab_con.on .category').offset().top-36){
 				$('.category').addClass('fixed');
 				$('.tab_con .menu_bx').attr('style', 'padding-top:57px !important');
 			// 탭 컨텐츠 높이값
 				$('.tab_wrap').height($('.tab_wrap > .tab_con').innerHeight());
 			// 스크롤 시 위치값 저장
-				cateScrollTop = $('.tab_con.on .category').offset().top-46
-			}else if(Math.floor($(window).scrollTop()) <= cateScrollTop){
+				cateScrollTop = $('.tab_con.on .category').offset().top-47
+			}else if(Math.floor($(window).scrollTop()) < cateScrollTop){
 			// 상단 스크롤 시 초기화
 				$('.category').removeClass('fixed');
 				$('.tab_con .menu_bx').removeAttr('style');
@@ -506,7 +506,7 @@
 		function scrollTopView(){
 			$(window).scrollTop();
 			$("h1").html(Math.floor($(window).scrollTop()));
-			$("#cateTop").html(Math.floor($('.tab_con.on .category').offset().top-46));
+			$("#cateTop").html(Math.floor($('.tab_con.on .category').offset().top-36));
 		}
 
 
