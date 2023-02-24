@@ -14,6 +14,7 @@
 	<div class="wrap">
 		<div class="header floating-back-header floating-sticky">
 			<h1>샐러디</h1>
+			<p id="cateTop"></p>
 			<a href="#" class="btn-history-back">뒤로가기</a>
 		</div>
 		<!-- // header -->
@@ -501,6 +502,7 @@
 		function scrollTopView(){
 			$(window).scrollTop();
 			$("h1").html($(window).scrollTop())
+			$("#cateTop").html($('.category').offset().top)
 		}
 
 
