@@ -12,12 +12,6 @@
 <body>
 	<!-- wrap -->
 	<div class="wrap">
-		<div class="header floating-back-header floating-sticky">
-			<h1>샐러디</h1>
-			<a href="#" class="btn-history-back">뒤로가기</a>
-		</div>
-		<!-- // header -->
-
 		<!-- container -->
 		<div class="container">
 			<!-- content -->
@@ -483,13 +477,13 @@
 	// 스크롤 이동 - 카테고리영역
 		$(window).on('scroll', scrollTop)
 		function scrollTop(){
-			if($(window).scrollTop() > $('.tab_con.on .category').offset().top-57){
+			if($(window).scrollTop() > $('.tab_con.on .category').offset().top){
 				$('.category').addClass('fixed');
-				$('.tab_con .menu_bx').attr('style', 'padding-top:57px !important');
+				//$('.tab_con .menu_bx').attr('style', 'padding-top:57px !important');
 			// 탭 컨텐츠 높이값
 				$('.tab_wrap').height($('.tab_wrap > .tab_con').innerHeight());
 			// 스크롤 시 위치값 저장
-				cateScrollTop = $('.category').offset().top-57;
+				cateScrollTop = $('.category').offset().top;
 			}else if($(window).scrollTop() < cateScrollTop){
 			// 상단 스크롤 시 초기화
 				$('.category').removeClass('fixed');
