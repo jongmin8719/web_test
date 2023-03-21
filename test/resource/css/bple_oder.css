@@ -1,0 +1,902 @@
+/* 화면 기본세팅 */
+.flexWrap {display:flex;flex-direction:row;align-items:flex-start;width:100%;height:calc(100vh - 47px);box-sizing:border-box;}
+.flexWrap.no_vh {height:fit-content;}
+.flexWrap * {letter-spacing:-0.025em;line-height:1.43;}
+.flexWrap > div {width:100%;min-height:100%;box-sizing:border-box;}
+.flexWrap span, .flexWrap strong {font-size:inherit;font-family:inherit;color:inherit;}
+.flexWrap strong {font-family:'NanumSquareB';}
+.add_flex_column {display:flex;flex-direction:column;}
+/* 등록 항목 없음 */
+.flexWrap .empty,
+.oder_flat_pop .empty {z-index:0;position:fixed;top:0;left:0;width:100%;flex-grow:1;flex-shrink:1;display:flex;align-items:center;justify-content:center;height:100vh;}
+.flexWrap .empty p,
+.oder_flat_pop .empty p {font-size:14px;font-family:'NanumSquareR';color:#7e7e7e;}
+.oder_flat_pop .empty {position:absolute;padding-top:24px;}
+/* 비플오더 */
+.bpleOder {z-index:1;position:relative; padding-bottom:28px;}
+/* 주문정보 상단박스 */
+.bpleOder .store_info .name strong {letter-spacing:normal;}
+.bpleOder .top_bx {padding:0 20px;background-color:#fff;}
+/* 주문상태 */
+.bpleOder .top_bx .state {font-size:14px;font-family:'NanumSquareB';padding-top:14px;}
+.bpleOder .top_bx .state.cancel {color:#E60000;}
+.bpleOder .top_bx .state.take {color:#0f84ff;}
+/* 매장명 */
+.bpleOder .top_bx .store_name {font-size:16px;font-family:'NanumSquareEB';color:#222;padding-top:14px;}
+.bpleOder .top_bx .state + .store_name {padding-top:8px;}
+/* 주문정보 */
+.bpleOder .top_bx .oder_info {margin-top:19px;}
+.bpleOder .top_bx .oder_info > div {display:flex;justify-content:space-between;}
+.bpleOder .top_bx .oder_info > div ~ div {margin-top:12px;}
+.bpleOder .top_bx .oder_info > div * {font-size:14px;font-family:'NanumSquareR';color:#222;}
+/* 2023-02-08 */
+/* 주문내역상세 - 가맹점 */
+.top_bx.store .oder_num {display:inline-block;color:#0d84ff;margin-top:10px;padding:6px 14px 3px 12px;background-color:rgba(218,237,255, 0.4);border-radius:6px;}
+.top_bx.store .oder_num span {font-size:14px;font-family:'NanumSquareB';}
+.top_bx.store .oder_num strong {font-size:16px;font-family:'PretendardB';margin-left:7px;vertical-align:-1px;}
+.top_bx.store .state {font-size:24px;font-family:'NanumSquareEB';color:#333;padding-top:16px;}
+.top_bx.store .preview_txt {display:flex;font-size:18px;font-family:'NanumSquareB';color:#333;margin-top:4px;overflow:hidden;}
+.top_bx.store .preview_txt span {flex-grow:0;flex-shrink:0;}
+.top_bx.store .preview_txt span.ellipsis {flex-shrink:1;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+/* //2023-02-08 */
+/* 주문상세 */
+.top_bx.store .oder_info {padding-top:1px;}
+.top_bx.store .oder_info > div {justify-content:flex-start;line-height:1.28;}
+.top_bx.store .oder_info p {font-size:14px;font-family:'NanumSquareR';color:#333333;line-height: 1.28;}
+.top_bx.store .oder_info .tit {color:#7e7e7e;width:50px;margin-right:12px;}
+/* 가맹점 명 */
+.bpleOder .store_info {padding:17px 0 0;}
+/* 기본정보 상세 */
+.bpleOder .st_info_con {border-top:0 none;margin-top:18px;}
+.bpleOder .tab_bx ~ div:last-child {padding-bottom:0;}
+.bpleOder .st_info_con .tab_bx a {width:auto;text-align:left;}
+.bpleOder .st_info_con .menu_board a {width:96px;}
+.bpleOder .st_info_con .detail_w {padding:0 20px 0;}
+/* 2023-02-13 */
+/* 탭메뉴 */
+.bpleOder .tab_area .tab_wrap {position:relative;overflow:hidden;}
+.bpleOder .tab_area .tab_wrap .tab_con {position:absolute;top:0;left:0;width:100%;height:fit-content;transition-duration:.5s;}
+.bpleOder .tab_area .tab_wrap .tab_con.on {display:block !important;left:0 !important;}
+.bpleOder .tab_area .tab_wrap .tab_con > div {padding-bottom:32px;}
+.bpleOder .tab_area .tab_wrap .tab_con > div ~ div {border-top:8px solid #f7f7f7;padding-top:30px;}
+.bpleOder .tab_area .tab_wrap .tab_con > div:last-child {padding-bottom:0;}
+.bpleOder .tab_area .tab_wrap .tab_con > div:first-child {padding-bottom:27px;}
+.bpleOder .tab_area .tab_wrap .tab_con:nth-child(1) {left:-100%;padding:20px 0 0;}
+.bpleOder .tab_area .tab_wrap .tab_con:nth-child(1) .detail_w .tit {min-width:76px;}
+.bpleOder .tab_area .tab_wrap .tab_con:nth-child(2) {left:100%;padding:22px 0 0;}
+.bpleOder .tab_area .tab_wrap .tab_con:nth-child(2) .detail_w .tit {min-width:105px;}
+.bpleOder .tab_area .tab_menu a {flex-grow:0;display:inline-block;font-size:14px;font-family:'NanumSquareR';color:#7e7e7e;width:120px;height:auto;opacity:1;background:transparent;margin:0 !important;text-align:center;padding:11px 0;}
+.bpleOder .tab_area .tab_menu a span {padding:0;}
+.bpleOder .tab_menu {position:inherit;display:flex;width:100%;text-align:left;border-bottom:1px solid #eee;box-sizing:border-box;}
+/* //2023-02-13 */
+/* 메뉴 개수 */
+.bpleOder .tab_menu.four a {width:calc(100% / 4);}
+/* 바꿀거 */
+.bpleOder .tab_menu a {position:relative;flex-grow:1;flex-shrink:1;font-size:15px;font-family:'NanumSquareR';color:#7E7E7E;text-align:center;}
+.bpleOder .tab_menu a span {display:inline-block;padding:12px 0 11px;}
+.bpleOder .tab_menu a.on span {font-family:'NanumSquareEB';color:#222;}
+.bpleOder .tab_menu a.on span::after {content:"";display:block;position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:calc(100% - 36px);height:2px;background-color:#000;}
+/* 두개일때 탭 하단 bar */
+.bpleOder .tab_menu.two a.on span::after {width:calc(100% - 82px);}
+/* 기본정보 컨텐츠 */
+.bpleOder .info_bx {box-sizing:border-box;}
+.bpleOder .info_detail {padding:22px 20px 0;}
+.bpleOder .info_detail * {letter-spacing:-0.025em;}
+.bpleOder .detail_w .tooltip_w {position:relative;}
+.bpleOder .detail_w .tooltip_w .make_time a span {padding:0 19px 0 0;background:url(../../resource/images/oder/ico_o_makeTime.png)no-repeat right center;background-size:14px 14px;}
+.bpleOder .detail_w .tooltip_w .tooltip {position:absolute;top:32px;left:-9px;font-size:12px;font-family:'NanumSquareR';color:#fff;background-color:rgba(0,0,0, 0.82);padding:11px 15px 11px 14px;line-height:1.65;border-radius:6px;white-space:nowrap;}
+.bpleOder .detail_w .tooltip_w .tooltip::after {content:"";display:block;position:absolute;top:-6px;left:57px;width:10px;height:6px;background:url(../../resource/images/oder/ico_o_tooltip_arr.png)no-repeat 0 0;background-size:10px 6px;}
+/* 2023-02-09 */
+.bpleOder .detail_w .toggle_wrap .trigger span {padding:0;word-break:keep-all;}
+.bpleOder .detail_w .toggle_wrap .trigger span::after {content:"";display:inline-block;width:17px;height:10px;background-image: url(../../resource/images/oder/ico_o_btn_down_arr.png);background-repeat:no-repeat;background-position:right center;background-size:10px;}
+.bpleOder .detail_w .toggle_wrap.on .trigger span::after {background-image: url(../../resource/images/oder/ico_o_btn_down_arr_on.png);}
+@media all and (max-width:350px) {
+    .bpleOder .detail_w .tooltip_w .tooltip {white-space:normal;}
+}
+@media all and (max-width:320px) {
+    .bpleOder .detail_w .toggle_wrap .trigger span {padding:0 20px 0 0;word-break:keep-all;}
+}
+/* //2023-02-09 */
+/* 기본정보 > 거리 */
+.bpleOder .info_bx .distance {margin-top:4px;}
+.bpleOder .info_bx .distance strong {font-family:'NanumSquareB';color:#333;}
+.bpleOder .info_bx .distance .btn_map {display:inline-block;font-size:12px;font-family:'NanumSquareR';color:#0d84ff;padding-left:14px;margin-left:2px;background:url(../../resource/images/oder/ico_o_map.png) no-repeat left center;background-size:12px 12px;}
+/* 사업자, 소개, 메뉴판, 사진, 원산지 정보 */
+.bpleOder .store_dtl .list_add {padding-left:0;padding-right:0;}
+.bpleOder .store_dtl .list_add ~ .list_add {margin-top:5px;}
+.bpleOder .store_dtl .list_add:last-child {padding-bottom:0;}
+.bpleOder .store_dtl .menu_board + .list_add {padding-top:30px;}
+.bpleOder .store_dtl .menu_board + .list_add .menu_list {padding-top:17px;}
+/* 주문내역 장바구니 */
+.bpOder_util {z-index:101;position:fixed;top:0;right:10px;}
+.bpOder_util a {display:inline-block;text-indent:-99999px;width:25px;height:25px;padding:11px 2.5px;background-repeat:no-repeat;background-position:center center;background-size:25px 25px;}
+.bpOder_util a span {text-indent:-99999px;}
+.bpOder_util .oder_detail {background-image: url(../../resource/images/oder/ico_o_detail.png);}
+.bpOder_util .cart {background-image: url(../../resource/images/oder/ico_o_cart.png);}
+.bpOder_util .cart.menu-add::after {content:"장바구니 메뉴추가됨";display:block;position:absolute;top:11px;right:2px;text-indent:-99999px;width:5px;height:5px;border-radius:50%;background-color:#0d84ff;}
+/* 비플오더 메인 */
+.oder_main {display:flex;flex-direction:column;}
+/* 비플오더 -> 지역 세팅 */
+.bpleOder .setting {flex-grow:0;flex-shrink:0;display:flex;flex-direction:column;margin-top:10px;}
+.bpleOder .setting .loca {display:flex;justify-content:space-between;align-items:center;height:48px;padding:0 18px;background-color:#F9F9F9;}
+.bpleOder .setting .loca .current {flex-grow:1;flex-shrink:1;font-size:14px;font-family:'NanumSquareB';color:#333333;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.bpleOder .setting .loca .loca_btn {position:relative;flex-grow:0;flex-shrink:0;font-size:12px;font-family:'NanumSquareR';color:#333;min-width:46px;padding:16px 0 14px 14px;}
+.bpleOder .setting .loca .loca_btn::before {content:"";position:absolute;top:calc(50% - 6px);left:0;width:12px;height:12px;background-image: url(../../resource/images/oder/ico_o_loca.png);background-repeat:no-repeat;background-position:0 0;background-size:12px 12px;box-sizing:border-box;}
+.bpleOder .setting .sort {padding:0 20px;margin-top:22px;}
+.bpleOder .setting .sort a {font-size:13px;font-family:'NanumSquareR';color:#333333;padding:5px 10px 5px 0;}
+/* 비플오더 -> 매장목록 */
+.bpleOder .store_w {flex-grow:1;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;margin-top:3px;}
+.bpleOder .store_w .list {position:relative;width:100%;}
+.bpleOder .store_w .list a {display:flex;align-items:flex-start;padding:10px 20px;}
+.bpleOder .store_w .list:last-child a {padding-bottom:0;}
+.bpleOder .store_w .list .img {position:relative;flex-grow:0;flex-shrink:0;width:72px;height:72px;text-indent:-99999px;background-color:#f7f7f7;border-radius:12px;overflow:hidden;}
+.bpleOder .store_w .list .img img {position:relative;display:block;width:100%;}
+.bpleOder .store_w .list .img::before {z-index:0;content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-position:0 0;background-size:100%;}
+.bpleOder .store_w .list .img.restr::before {background-image:url(../../resource/images/oder/img_o_restr.png);}/* 음식점/카페 */
+.bpleOder .store_w .list .img.agri::before {background-image:url(../../resource/images/oder/img_o_agri.png);}/* 농산물/청과 */
+.bpleOder .store_w .list .img.meat::before {background-image:url(../../resource/images/oder/img_o_meat.png);}/* 축산물/정육 */
+.bpleOder .store_w .list .img.seafood::before {background-image:url(../../resource/images/oder/img_o_seafood.png);}/* 수산물/횟집 */
+.bpleOder .store_w .list .img.grocery::before {background-image:url(../../resource/images/oder/img_o_grocery.png);}/* 식료품/반찬 */
+.bpleOder .store_w .list .img.edu::before {background-image:url(../../resource/images/oder/img_o_edu.png);}/* 학원/교육 */
+.bpleOder .store_w .list .img.medi::before {background-image:url(../../resource/images/oder/img_o_medi.png);}/* 의료/보건 */
+.bpleOder .store_w .list .img.beauty::before {background-image:url(../../resource/images/oder/img_o_beauty.png);}/* 미용/패션 */
+.bpleOder .store_w .list .img.interior::before {background-image:url(../../resource/images/oder/img_o_interior.png);}/* 가전/가구 */
+.bpleOder .store_w .list .img.service::before {background-image:url(../../resource/images/oder/img_o_services.png);}/* 서비스업 */
+.bpleOder .store_w .list .img.retail::before {background-image:url(../../resource/images/oder/img_o_retail.png);}/* 기타 도/소매 */
+.bpleOder .store_w .list.close .img::after {content:"준비중";display:flex;align-items:center;justify-content:center;position:absolute;top:0;left:0;font-size:14px;font-family:'PretendardSB';color:#fff;width:100%;height:100%;background-color:rgba(0,0,0, 0.5);text-indent:0;letter-spacing:-0.025em;}
+.bpleOder .store_w .list .info {flex-grow:1;flex-shrink:1;margin:3px 0 0 12px;overflow:hidden;}
+.bpleOder .store_w .list .name {font-size:14px;font-family:'NanumSquareB';color:#333333;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.bpleOder .store_w .list .distance {font-size:13px;font-family:'NanumSquareR';color:#333;margin-top:2px;}
+.bpleOder .store_w .list .etc {display:flex;font-size:10px;font-family:'PretendardM';color:#7e7e7e;margin-top:6px;}
+.bpleOder .store_w .list .etc span {display:inline-block;width:30px;text-align:center;background-color:rgba(13,132,255, 0.1);color:#0d84ff;padding:2px 0;border-radius:3px;letter-spacing:-0.025em;}
+.bpleOder .store_w .list .etc span ~ span {margin-left:3px;}
+.bpleOder .store_w .list .etc span.hall {background-color:#F7F7F7;color:#7E7E7E;}
+/* 메뉴 상세 */
+.bpleOder .menu_detail {}
+/* 가격정보, 옵션박스 공통적용 */
+.bpleOder .menu_detail .price_w,
+.bpleOder .menu_detail .option_bx > div {border-top:1px solid #F1F1F1;}
+/* 사진 */
+.bpleOder .menu_detail .m_photo {display:flex;align-items:center;justify-content:center;padding:20px 0 21px;}
+.bpleOder .menu_detail .m_photo p {position:relative;width:150px;height:150px;border-radius:8px;overflow:hidden;}
+.bpleOder .menu_detail .m_photo p::after {z-index:0;content:"이미지를 등록해 주세요";display:block;position:absolute;top:0;left:0;width:100%;height:100%;background-color:#F9F9F9;text-indent:-99999px;border-radius:12px;}/* 2023-02-09 */
+.bpleOder .menu_detail .m_photo p img {z-index:1;position:relative;width:100%;}
+/* 메뉴명 / 설명 */
+.bpleOder .menu_detail .m_info {padding:0 20px;}
+.bpleOder .menu_detail .m_info .name {font-size:20px;font-family:'NanumSquareEB';color:#222;line-height:1.42;}
+.bpleOder .menu_detail .m_info .description {font-size:14px;font-family:'NanumSquareR';color:#7e7e7e;line-height:1.57;margin-top:6px;}
+/* 가격정보 / 수량 */
+.bpleOder .price_w {padding:30px 20px 29px;margin-top:28px;}
+.bpleOder .price_w .tit, .count .tit {font-size:16px;font-family:'NanumSquareEB';color:#222;}
+.bpleOder .price_w, .count {display:flex;align-items:center;justify-content:space-between;}
+/* 가격 */
+.bpleOder .price_w .price {font-size:16px;font-family:'NanumSquareB';color:#222;}
+/* 2023-02-09 */
+/* 옵션박스 */
+.bpleOder .option_bx .opt_list {padding:29px 20px 28px;}
+.bpleOder .option_bx .opt_tit {font-size:15px;font-family:'NanumSquareEB';color:#222;line-height:1.54;}
+.bpleOder .option_bx .opt_list > div {display:flex;justify-content:space-between;margin-top:18px;}
+.bpleOder .option_bx .opt_tit + div {margin-top:19px;}
+.bpleOder .option_bx .opt_list .select {position:relative;flex-grow:1;flex-shrink:1;padding-left:24px;}
+.bpleOder .option_bx .opt_list .select label {font-size:14px;font-family:'NanumSquareR';color:#222;line-height:1.57;}
+.bpleOder .option_bx .opt_list .select input[type="checkbox"] {position:absolute;top:2px;left:0;width:16px;height:16px;border:1px solid #ddd;border-radius:3px;}
+.bpleOder .option_bx .opt_list .select input[type="checkbox"]:checked {background:#0d84ff url(../../resource/images/oder/ico_o_opt_chk.png) no-repeat center center;background-size:100%;border-color:#0d84ff;}
+.bpleOder .option_bx .opt_list .price {flex-grow:0;flex-shrink:0;font-size:14px;font-family:'NanumSquareR';color:#222;margin-left:13px;min-width:90px;max-width:90px;text-align:right;}
+.bpleOder .count {padding:20px 20px 0;}
+/* //2023-02-09 */
+/*  수량 증/감 버튼타입 */
+/* type1 */
+.spiner_btn {flex-grow:0;display:flex;width:120px;height:40px;align-items:center;border:1px solid #eee;border-radius:32px;box-sizing:border-box;}
+.spiner_btn p {display:flex;align-items:center;justify-content:center;font-size:14px;font-family:'NanumSquareB';color:#222;text-align:center;width:calc(100% / 3);height:100%;}
+.spiner_btn p a {position:relative;display:block;width:100%;height:100%;text-indent:-99999px;background-repeat:no-repeat;background-position:center center;background-size:10px;}
+.spiner_btn p a.minus {background-image:url(../../resource/images/oder/ico_o_spiner_minus.png);}
+.spiner_btn p a.plus {background-image:url(../../resource/images/oder/ico_o_spiner_plus.png);}
+/* type2 */
+.spiner_btn2 {flex-grow:0;display:flex;width:88px;height:32px;align-items:center;border:1px solid #eee;border-radius:4px;box-sizing:border-box;}
+.spiner_btn2 p {display:flex;align-items:center;justify-content:center;font-size:13px;font-family:'NanumSquareB';color:#222;text-align:center;width:calc(100% / 3);height:100%;}
+.spiner_btn2 p a {position:relative;display:block;width:100%;height:100%;text-indent:-99999px;background-repeat:no-repeat;background-size:12px;}
+.spiner_btn2 p a.minus {background-image:url(../../resource/images/oder/ico_o_spiner2_minus.png);opacity:0.2;background-position:7px center;}
+.spiner_btn2 p a.minus.on {opacity:1;}
+.spiner_btn2 p a.plus {background-image:url(../../resource/images/oder/ico_o_spiner2_plus.png);background-position:calc(100% - 7px) center;}
+/* 장바구니 */
+.cart_w {padding-top:21px;border-bottom:1px solid #F1F1F1;background-color:#fff;}
+/* 목록 */
+.cart_w .list {position:relative;padding:22px 20px 20px;border-top:1px solid #F1F1F1;}
+/* 2023-03-16 - 2 */
+.cart_w .name {font-size:14px;font-family:'NanumSquareB';color:#222;padding-right:20px;}
+.cart_w .name + .detail {margin-top:12px;}
+/* // 2023-03-16 - 2 */
+.cart_w .detail {padding-right:20px;}/* 2023-02-09 */
+.cart_w .detail ul {margin:0;padding:0;}
+.cart_w .detail .list_bar li {padding-left:8px;}
+.cart_w .detail li,
+.cart_w .detail .list_bar li::before{font-size:13px;font-family:'NanumSquareR';color:#7E7E7E;}
+.cart_w .detail li ~ li {margin-top:5px;}
+.cart_w .price {font-size:14px;font-family:'NanumSquareB';color:#222;margin-top:11px;line-height: 1.46;}
+/* 옵션, 수량 변경 */
+.cart_w .etc {display:flex;justify-content:flex-end;margin-top:6px;}
+.cart_w .etc .opt_change {margin-right:6px;}
+.cart_w .etc .opt_change a {display:flex;align-items:center;color:#222; height:100%;padding:0 16px;border:1px solid #eee;border-radius:4px;box-sizing:border-box;}
+.cart_w .delete {position:absolute;top:18px;right:14px;}
+.cart_w .delete a {display:block;width:24px;height:24px;text-indent:-99999px;background:transparent url(../../resource/images/oder/ico_o_cart_del.png) no-repeat center center;background-size:12px 12px;}
+/* 주문추가 */
+.oder_add {background-color:#fff;}
+.oder_add a {display:block;font-size:14px;font-family:'NanumSquareB';color:#222;text-align:center;padding:18px 0;}
+/* 수령방법 */
+.oder_case {padding:22px 20px 21px;border-top:10px solid #F7F7F7;background-color:#fff;}
+.oder_case p {font-size:13px;font-family:'NanumSquareR';color:#222;}
+.oder_case p strong {font-size:16px;font-family:'NanumSquareB';vertical-align:middle;}
+/*  주문/결제금액 */
+.oder_cart .pay_info {padding:22px 20px;border-top:10px solid #F7F7F7;background-color:#fff;}
+.oder_cart .pay_info > div {display:flex;align-items:center;justify-content:space-between;}
+.oder_cart .pay_info > div ~ div {margin-top:16px;}
+.oder_cart .pay_info * {font-size:14px;font-family:'NanumSquareR';color:#222;}
+.oder_cart .pay_info .payment h4 {font-family:'NanumSquareB';}
+.oder_cart .pay_info .payment p {font-family:'NanumSquareEB';}
+.oder_cart .pay_info .payment p span {font-family:'NanumSquareEB';}
+/* 안내텍스트 */
+.bpleOder .oder_cart .noti_txt {margin-top:21px;}
+/* 장바구니 비어있음 */
+.oder_item_none {display:flex;width:100%;height:calc(100vh - 137px);justify-content:center;align-items:center;}
+.oder_item_none p {font-size:14px;font-family:'NanumSquareR';color:#7E7E7E;margin-top:44px;}
+/* 결제하기 */
+.bpleOder .oder_payment {margin-top:21px;}
+/* 결제하기 전체 외부박스 영역 좌우 여백 20세팅 */
+.bpleOder .payment_w {padding:22px 0 23px;border-top:10px solid #F7F7F7;}
+.bpleOder .payment_w .payment_con {position:relative;padding:0 20px;}
+.bpleOder .payment_w .payment_con ~ .payment_con {padding-top:22px;margin-top:23px;border-top:1px solid #F5F5F5;}
+.bpleOder .pay_tit {font-size:14px;font-family:'NanumSquareEB';color:#222;}
+/* 결제수단 목록 */
+.bpleOder .pay_method {}
+.bpleOder .pay_tit + .pay_method {margin-top:17px;}
+.bpleOder .pay_method ~ .pay_method {margin-top:19px;}
+.bpleOder .pay_method label {font-size:13px;font-family:'NanumSquareR';color:#333;}
+.bpleOder .pay_method label span {font-family:'NanumSquareB';}
+.bpleOder .pay_method label strong {font-size:14px;font-family:'NanumSquareB';color:#222;}
+.bpleOder .pay_method input[type='radio'] {position:relative;display:inline-block;width:18px;height:18px;margin-right:5px;vertical-align:-5px;border:1px solid #ddd;background:transparent;border-radius:50%;box-sizing:border-box;}
+.bpleOder .pay_method input[type='radio']:checked {border-color:#0d84ff;}
+.bpleOder .pay_method input[type='radio']:checked::after {content:"선택됨";position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);display:block;width:10px;height:10px;background-color:#0d84ff;text-indent:-99999px;border-radius:50%;}
+/* 2023-03-16 - 2 */
+/* 기타 - 체크박스 */
+.etcbox {border-top:10px solid #f7f7f7;padding:22px 20px 24px;}
+.etcbox .checkbox {margin-top:18px;}
+.etcbox .checkbox * {line-height:1;}
+.etcbox .checkbox .inner ~ .inner {margin-top:16px;}
+.etcbox .checkbox .inner label span {font-size:14px;font-family:'NanumSquareR';color:#222;letter-spacing:-0.025em;line-height:16px;}
+.etcbox .checkbox .inner label input[type='checkbox'] {position:relative;width:16px;height:16px;border:1px solid #eee;border-radius:3px;margin-right:8px;vertical-align:-4px;}
+.etcbox .checkbox .inner label input[type='checkbox']:checked {background: url(../../resource/images/oder/ico_o_opt_chk.png)no-repeat 0 0;background-size:100%;border:0 none;}
+/* 2023-03-16 - 2 */
+/* 서브박스 - 인풋 / 버튼 */
+.bpleOder .pay_method .sub_bx {display:none;flex-wrap:wrap;padding-left:26px;margin-top:11px;}
+.bpleOder .payment_w .message {display:none;}
+/* 서브박스 열렸을 때 */
+.bpleOder .pay_method.on .sub_bx {display:flex;}
+.bpleOder .pay_method.on .message {display:block;}
+.bpleOder .payment_w .message + .sub_bx {margin-top:+9px;}
+/* 인풋박스 */
+.bpleOder .pay_method .sub_bx input {font-size:13px;font-family:'NanumSquareB';color:#333;width:100%;min-width:1px;border:0 none;outline:0 none;background:transparent;box-sizing:border-box;}
+.bpleOder .pay_method .sub_bx > div {position:relative;flex-grow:1;flex-shrink:1;min-width:1px;height:40px;border:1px solid #eee;box-sizing:border-box;border-radius:6px;}
+.bpleOder .pay_method .sub_bx > div.ipt {padding:10px 40px 14px 13px;width:calc(100% - 84px);}
+.bpleOder .pay_method .sub_bx > div.ipt a {padding:0;}
+/* 버튼형 */
+.bpleOder .pay_method .sub_bx > div a {display:flex;justify-content:space-between;font-size:13px;font-family:'NanumSquareR';color:#333;padding:10px 29px 14px 13px;background:url(../../resource/images/oder/ico_o_btn_down_arr.png) no-repeat calc(100% - 15px) calc(50% - 3px);background-size:10px 10px;}
+.bpleOder .pay_method .sub_bx .btn_del {display:block;position:absolute;top:0;right:0;width:38px;height:100%;text-indent:-99999px;background:url(../../resource/images/oder/ico_o_btndel.png) no-repeat center center;background-size:16px;}
+/* 전액사용 버튼 */
+.bpleOder .pay_method .sub_bx .use_all {flex-grow:0;flex-shrink:0;width:76px;margin-left:8px;border-radius:6px;overflow:hidden;}
+.bpleOder .pay_method .sub_bx .use_all a {display:flex;justify-content:center;align-items:center;width:100%;height:100%;font-size:13px;font-family:'NanumSquareB';color:#0D84FF;background-color:rgba(13, 132, 225, 0.07);}
+.bpleOder .payment_w .pay_tit + .message {display:block;padding:0;line-height: 1.35;}
+.bpleOder .payment_w .message + .pay_method {margin-top:17px;}
+.bpleOder .payment_w .message {font-size:12px;font-family:'NanumSquareR';color:#7e7e7e;padding-left:26px;margin-top:7px;}
+/* 결제상세 */
+.bpleOder .oder_payment .payment_dtl {padding:22px 20px 18px;border-top:10px solid #f7f7f7;}
+/* 내역 */
+.bpleOder .payment_dtl .dtl_w .dtl_con {display:flex;align-items:center;justify-content:space-between;margin-top:9px;}
+.bpleOder .payment_dtl .dtl_w .dtl_con:first-child {margin-top:16px;margin-bottom:10px;}
+.bpleOder .payment_dtl .dtl_w .dtl_con p {font-size:13px;font-family:'NanumSquareR';color:#7E7E7E;}
+/* 주문금액 */
+.bpleOder .payment_dtl .dtl_w .dtl_con.oder p {font-size:14px;font-family:'NanumSquareB';color:#222;}
+/* 총 결제금액 */
+.bpleOder .oder_payment .payment_dtl .dtl_w .pay_total {margin-top:13px;}/* 결제하기 */
+.bpleOder .payment_dtl .dtl_w .pay_total {display:flex;flex-direction:column;justify-content:space-between;margin-top:14px;padding-top:18px;border-top:1px solid #eee;}
+.bpleOder .payment_dtl .dtl_w .pay_total > div {display:flex;justify-content:space-between;}
+.bpleOder .payment_dtl .dtl_w .pay_total > div ~ div {margin-top:10px;}
+.bpleOder .payment_dtl .dtl_w .pay_total p {font-size:14px;font-family:'NanumSquareB';color:#222;}
+.bpleOder .payment_dtl .dtl_w .pay_total .won {font-family:'NanumSquareEB';}
+/* 2023-03-16 - 2 결제하기 수정 */
+/* 토글 - 주문취소 및 유의사항 */
+.bpleOder .oder_payment .agree_wrap {padding:0 0 15px;margin-top:0;background-color:#fff;border-top:10px solid #f7f7f7;}
+.bpleOder .oder_payment .agree_wrap > .agree {padding:14px 20px;border-bottom:1px solid #f7f7f7;}
+.bpleOder .oder_payment .toggle_wrap {border-bottom:1px solid #f7f7f7;}
+.bpleOder .oder_payment .toggle_wrap:last-of-type {border-bottom:0 none;}
+.bpleOder .oder_payment .toggle_wrap.on:last-of-type {padding-bottom:19px;}
+.bpleOder .oder_payment .toggle_wrap .trigger {position:relative;}
+.bpleOder .oder_payment .toggle_wrap .trigger label {font-size:13px;font-family:'NanumSquareR';color:#222222;}
+.bpleOder .oder_payment .toggle_wrap .trigger a {display:block;position:absolute;top:50%;transform:translateY(-50%);right:20px;width:16px;height:16px;text-indent:-99999px;background-image:url(../../resource/images/oder/ico_o_trigger_arr_off.png);background-repeat:no-repeat;background-position:0 0;background-size:100%;}
+.bpleOder .oder_payment .toggle_wrap.on .trigger a {border-color:transparent;background-image: url(../../resource/images/oder/ico_o_trigger_arr_on.png);}
+.bpleOder .oder_payment .toggle_wrap .toggle_con {background-color:#f9f9f9;padding:16px 20px 15px;}
+.bpleOder .oder_payment .toggle_wrap .toggle_con p + ol {margin-top:10px;}
+.bpleOder .oder_payment .toggle_wrap .toggle_con ol + p {margin-top:10px;}
+.bpleOder .oder_payment .toggle_wrap .toggle_con li {line-height:1.77;color:#666666;}
+.bpleOder .oder_payment .toggle_wrap .toggle_con li ol {margin:5px 0;}
+.bpleOder .oder_payment .toggle_wrap .toggle_con li strong {font-family:'NanumSquareB';}
+.bpleOder .oder_payment .agree {padding:15px 20px;}
+.bpleOder .oder_payment .agree label {font-size:14px;font-family:'NanumSquareB';color:#222;}
+.bpleOder .oder_payment .agree input[type='checkbox'] {position:relative;width:16px;height:16px;border:1px solid #eee;border-radius:3px;margin-right:8px;vertical-align:-4px;}
+.bpleOder .oder_payment .agree input[type='checkbox']:checked {background: url(../../resource/images/oder/ico_o_opt_chk.png)no-repeat 0 0;background-size:100%;border:0 none;}
+/* //2023-03-16 - 2 결제하기 수정 */
+/* 주문내역 */
+.bpleOder .oder_list {padding:30px 20px 4px;}
+/* 날짜 및 주문상태 */
+.bpleOder .oder_list .list ~ .list {margin-top:22px;}
+.bpleOder .oder_list .util {display:flex;justify-content:space-between;}
+.bpleOder .oder_list .util .date {font-size:13px;font-family:'NanumSquareR';color:#333;}
+.bpleOder .oder_list .util .state {font-size:13px;font-family:'NanumSquareB';color:#7E7E7E;}
+.bpleOder .oder_list .util .state span:first-child {margin-right:3px;}
+.bpleOder .oder_list .util .state strong {color:#222;}
+.bpleOder .oder_list .util .state.cancel strong {color:#e60000;}
+/* 2023-02-09 */
+/* 목록 */
+.bpleOder .oder_list .con_bx {margin-top:9px;padding:20px 0 16px;background-color:#fff;border-radius:12px;}
+.bpleOder .oder_list .con_bx ~ .con_bx {margin-top:22px;}
+.bpleOder .oder_list .con_bx .info {padding: 0 20px;}
+.bpleOder .oder_list .con_bx .info .name a {display:block;font-size:16px;font-family:'NanumSquareEB';color:#222;}
+.bpleOder .oder_list .con_bx .info .name a span {padding-right:15px;background:url(../../resource/images/oder/ico_o_right_arr1.png) no-repeat right center;background-size:16px;}
+.bpleOder .oder_list .con_bx .info p {font-size: 14px;font-family:'NanumSquareR';color:#333;line-height:1.65;margin-top:11px;}
+.bpleOder .oder_list .con_bx .info_etc {margin-top:10px;padding:0 20px 4px;}
+.bpleOder .oder_list .con_bx .info_etc > div {display:flex;align-items:center;justify-content:space-between;}
+.bpleOder .oder_list .con_bx .info_etc > div ~ div {margin-top:10px;}
+.bpleOder .oder_list .con_bx .info_etc h3 {font-size: 14px;font-family:'NanumSquareB';color:#333333;}
+.bpleOder .oder_list .con_bx .info_etc .won {font-size:14px;font-family:'NanumSquareR';color:#333;}
+.bpleOder .oder_list .con_bx .btn {margin-top:14px;padding:0 16px;}
+.bpleOder .oder_list .con_bx .btn p ~ p {margin-top:8px;}
+.bpleOder .oder_list .con_bx .btn a {display:flex;align-items:center;justify-content:center;font-size:14px;font-family:'NanumSquareB';color:#333333;height:40px;border:1px solid #ddd;border-radius:6px;box-sizing:border-box;}
+/* //2023-02-09 */
+/* 주문상세내역 */
+.bpleOder .oder_state_dtl {position:relative;margin-top:22px;padding:30px 20px 22px;border-top:10px solid #f7f7f7;}
+.bpleOder .oder_state_dtl .oder_num {font-size:14px;font-family:'NanumSquareB';color:#0D84FF;margin-top:1px;}
+.bpleOder .oder_state_dtl .oder_num strong {font-size:16px;font-family:'PretendardSB';margin-left:4px;vertical-align:middle;}
+.bpleOder .oder_state_dtl .state_msg {margin-top:10px;font-size:16px;font-family:'NanumSquareEB';color:#222;}
+.bpleOder .oder_state_dtl .sub_msg {font-size:12px;font-family:'NanumSquareR';color:#333333;margin-top:5px;}
+/* 주문상태 바 */
+.bpleOder .oder_state_dtl .progress_bar {position:relative;display:flex;justify-content:space-between;width:100%;margin-top:41px;padding-top:54px;background-color:#fff;}
+.bpleOder .oder_state_dtl .sub_msg:not([style*='display:none']) + .progress_bar {margin-top:19px;}
+.bpleOder .oder_state_dtl .progress_bar::after {content:"";display:block;position:absolute;top:38px;left:0;right:0;width:100%;height:8px;background-color:rgba(13,132,255, 0.07);border-radius:8px;}
+.bpleOder .oder_state_dtl .progress_bar::before {content:"";display:block;position:absolute;top:38px;left:0;background-color:#0d84ff;height:8px;border-radius:8px;transition-duration:0.5s;}
+/* 앵커포인트 */
+.bpleOder .oder_state_dtl .progress_bar .anchor {position:relative;font-size:13px;font-family:'PretendardM';color:#222;width:100%;}
+.bpleOder .oder_state_dtl .progress_bar .anchor::after {content:"";display:block;position:absolute;top:-16px;left:18px;width:8px;height:8px;border-radius:50%;background-color:#0D84FF;}
+.bpleOder .oder_state_dtl .progress_bar .anchor:nth-child(2) {text-align:center;}
+.bpleOder .oder_state_dtl .progress_bar .anchor:nth-child(2)::after {left:50%;transform:translateX(-50%);}
+.bpleOder .oder_state_dtl .progress_bar .anchor:nth-child(3) {text-align:right;}
+.bpleOder .oder_state_dtl .progress_bar .anchor:nth-child(3)::after {left:auto;right:18px;background-image:url(../../resource/images/oder/ico_o_anchor_step3.png);}
+/* 진행상태 */
+.bpleOder .oder_state_dtl .progress_bar.step1::before {width:8%;}
+.bpleOder .oder_state_dtl .progress_bar.step2::before {width:51%;}
+.bpleOder .oder_state_dtl .progress_bar.step3::before {width:100%;}
+.bpleOder .oder_state_dtl .progress_bar.step3 .anchor:nth-child(3) span::after {content:"";display:block;position:absolute;top:-51px;right:10px;width:24px;height:29px;background-image:url(../../resource/images/oder/ico_o_anchor_step3.gif);background-size:24px 29px;}
+.bpleOder .oder_state_dtl .qr_btn,
+.bpleOder .oder_state_dtl .refresh_btn {position:absolute;top:10px;right:10px;}
+.bpleOder .oder_state_dtl .qr_btn a {display:block;font-size:12px;font-family:'NanumSquareB';color:#333;padding:3px 9px 2px 10px;border:1px solid #ddd;border-radius:35px;margin:10px 10px 0 0;}
+.bpleOder .oder_state_dtl .progress_bar.step3 + .refresh_btn {display:none;}
+.bpleOder .oder_state_dtl .refresh_btn a {display:block;width:18px;height:18px;padding:10px;background:url(../../resource/images/oder/ico_o_refresh.png) no-repeat center center;background-size:18px;text-indent:-999999px;}
+/* 내역상세 */
+.oder_state_dtl + .cart_w {border-top:10px solid #f7f7f7;border-bottom:0 none;padding-top:22px;margin-top:22px;}
+.oder_state_dtl:not([style*='display: none']) + .cart_w {margin-top: 0;}
+.bpleOder .cart_w .tit {font-size:14px;font-family:'NanumSquareEB';color:#222222;padding:0 20px;}
+.bpleOder .cart_w .tit:nth-of-type(1) ~ .tit {margin-top:22px;}
+.bpleOder .cart_w .list_w {margin:14px 20px 0;padding:22px 20px;background-color:#F9F9F9;border-radius:8px;}
+.bpleOder .cart_w .list_w .list {border-color:#eee;padding:0;}
+.bpleOder .cart_w .list_w .list:first-child {border-top:0 none !important;}
+.bpleOder .cart_w .list_w .list ~ .list {margin-top:18px;padding-top:18px;}
+.bpleOder .cart_w .list_w .payment_dtl {margin-top:18px;padding-top:2px;border-top:1px solid #eee;}
+.bpleOder .cart_w .list_w .pay_total {margin-top:18px;}
+.bpleOder .cart_w .list_w .pay_total .refund {color:#e60000;}
+/* 2023-03-16 - 2 */
+/* 주문내역 이외 */
+.bpleOder .cart_w .list_w.type2 {padding:20px;}
+.bpleOder .cart_w .list_w.type2 .list li {font-size:14px;color:#222;line-height:1.43;}
+.bpleOder .cart_w .list_w.type2 .list li::before {color:#222;}
+.bpleOder .cart_w .list_w.type2 .list li ~ li {margin-top:8px;}
+/* //2023-03-16 - 2 */
+/* 화면 줄어들었을 경우 결제수단 영역 가변처리 */
+@media all and (max-width: 320px) {
+.bpleOder .pay_method .sub_bx {padding-left:0;}
+.bpleOder .payment_w .message {padding-left:0;}
+}
+/* 임직원 인증 */
+.bpleOder .auth h2 {font-size:18px;font-family:'NanumSquareEB';color:#222222;padding:0 20px;}
+.bpleOder .auth {padding-top:13px;}
+.bpleOder .auth > p {font-size:13px;font-family:'NanumSquareR';color:#7e7e7e;line-height:1.6;margin-top:5px;padding:0 20px;}
+.bpleOder .auth .user {padding:15px 20px 3px;}
+.bpleOder .auth .bg_box {background-color:#F9F9F9;border-radius:8px;padding:20px 0;}
+.bpleOder .auth .bg_box dl {text-align:center;}
+.bpleOder .auth .bg_box dl ~ dl {margin-top:16px;}
+.bpleOder .auth .bg_box dl dt {font-size:14px;font-family:'NanumSquareEB';color:#222;}
+.bpleOder .auth .bg_box dl dd {font-size:14px;font-family:'NanumSquareR';color:#333;margin-top:8px;}
+.bpleOder .ipt_area {padding:0 20px;}
+.bpleOder .ipt_area {margin-top:27px;}
+.bpleOder .ipt_area h3 {font-size:14px;font-family:'NanumSquareEB';color:#222;margin-bottom:0;}
+.bpleOder .ipt_area .ipt_bx {margin-top:21px;}
+.bpleOder .ipt_area .ipt_bx ~ .ipt_bx {margin-top:22px;}
+.bpleOder .ipt_area .ipt_bx p {font-size:13px;font-family:'NanumSquareR';color:#7e7e7e;margin-top:4px;line-height:1.31;}
+.bpleOder .ipt_area .ipt {position:relative;background-color:#F9F9F9;padding:14px 16px;border-radius:8px;margin-top:10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.bpleOder .ipt_area .ipt.btn {padding:0;}
+.bpleOder .ipt_area .ipt.btn a {display:block;font-size:13px;color:#222;padding:15px 42px 14px 16px;}
+.bpleOder .ipt_area .ipt.arr_d::after {content:"";display:block;position:absolute;top:50%;right:12px;width:16px;height:16px;transform:translateY(-50%) rotate(90deg); background:url(../../resource/images/oder/ico_o_arr_16.png) no-repeat 0 0;background-size:100% 100%;}
+.bpleOder .ipt_area .ipt.arr_r::after {content:"";display:block;position:absolute;top:50%;right:12px;width:16px;height:16px;transform:translateY(-50%);background:url(../../resource/images/oder/ico_o_arr_16.png) no-repeat 0 0;background-size:100% 100%;}
+.bpleOder .ipt_area .ipt input {font-size:14px;font-family:'NanumSquareR';color:#333333;border:0 none;outline:none;background:transparent;min-width:1px;width:100%;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;box-sizing:border-box;}
+.bpleOder .ipt_area .ipt input::placeholder {font-size:14px;font-family:'NanumSquareR';color:#A9A9A9;}
+.bpleOder .ipt_area .ipt_bx.adress .ipt ~ .ipt {margin-top:10px;width:100%;}
+.bpleOder .ipt_area .ipt_bx.adress .address_sch {margin-top:9px;}
+.bpleOder .ipt_area .ipt_bx .etc {position:absolute;bottom:-4px;left:0;font-size:13px;font-family:'NanumSquareR';color:#7E7E7E;}
+.bpleOder .ipt_area .ipt_bx.auth_num {display:flex;align-items:flex-start;margin-top:12px;}
+.bpleOder .ipt_area .auth_num .ipt {position:relative;margin:0;flex-grow:1;display:flex;}
+.bpleOder .ipt_area .auth_num .time {position:absolute;top:50%;right:15px;transform:translateY(-50%);font-size:14px;font-family:'NanumSquareR';color:#A9A9A9;letter-spacing:0;}
+.bpleOder .ipt_area .auth_num .time.on {color:#0d84ff;}
+.bpleOder .ipt_area .sel_bx {display:flex;flex-direction:column;margin-top:13px;}
+.bpleOder .ipt_area .sel_bx label {font-size:14px;font-family:'NanumSquareR';color:#333;}
+.bpleOder .ipt_area .sel_bx label ~ label {margin-top:12px;}
+.bpleOder .ipt_area .ipt_bx .btn_request {flex-grow:0;width:120px;margin-left:10px;}
+.bpleOder .ipt_area .ipt_bx .btn_request a {display:block;text-align:center;font-size:14px;font-family:'NanumSquareB';color:#0D84FF;background-color:#edf6ff;border-radius:6px;padding:14px 0;}
+/* 2023-02-09 */
+/* 메뉴상세, 직원인증 라디오버튼 */
+.bpleOder .option_bx .opt_list .select input[type="radio"],
+.bpleOder .ipt_area .sel_bx input[type='radio'] {position:relative;width:18px;height:18px;border:1px solid #ddd;border-radius:50%;box-sizing:border-box;margin-top:-1px;margin-right:8px;margin-left:2px;}
+.bpleOder .option_bx .opt_list .select input[type="radio"]:checked::after,
+.bpleOder .ipt_area .sel_bx input[type='radio']:checked::after {content:"";display:block;position:absolute;top:50%;left:50%;width:10px;height:10px;background-color:#0d84ff;transform:translate(-50%, -50%);border-radius:50%;}
+/* 메뉴상세 전용 라디오버튼 css */
+.bpleOder .option_bx .opt_list .select input[type="radio"] {position:absolute;top:50%;transform:translateY(-50%);left:0;margin-left:0;}
+/* 2023-03-07 */
+/* 콤보박스 */
+.bpleOder .ipt_area .combo_box {display:flex;justify-content:space-between;}
+.bpleOder .ipt_area .combo_box .short,
+.bpleOder .ipt_area .combo_box .long {width:calc(50% - 15px);box-sizing:border-box;}
+.bpleOder .ipt_area .combo_box .space {flex-grow:0;flex-shrink:0;align-self:center;margin:5px 0 0;font-size:13px;font-family:'NanumSquareR';color:#333;text-align:center;}
+.bpleOder .ipt_area .combo_box .combo_btn {padding:0;}
+.bpleOder .ipt_area .combo_box .combo_btn a {display:block;padding:14px 25px 14px 16px;font-size:14px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.bpleOder .ipt_area .combo_box .combo_btn a::after {content:"";display:block;position:absolute;top:50%;transform:translateY(-50%);right:10px;width:16px;height:16px;background:url(../../resource/images/oder/ico_o_down_arr_16.png) no-repeat 0 0;background-size:100%;}
+.bpleOder .ipt_area .combo_box .combo_btn a.on {color:#333;}
+@media all and (max-width:320px){
+.auth .ipt_area .ipt_bx .btn_request a {font-size:12px;padding:15px 0 16px;}
+}
+/* //2023-03-07 */
+/* 비플 오더 가입 */
+.bpleOder .store_info_box .inner .info_con {background-color:#F9F9F9;}
+.bpleOder .store_info_box .inner .info_con dt {color:#7E7E7E;}
+.bpleOder .store_info_box .inner .info_con dd {color:#333333;}
+.bpleOder .store_info_box .inner .info_con.dis * {color:#333;}
+/* 주문서비스 설정 등록 */
+.bpleOder .regist_status {padding-bottom:0;}
+/* 비플 오더 관리(메인) */
+.store_name + .st_info_con {padding-top:3px;}
+/* 가맹점 프로필관리 버튼 */
+.btn_profile_modify {margin-top:19px;}
+.btn_profile_modify a {display:block;font-size:14px;font-family:'NanumSquareR';color:#333;padding:9px 0;border:1px solid #eee;border-radius:8px;text-align:center;}
+/* 오더관리 타이틀 */
+.oder_admin_tit {font-size:15px;font-family:'NanumSquareEB';color:#222222;}
+/* 비플오더 상황판 */
+.admin_oder_state {display:flex;flex-direction:column;padding:0 20px;margin-top:30px;}
+/* 2023-02-08 */
+.admin_oder_state .top_box {display:flex;justify-content:space-between;align-items:center;}
+.admin_oder_state .top_box .sync_btn a {display:block;width:18px;height:18px}
+.admin_oder_state .top_box .sync_btn a img {width:100%;}
+/* //2023-02-08 */
+.admin_oder_state .cnt_w {display:flex;justify-content:space-between;margin-top:14px;}
+.admin_oder_state dl {flex-grow:0;flex-shrink:1;display:flex;flex-direction:column;justify-content:space-between;width:calc(50% - 5px);height:120px;padding:14px 19px 4px 17px; background-color:#F9F9F9;border-radius:12px;box-sizing:border-box;}
+.admin_oder_state dt {font-size:14px;font-family:'NanumSquareB';color:#555555;align-self:flex-start;}
+.admin_oder_state dd {font-size:16px;font-family:'PretendardSB';color:#222;align-self:flex-end;}
+.admin_oder_state dd strong {font-size:40px;font-family:'PretendardB';color:#222;margin-right:3px;vertical-align:-2px;}
+@media all and (max-width:320px) {
+.admin_oder_state dl {height:100px;}
+.admin_oder_state dd strong {font-size:32px;font-family:'PretendardB';color:#222;margin-right:3px;}
+}
+/* 비플오더 메인 전체메뉴 */
+.oder_menu_all {padding:0 20px;margin-top:30px;}
+.oder_menu_all .menu_w {display:flex;height:100px;overflow:hidden;margin-top:13px;border:1px solid #eee;border-radius:8px;box-sizing:border-box;}
+.oder_menu_all .menu_w a {position:relative;display:flex;align-items:center;justify-content:center;width:calc(100% / 3);text-align:center;padding-top:2px;}
+.oder_menu_all .menu_w a ~ a::before {content:"";display:block;position:absolute;top:50%;transform:translateY(-50%);left:-1px;width:1px;height:calc(100% - 34px);background-color:#EEEEEE;border-radius:8px;}
+.oder_menu_all .menu_w a span {position:relative;font-size:14px;font-family:'NanumSquareR';color:#222;padding-top:42px;}
+.oder_menu_all .menu_w a span::after {content:"";display:block;position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:32px;background-repeat:no-repeat;background-position:0 0;background-size:100%;}
+.oder_menu_all .btn_admin span::after {background-image: url(../../resource/images/oder/ico_o_btn_admin.png);}
+.oder_menu_all .btn_list span::after {background-image: url(../../resource/images/oder/ico_o_btn_oder.png);}
+.oder_menu_all .btn_set span::after {background-image: url(../../resource/images/oder/ico_o_btn_set.png);}
+/* 메뉴관리 컨텐츠 */
+.menu_admin {flex-grow:1;flex-shrink:1;display:flex;flex-direction:column;}
+.menu_admin .ipt_area {margin-top:9px;}
+.menu_admin .ipt_area .ipt {padding-top: 15px;}
+.menu_admin .ipt_area .ipt input {font-size:13px;}
+.menu_admin .btn_edit,
+.menu_admin .btn_move {align-self:stretch;}
+.menu_admin .btn_edit a,
+.menu_admin .btn_move a {position:relative;display:block;text-indent:-99999px;height:100%;}
+.menu_admin .btn_edit a::after,
+.menu_admin .btn_move a::after{content:"";display:block;position:absolute;top:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-position:center center;background-size:14px 14px;}
+.menu_admin .btn_move a {width:44px;}
+.menu_admin .btn_edit a {width:32px;}
+.menu_admin .btn_move a::after {background-image:url(../../resource/images/oder/ico_o_btn_move.png);}/* 순서변경 */
+.menu_admin .btn_edit a::after {background-image:url(../../resource/images/oder/ico_o_btn_edit.png);}/* 수정 */
+/* 2023-02-08 */
+/* 카테고리 > 메뉴리스트 */
+.menu_admin .list_add ~ .list_add {padding-top:25px;}
+.menu_admin .list_add:last-child {margin-bottom:28px;}
+.menu_admin .list_add .btn_add {padding:0;}
+.menu_admin .list_add h3 {font-size:15px;font-family:'NanumSquareB';color:#222;}
+.menu_admin .list_add .ellipsis_max {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.menu_admin .list_add > h3 {line-height:1.45;}
+.menu_admin .list_add h3 span {display:inline;font-size:15px;font-family:'NanumSquareB';color:#222;margin-right:1px;}
+.menu_admin .list_add h3 span::after {content:"";display:inline-block;width:15px;height:15px;background:url(../../resource/images/oder/ico_o_arr_right.png)no-repeat 0 0;background-size:100%;vertical-align:-3px;}
+.menu_admin .list_add h3 span:last-child::after {display:none;}
+.menu_admin .menu_list {margin-top:11px;}
+.menu_admin .menu_list .inner {border:1px solid #eee;padding:15px 30px 15px 9px;}
+.menu_admin .menu_list .inner * {line-height:1.3;}
+.menu_admin .menu_list .inner .info_w {align-self:flex-start;box-sizing:border-box;line-height:1.2;overflow:hidden;}
+.menu_admin .menu_list .inner .info_w > p {margin-top:4px;}
+/* //2023-02-08 */
+/* 메뉴추가 버튼 여백조정 */
+.bpleOder .menu_admin .list_add {padding:30px 20px 24px;border-bottom:10px solid #F7F7F7;}
+.bpleOder .menu_admin .list_add .menu_list:not([style*='display:none']) + .btn_add {margin-top:20px;}
+.bpleOder .menu_admin .list_add .btn_add {margin-top:17px;}
+/* 품절 */
+.bpleOder .menu_admin .menu_list .sold_out .name,
+.bpleOder .menu_admin .menu_list .sold_out .won {color:#333333;}
+.bpleOder .menu_admin .menu_list .sold_out .info {color:#7E7E7E;}
+/* 메뉴관리 -> 옵션추가 */
+.menu_admin .menu_option_add {margin-top:12px;}
+.menu_admin .menu_option_add .menu_option_list {position:relative;padding:18px 35px 20px 20px;border-bottom:1px solid #eee;}
+.menu_admin .menu_option_add .menu_option_list:last-child {border-bottom:0 none;padding-bottom:4px;}
+.menu_admin .menu_option_add .modify_btn {position:absolute;top:9px;right:6px;}
+.menu_admin .menu_option_add .modify_btn a {display:block;width:28px;height:28px;background:url(../../resource/images/profile/ico_modifyBtn.png) no-repeat center center;background-size:14px 14px;}
+/* 원산지 정보 */
+.menu_admin .origin_info {padding:0 20px;margin-top:24px;}
+.menu_admin .origin_info .info {position:relative;border:1px solid #eee;border-radius:8px;padding:15px 35px 14px 19px;}
+.menu_admin .origin_info .info p {font-size: 13px;font-family:'NanumSquareR';color:#333;line-height: 1.76;}
+.menu_admin .origin_info .modify_btn {position:absolute;top:8px;right:2px;}
+.menu_admin .origin_info .modify_btn a {display:block;width:28px;height:28px;background:url(../../resource/images/profile/ico_modifyBtn.png) no-repeat center center;background-size:14px 14px;}
+/* 카테고리 / 메뉴 / 원산지 추가 버튼 */
+.bpleOder .btn_add {padding:0 20px;margin-top:20px;}
+.bpleOder .btn_add a {display:flex;align-items:center;justify-content:center;font-size:14px;font-family:'NanumSquareB';color:#5B5E6C;height:44px;border-radius:8px;background-color:rgba(198,203,209, 0.2);}
+/* 비플오더 카테고리 리스트 */
+.categori_list {padding:24px 20px 0;}
+.categori_list ul li ~ li {margin-top:12px;}
+.categori_list .inner {display:flex;align-items:center;width:100%;min-height:57px;border:1px solid #eee;border-radius:8px;box-sizing:border-box;}
+.categori_list .inner * {flex-grow:0;flex-shrink:0;text-align:left;}
+.categori_list .name {flex-grow:1;flex-shrink:1;font-size:15px;font-family:'NanumSquareB';color:#333;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}/* 2023-02-08 */
+/* 메뉴추가 -> 옵션영역 */
+.bpleOder .store_profile .store_info_box {padding-bottom:0;}
+.bpleOder .option_add .btn_add {padding:0;}
+.bpleOder .option_add .btn_add a {display:flex;background-color:rgba(198,203,209, 0.2);border-radius:8px;}
+/* 2023-02-27 */
+.bpleOder .option_add .list > li {list-style:none;}
+.bpleOder .option_add .list > li > div,
+.bpleOder .option_add .list > div {display:flex;align-items:center;background-color:#fff;border-radius:8px;min-height:78px;}
+.bpleOder .option_add .list > li ~ li,
+.bpleOder .option_add .list > div ~ div {margin-top:12px;}
+/* 2023-02-27 */
+.bpleOder .option_add .move a {position:relative;display:block;text-indent:-99999px;width:44px;height:44px;}
+.bpleOder .option_add .move a::after {content:"";display:block;position:absolute;top:1px;left:1px;width:100%;height:100%;background-repeat:no-repeat;background-position:center center;background-size:14px 14px;background-image: url(../../resource/images/oder/ico_o_btn_move.png);}
+.bpleOder .option_add .cont {flex-grow:1;flex-shrink:1;}
+.bpleOder .option_add .cont .name {font-size:14px;font-family:'NanumSquareB';color:#333;}
+.bpleOder .option_add .cont .sub {font-size:13px;font-family:'NanumSquareR';color:#333;}
+.bpleOder .option_add .cont .name + .sub {margin-top:6px;}
+.bpleOder .option_add .del a {position:relative;display:block;text-indent:-99999px;width:46px;height:46px;}
+.bpleOder .option_add .del a::after {content:"";display:block;position:absolute;top:0;left:1px;width:100%;height:100%;background-repeat:no-repeat;background-position:center center;background-size:16px 16px;background-image: url(../../resource/images/oder/ico_o_btn_del.png);}
+/* 옵션 - 연결선택 */
+.bpleOder .option_add.chain {margin-top:18px;}
+.bpleOder .option_add.chain .btn_add {margin-top:0 !important;}
+.bpleOder .option_add.chain .list:not([style*='display:none;']) + .btn_add {margin-top:20px !important;}
+.bpleOder .option_add.chain .list > div {min-height:initial;padding:1px 13px 1px 15px;}
+.bpleOder .option_add.chain .list > div ~ div {margin-top:10px;}
+.bpleOder .option_add.chain .del a {width:16px;height:46px;}
+/* 주문설정 - 이용시간 */
+/* 오더전용 */
+.bpleOder .store_profile .tit_bx {padding-top:37px;}
+.bpleOder .store_profile .tit_bx p {margin-top:6px;}
+.bpleOder .work_time_w {padding-top:20px;padding-bottom:0;}
+/* 타이틀영역 텍스트 사이즈 small */
+.bpleOder .store_profile .tit_bx.font_small {padding-top:31px;}
+.bpleOder .store_profile .tit_bx.font_small h2 {font-size:14px;}
+.bpleOder .store_profile .tit_bx.font_small h2 strong {font-size:14px;}
+.bpleOder .store_profile .tit_bx.font_small p {font-size:12px;margin-top:3px;line-height:20px;}/* 2023-03-20 */
+.bpleOder .store_profile .tit_bx.font_small + .oder_set_more {margin-top:16px;}
+
+/* 주문 완료 시간 */
+.bpleOder .complete_time {padding: 0 20px;margin-top:29px;}
+.bpleOder .complete_time .iptbx {justify-content:space-between;height:fit-content;}
+.bpleOder .complete_time .iptbx .time {width:calc(50% - 14px);flex-shrink:1;}
+.bpleOder .complete_time .iptbx .time .inner {margin-top:4px;}
+.bpleOder .complete_time .iptbx .time .inner.ipt .txt {display:block;}
+.bpleOder .complete_time .iptbx .time .tit {font-size:12px;font-family:'NanumSquareR'; color:#7E7E7E;letter-spacing:-0.025em;}
+.bpleOder .complete_time .iptbx .time .txt {display:none;}
+.bpleOder .complete_time .iptbx .time input {text-align:right !important;}
+.bpleOder .complete_time .iptbx .time input::placeholder {text-align:right !important;}
+.bpleOder .complete_time .iptbx .bar {font-size:14px;font-family:'NanumSquareR';color:#333333;align-self:flex-start;margin-top:35px;}
+/* 주문내역 */
+.bpleOder .st_history {padding:0;margin-top:20px;}
+.bpleOder .st_history > div {padding: 0 20px;}
+.bpleOder .st_history .round_filter {padding-top:4px;padding-left:16px;padding-right:16px;}
+.bpleOder .st_history .proceess_box ~ .proceess_box {margin-top:16px;}
+/* 2023-03-16 - 1 */
+/* 주문설정 */
+.oder_set_more {padding:0 20px;margin-top:20px;}
+.oder_set_more .set_box ~ .set_box {margin-top:14px;}
+.bpleOder .oder_set {padding-top:22px;}
+.bpleOder .oder_set * {line-height:1.46;}
+.bpleOder .oder_set .ipt_area {margin-top:0;}
+.bpleOder .oder_set .ipt {white-space:normal;word-break:break-all;}/* 2023-02-17 */
+.bpleOder .oder_set .ipt_bx:first-child {margin-top:0;}
+.bpleOder .oder_set .ipt_bx ~ .ipt_bx {margin-top:30px;}
+.set_box {display:flex;align-items:center;justify-content:space-between;background-color:#fff;border-radius:8px;min-height:56px;padding:0 20px 0 16px;box-sizing:border-box;}
+.set_box p {font-size:13px;font-family:'NanumSquareB';color:#333;padding-top:1px;letter-spacing:-0.025em;}
+.set_box .set_ball a {position:relative;display:inline-block;background-color:#e8eaee;width:34px;height:14px;vertical-align:middle;border-radius:35px;}
+.set_box .set_ball a span {position:absolute;display:block;}
+.set_box .set_ball a .ball {text-align:left;top:-2px;left:0%;text-indent:-9999999px;background-color:#b4bac2;width:18px;height:18px;border-radius:50%;transition-property:left;transition-duration:0.5s;}
+/* 설정 활성화 */
+.set_box .set_ball a.on {background:#dbe9fb;}
+.set_box .set_ball a.on .on {display:block;left:8px;right:auto;}
+.set_box .set_ball a.on .ball {left:48%;text-indent:-9999999px;background-color:#0d84ff;width:18px;height:18px;border-radius:50%;transition-property:left;transition-duration:0.5s;}
+/* 2023-03-16 - 1 */
+/* 주문내역 -> 완료/취소 */
+.st_history .complete_bx {margin-top:22px;}
+.st_history .complete_bx ul li ~ li {margin-top:22px;}
+.st_history .complete_bx .date_info {font-size:14px;font-family:'NanumSquareB';color:#222;}
+.st_history .complete_bx .date_info span {display:inline-block;font-size:14px;font-family:'NanumSquareB';color:#222;}
+.st_history .complete_bx .date_info span.bullet {margin:0;color:#333;}
+.st_history .complete_bx .inner {background-color:#F9F9F9;border-radius:12px;padding:20px 20px 19px 20px;margin-top:10px;}
+.st_history .complete_bx .inner > div {display:flex;}
+.st_history .complete_bx .inner > div ~ div {margin-top:13px;}
+.st_history .complete_bx .inner > div p {flex-grow:1;flex-shrink:1;font-size:14px;font-family:'NanumSquareR';color:#222222;min-width:1px;line-height:1.21;word-break:break-all;}
+.st_history .complete_bx .inner > div .tit {flex-grow:0;flex-shrink:0;font-family:'NanumSquareB';width:50px;margin-right:20px;}
+.st_history .complete_bx .inner > div .ellipsis_max span {display:inline-block;max-width:calc(100% - 40px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;box-sizing:border-box;vertical-align:middle;}
+/* 2023-02-08 */
+
+/* 공용 */
+.store_profile .work_pause + .week {margin-top:16px;}
+.store_profile .work_pause a {display:flex;justify-content:space-between;align-items:center;background-color:#fff;border-radius:8px;padding:17px 12px 15px 16px;box-sizing:border-box;}
+.store_profile .work_pause a strong {font-size:13px;font-family:'NanumSquareEB';color:#333;}
+.store_profile .work_pause a span {display:inline-block;font-size:13px;font-family:'NanumSquareR';color:#333;padding-right:19px;background:url(../../resource/images/profile/ico_set_down_arr.png)no-repeat right calc(50% - 1px);background-size:16px 16px;}
+/* 메뉴 추가 옵션 상세 리스트 */
+.menu_option_list {}
+.menu_option_list .tit {font-size:15px;font-family:'NanumSquareB';color:#333;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;padding-right:20px;}/* 2023-02-08 */
+.menu_option_list p {font-size:13px;font-family:'NanumSquareR';color:#333;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin-top:5px;line-height:1.42;}
+.menu_option_list .chain_menu {display:flex;align-items:center;margin-top:14px;}
+.menu_option_list .chain_menu dt {flex-shrink:0;font-size:12px;font-family:'PretendardSB';color:#333333;background-color:#F7F7F7;padding:3px 7px 2px;margin-right:6px;border-radius:4px;letter-spacing:normal;line-height:1.42;}
+.menu_option_list .chain_menu dd {font-size:13px;font-family:'NanumSquareR';color:#7e7e7e;width:100%;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;letter-spacing:-0.025em;}
+/* 텍스트박스 */
+.text_box_t1 {position:relative;padding:0 0 35px 20px;height:320px;border-radius:8px;background-color:#fff;box-sizing:border-box;}
+/* 가맹점 사진 등록 */
+.text_box_t1 .tx_area {z-index:1;position:relative;width:100%;height:100%;}
+.text_box_t1 .tx_area textarea {font-size:13px;font-family:'NanumSquareR';color:#333;width:100%;height:100%;border:0 none;resize:none;background:transparent;line-height:1.75;letter-spacing:-0.025em;padding:18px 20px 0 0;box-sizing:border-box;}
+.text_box_t1 .tx_area textarea::placeholder {font-size:13px;font-family:'NanumSquareR';color:#a9a9a9;}
+/* 텍스트 카운트 */
+.text_box_t1 .txt_count {position:absolute;bottom:15px;left:16px;font-size:12px;font-family:'NanumSquareR';color:#a9a9a9;letter-spacing:-0.025em;}
+.text_box_t1 .txt_count span {font-size:12px;font-family:'NanumSquareR';color:#333;}
+/* 라운드 필터 */
+.round_filter {box-sizing:border-box;}
+.round_filter ul {display:flex;align-items:center;overflow-x:auto;}
+.round_filter ul::-webkit-scrollbar {display:none;}
+.round_filter ul li ~ li {margin-left:8px;}
+.round_filter ul li a {display:flex;align-items:center;justify-content:center;font-size:13px;font-family:'NanumSquareR';color:#222;background-color:#F7F7F7;height:32px;padding:3px 17px 0;border-radius:35px;white-space:nowrap;box-sizing:border-box;}
+.round_filter ul li.on a {font-family:'NanumSquareB';color:#fff;background-color:#333;}
+/* 라운드 필터 -> 화살표 추가 시 스타일 */
+.round_filter.add_arr a {padding:0 14px 0;}
+.round_filter.add_arr .arr {display:inline-block;width:10px;height:10px;vertical-align:top;text-indent:-9999px;background:transparent url(../../resource/images/brand/br_n_filter_arr.png) no-repeat 0 0;background-size:100%;margin-left:3px;}
+.round_filter.add_arr .on .arr {background:transparent url(../../resource/images/brand/br_n_filter_arr_on.png) no-repeat 0 0;background-size:100%;}
+/* 이용가능시간 */
+.oder_set .work_time .inner p {color:#222;line-height:1.54;margin-top:0;}
+.oder_set .work_time .inner > div ~ div {margin-top:6px;}
+/* 안내문 리스트 */
+.oder_set .list_bar {margin:0;}
+.oder_set .list_bar li {font-size:13px;color:#333;text-indent:-2px;line-height:1.49;}
+.oder_set .list_bar li::before {font-size:13px;left:2px;}
+.oder_set .list_bar li ~ li {margin-top:4px;}
+/* 주문내역 박스 */
+.proceess_box {position:relative;}
+/* 상태정보 */
+.proceess_box .state {background-color:#F9F9F9;border-radius:8px;overflow:hidden;}
+.proceess_box .state a {display:block;padding:22px 100px 21px 20px;min-height:155px;box-sizing:border-box;}
+.proceess_box .oder_time {font-size:20px;font-family:'PretendardSB';color:#222222;}
+.proceess_box .oder_time span {display:inline-block;vertical-align:top;font-size:20px;font-family:'PretendardSB';color:#222222;}
+/* 2023-02-08 */
+.proceess_box .oder {margin-top:4px;}
+.proceess_box .oder div {display:flex;overflow:hidden;}
+.proceess_box .oder p {flex-grow:0;flex-shrink:0;font-size:20px;font-family:'NanumSquareEB';color:#222;margin-top:4px;overflow:hidden;}
+.proceess_box .oder .ellipsis {flex-grow:0;flex-shrink:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* //2023-02-08 */
+.proceess_box .etc {margin-top:28px;}
+.proceess_box .etc ul li {display:flex;}
+.proceess_box .etc ul li ~ li {margin-top:3px;}
+.proceess_box .etc ul li p {font-size:16px;font-family:'PretendardB';}
+.proceess_box .etc ul li .tit {font-size:14px;font-family:'NanumSquareB';color:#222;margin-right:6px;}
+/* 스탬프 버튼 */
+.proceess_box .btn_stemp {position:absolute;bottom:18px;right:36px;}
+.proceess_box .btn_stemp a {display:block;font-size:20px;font-family:'NanumSquareEB';color:#fff;background-color:#0d84ff;padding:14px 18px 12px 18px;line-height:1.15;border-radius:50%;letter-spacing:normal;}
+.proceess_box .btn_stemp a span {line-height:inherit;letter-spacing:normal;}
+/* 주문내역 상세 - 매장 */
+.oder_detail_view {margin-top:30px;}
+.oder_detail_view > div {border-top:10px solid #F7F7F7;padding:22px 20px 0;}
+.oder_detail_view > div ~ div {margin-top:21px;}
+.oder_detail_view .detail_tit {font-size:15px;font-family:'NanumSquareEB';color:#222222;}
+/* 공통 */
+.oder_detail_view .menu > div {display:flex;flex-wrap:wrap;padding-top:18px;border-top:1px solid #eee;margin-top:18px;}
+.oder_detail_view .menu > .detail_tit + div {padding:10px 0;border-top:1px solid #eee;margin-top:14px;}
+.oder_detail_view .menu div {width:100%;box-sizing:border-box;}
+.oder_detail_view .menu div p {flex-grow:1;flex-shrink:1;font-size:14px;font-family:'NanumSquareR';color:#7E7E7E;text-align:left;}
+.oder_detail_view .menu div p:last-child {flex-grow:0;flex-shrink:0;width:80px;text-align:right;}
+/* 2023-02-08 */
+/* 주문메뉴 */
+.oder_detail_view .menu .oder_wrap {margin-top:0;}
+.oder_detail_view .menu .oder_wrap > div ~ div {margin-top:28px;}
+.oder_detail_view .menu .oder {display:flex;justify-content:space-between;}
+.oder_detail_view .menu .oder p {flex-grow:1;flex-shrink:1;font-size:14px;font-family:'NanumSquareB';color:#222222;}
+/* 옵션 */
+.oder_detail_view .menu .option {width:100%;}
+.oder_detail_view .menu .option ul {margin-top:12px;}
+.oder_detail_view .menu .option li {display:flex;margin-top:6px;padding-left:9px;}
+.oder_detail_view .menu .option li::before {font-size:14px;color:#7e7e7e;font-family:'NanumSquareR';top:1px;}
+/* //2023-02-08 */
+/* 총 주문금액 */
+.oder_detail_view .menu .total p {font-size:14px;font-family:'NanumSquareB';color:#222;}
+.oder_detail_view .menu .total .amount {font-size:15px;font-family:'NanumSquareEB';color:#222;}
+.oder_detail_view .menu .total .amount strong {font-size:15px;font-family:'NanumSquareEB';color:#222;}
+/* 주문거부사유 */
+.oder_detail_view .reject .msg {font-size:13px;font-family:'NanumSquareR';color:#333;padding:15px 16px 14px;margin-top:10px;background-color:#F9F9F9;border-radius:8px;}
+/* DID 서비스 */
+.did_service h3 {font-size:16px;font-family:'NanumSquareEB';color:#222;text-align:center;margin-top:35px;text-indent:-2px;padding:0 20px;}
+.bpleOder .did_service .user {padding:32px 20px 3px;}
+.bpleOder .did_service .bg_box {background-color:#F9F9F9;border-radius:8px;padding:22px 0 21px;}
+.bpleOder .did_service .bg_box dl {text-align:center;}
+.bpleOder .did_service .bg_box dl ~ dl {margin-top:21px;}
+.bpleOder .did_service .bg_box dl dt {font-size:14px;font-family:'NanumSquareEB';color:#222;}
+.bpleOder .did_service .bg_box dl dd {font-size:14px;font-family:'NanumSquareR';color:#333;margin-top:12px;}
+/* 2023-02-09 */
+/* qr코드 */
+.qr_area {padding:0 20px;margin-top:29px;}
+.qr_area .qr_code {margin:0 60px;padding:4.2vw;background:#F9F9F9;border-radius:8px;overflow:hidden;}
+.qr_area .qr_code canvas, .qr_area .qr_code img {width:100%;}
+.qr_area .time {position:relative;font-size:14px;font-family:'NanumSquareB';color:#222;text-align:center;margin-top:23px;}
+.qr_area .time span {font-size:16px;font-family:'PretendardSB';vertical-align:-1px;margin-left:8px;}
+.qr_area .time .reset_btn {display:inline-block;text-indent:-99999px;width:20px;height:20px;text-align:left;background: url(../../resource/images/oder/reset_btn.png)no-repeat 0 0;background-size:20px 20px;margin-left:5px;}
+@media all and (max-width:320px) {
+    .qr_area .qr_code {margin:0 40px;}
+}
+/* //2023-02-09 */
+
+/* 2023-02-08 */
+/***********************
+
+    팝업
+
+***********************/
+/* 오더 팝업 */
+.layer_overlay .oder_flat_pop {display:flex;flex-direction:column;position:absolute;left:0;width:100%;height:100%;box-sizing:border-box;}
+.layer_overlay .oder_flat_pop span,
+.layer_overlay .oder_flat_pop span strong {font-size:inherit;font-family:inherit;color:inherit;}
+.topSlide .btn_botFix_w {bottom:-100%;transition-duration:.3s;}
+/* 상단박스 */
+.layer_overlay .flat_top_bx {position:relative;padding:32px 20px 29px;width:100%;background-color:#fff;box-sizing:border-box;border-radius:12px 12px 0 0;}
+.layer_overlay .flat_top_bx p.bar {position:absolute;top:0;left:0;right:0;}
+.layer_overlay .flat_top_bx p.bar a {display:block;padding:8px 0;width:100%;height:3px;border-radius:35px;}
+.layer_overlay .flat_top_bx p.bar a::after {content:"";display:block;width:52px;height:3px;background-color:#ddd;border-radius:35px;margin: 0 auto;}
+.layer_overlay .flat_top_bx .tit {font-size:16px;font-family:'NanumSquareEB';color:#222;letter-spacing:-0.025em;line-height:1.21;}
+.layer_overlay .flat_top_bx .tit.fz18 {font-size:18px;}
+.layer_overlay .flat_top_bx .info_msg {font-size:13px;font-family:'NanumSquareR';color:#7e7e7e;letter-spacing:-0.025em;line-height:1;margin-top:9px;}
+.layer_overlay .oder_flat_pop > .inner {display:flex;flex-direction:column;flex-grow:1;background-color:#fff;width:100%;padding: 0 20px;box-sizing:border-box;overflow-y:auto;}
+.layer_overlay .oder_flat_pop > .inner::-webkit-scrollbar {display:none;}
+.layer_overlay .oder_flat_pop .item_none {display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:14px;font-family:'NanumSquareR';color:#7e7e7e;letter-spacing:-0.025em;margin-top:-19px;}
+/* 신규주문 */
+.layer_overlay .oder_flat_pop .proceess_box .state,
+.layer_overlay .oder_flat_pop .proceess_box .state * {line-height:1.43;letter-spacing:-0.025em;}
+.layer_overlay .oder_flat_pop .proceess_box {margin-top:19px;}
+.layer_overlay .oder_flat_pop .proceess_box ~ .proceess_box {margin-top:16px;}
+.layer_overlay .oder_flat_pop .proceess_box:last-child {margin-bottom:20px;}
+.layer_overlay .oder_flat_pop .btn_stemp {right:18px;}
+/* 연결메뉴 추가 */
+.layer_overlay .oder_flat_pop .list_add {padding:0;}
+.layer_overlay .oder_flat_pop .list_add .menu_list {margin-top:24px;}
+.layer_overlay .oder_flat_pop .list_add .menu_list .inner {padding-left:15px;}
+.layer_overlay .oder_flat_pop .list_add .menu_list li {margin-top:14px;}
+/* 메뉴 옵션추가 */
+.oder_flat_pop .menu_option_list {padding:0 !important; border:1px solid #eee !important;border-radius:8px;}
+.oder_flat_pop .menu_option_list a {display:block;padding:18px 19px !important;}
+.oder_flat_pop .menu_option_list * {letter-spacing:-0.025em;line-height:1.42;}
+.oder_flat_pop .menu_option_list ~ .menu_option_list {margin-top:14px;}
+/* 선택 시 */
+.layer_overlay .oder_flat_pop .list_add .menu_list .inner::after, 
+.layer_overlay .oder_flat_pop .menu_option_list::after {content:"";display:block;position:absolute;top:17px;right:15px;width:18px;height:14px;background-image:url(../../resource/images/oder/ico_chain_chk.png);background-repeat:no-repeat;background-position:0 0;background-size:100% 100%;}
+.layer_overlay .oder_flat_pop .list_add .select .inner,
+.layer_overlay .oder_flat_pop .menu_option_list.select {border-color:#0d84ff !important;}
+.layer_overlay .oder_flat_pop .list_add .select .inner::after,
+.layer_overlay .oder_flat_pop .menu_option_list.select::after {background-image:url(../../resource/images/oder/ico_chain_chk_on.png) !important;}
+/* 슬라이드 동작 */
+.layer_overlay.topSlide {top:100%;background-color:transparent;border-radius:12px 12px 0 0;box-shadow:0 -5px 12px rgba(0,0,0, 0.06);overflow:hidden;transition-duration:.3s;}
+/* 신규주문 있을 때 */
+.layer_overlay.topSlide.new_menu {top:calc(100% - 80px);}
+.layer_overlay.topSlide::after {display:none;}
+/* 외부 */
+.layer_overlay.topSlide.over {top:0;border-radius:0;}
+.layer_overlay.topSlide.over::after{z-index:0;content:"";display:block;position:absolute;top:0;left:0;background-color:rgba(0,0,0, 0.7);width:100%;height:100%;}
+/* 내부 */
+.topSlide.over .oder_flat_pop {z-index:1;top:0;padding-top:24px;}
+.topSlide.over .btn_botFix_w {bottom:0;transition-duration:.3s;}
+.topSlide.over .flat_top_bx {padding:32px 20px 0;}
+/* //2023-02-08 */
+/* 메뉴 품절 및 숨김팝업 */
+.layer_overlay .option {position:relative;background-color:#fff;padding:23px 0 0;}
+.layer_overlay .option .ly_pop_tit {font-size:16px;}
+.layer_overlay .option .inner {margin-top:11px;}
+.layer_overlay .option .con {display:flex;}
+.layer_overlay .option .con ~ .con {border-top:1px solid #eee;padding-top:20px;margin-top:17px;}
+.layer_overlay .option .con .opt_tit {flex-grow:1;}
+.layer_overlay .option .con .opt_tit h3 {font-size:14px;font-family:'NanumSquareB';color:#222;}
+.layer_overlay .option .con .opt_tit p {display:block;font-size:12px;font-family:'NanumSquareR';color:#7E7E7E;margin-top:3px;line-height:1.51;}
+.layer_overlay .option .con .active_ball {display:flex;flex-grow:0;flex-shrink:0;}
+.layer_overlay .option .btn_full {margin-top:21px;}
+.layer_overlay .option .btn_close {margin-top: 4px;}
+/* ball */
+.active_ball a {position:relative;display:block;background-color:#e8eaee;width:30px;height:12px;border-radius:35px;margin-top:2px;}
+.active_ball a span {position:absolute;display:block;}
+.active_ball a .ball {top:-2px;left:0;text-indent:-9999999px;background-color:#B3BAC3;width:16px;height:16px;border-radius:50%;transition-duration:0.5s;}
+/* 활성화 */
+.active_ball a.on {background:rgba(13,132,255, 0.15);}
+.active_ball a.on .on {display:block;right:auto;}
+.active_ball a.on .off {display:none;}
+.active_ball a.on .ball {top:-2px;left:48%;background-color:#0d84ff;}
+/* 2023-02-09 */
+/* qr코드 팝업 */
+.qr_popup {background-color:#fff;border-radius:12px;padding:32px 0 48px;}
+.qr_popup h2 {font-size:18px;font-family:'NanumSquareEB';color:#222;padding:0 24px;letter-spacing:-0.025em;}
+.qr_popup ol {padding:0 20px 0 35px;margin-top:18px;}
+.qr_popup ol li {font-size:14px;font-family:'NanumSquareB';color:#222;line-height:1.4;letter-spacing:-0.025em;}
+.qr_popup ol li ~ li {margin-top:8px;}
+.qr_popup .qr_area {padding:0;margin-top:30px;text-align:center;}
+/* //2023-02-09 */
+
+/************************ 
+
+    하단버튼영역
+
+************************/
+/* 툴팁 */
+.btn_botFix_w .tooltip_w {position:absolute;top:-45px;left:50%;transform:translateX(-50%);}
+.btn_botFix_w .tooltip_w .tooltip_msg {font-size:12px;font-family:'NanumSquareR';color:#fff;padding:9px 8px 7px 13px;background-color:rgba(0,0,0, 0.8);border-radius:6px;letter-spacing:-0.025em;white-space:nowrap;}
+.btn_botFix_w .tooltip_w .tooltip_msg::after {content:"";display:block;position:absolute;bottom:-5px;right:50%;transform:translateX(-50%);width:7px;height:5px;background:url(../../resource/images/oder/ico_o_tooltip_arr_down.png) no-repeat 0 0;background-size:100% 100%;}
+.btn_botFix_w .tooltip_w .tooltip_msg span {margin-left:3px;vertical-align:-1px;font-size:12px;font-family:'NanumSquareR';}
+/* 하단 안내텍스트 */
+.bpleOder .noti_txt {font-size:12px;font-family:'NanumSquareR';color:#7e7e7e;padding:0 20px;line-height:1.66;letter-spacing:normal;}
+/* 리스트형 */
+.btn_botFix_w .notice_list_bl {margin-bottom:17px;}
+.btn_botFix_w .notice_list_bl ul {padding:0 20px;}
+.btn_botFix_w .notice_list_bl ul li {position:relative;font-size:13px;font-family:'NanumSquareR';color:#666;padding-left:9px;line-height:1.5;letter-spacing:-0.025em;}
+.btn_botFix_w .notice_list_bl ul li ~ li {margin-top:7px;}
+.btn_botFix_w .notice_list_bl ul li::before {content:"·";display:block;position:absolute;top:0;left:0;font-size:13px;font-family:'NanumSquareR';color:#666;}
+/* 하단 안내텍스트 - 2 */
+.btn_botFix_w .oder_bot_info {padding:0 20px;margin-bottom:16px;}
+.btn_botFix_w .oder_bot_info dl {position:relative;padding-left:32px;}
+.btn_botFix_w .oder_bot_info dl::before {content:"";display:block;position:absolute;top:-2px;left:0;width:24px;height:24px;background:url(../../resource/images/oder/ico_o_categori_info.png) no-repeat 0 0;background-size:100%;}
+.btn_botFix_w .oder_bot_info dl * {letter-spacing:-0.025em;word-break:keep-all;}
+.btn_botFix_w .oder_bot_info dt {font-size:13px;font-family:'NanumSquareB'; color:#3C3F44;}
+.btn_botFix_w .oder_bot_info dd {font-size:12px;font-family:'NanumSquareR'; color:#5B5E6C;line-height:1.66;margin-top:6px;}
+/* 주문버튼 */
+.btn_botFix_w.bpOder {display:none;}
+.btn_botFix_w.bpOder .inner {display:block;background-color:#222;padding:0 10px 10px;background-color:#fff;}
+.btn_botFix_w.bpOder .inner a {display:flex;justify-content:space-between;padding:0 20px 0;background-color:#a7a9ac;pointer-events:none;cursor:default;}
+.btn_botFix_w.bpOder .inner a * {font-size:15px;font-family:'NanumSquareB';color:#fff;height:fit-content;}
+.btn_botFix_w.bpOder .inner a > * {padding-top:16px;}
+.btn_botFix_w.bpOder .inner a > :not(p) {display:inline-block;text-align:center;width:100%;}
+.btn_botFix_w.bpOder .inner .more {padding-top:14px;font-family:'NanumSquareEB';}
+.btn_botFix_w.bpOder .inner .count {display:inline-block;font-size:13px;font-family:'PretendardSB';color:#0D84FF;padding:2px 6px 1px 6px;background-color:#fff;border-radius:10px;margin:1px 0 0 2px;}
+/* 활성화 시 */
+.btn_botFix_w.bpOder .inner a.on {pointer-events:all;cursor:pointer;color:#fff;background-color:#0d84ff;}
+.btn_botFix_w .inner .long {width:41% !important;}
+/* 유의사항 안내 블릿형 - T1 */
+.notice_list-bl ul {padding:0 20px;}
+.notice_list-bl ul li {position:relative;font-size:13px;font-family:'NanumSquareR';color:#666666;line-height:1.52;padding-left:9px;}
+.notice_list-bl ul li ~ li {margin-top:6px;}
+.notice_list-bl ul li::before {content:"·";display:block;position:absolute;top:0;left:0;font-size:13px;font-family:'NanumSquareR';color:#666666;}
+/* 공통 */
+.mgt17 {margin-top:17px !important;}/* 2023-03-16 - 2 */
+.mgt22 {margin-top:22px !important;}
+.mgt29 {margin-top:29px !important;}
+.fz14, .fz14 * {font-size:14px !important;}
+.fz12, .fz12 * {font-size:12px !important;}
+.border_t10 {border-top:10px solid #f7f7f7;}
