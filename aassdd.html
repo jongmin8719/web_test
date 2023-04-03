@@ -36001,8 +36001,11 @@ $(function(){
 
 	function countLines() {
 		if (vtTxtAr == null) {
-			vtTxtAr = document.createElement('<textarea class="v_txt_ar"></textarea>');
+			vtTxtAr = document.createElement('textarea');
 			vtTxtAr.style.height = '0';
+			vtTxtAr.style.position = 'absolute';
+			vtTxtAr.style.top = '-999999px';
+			vtTxtAr.style.left = '-999999px';
 			document.body.appendChild(vtTxtAr);
 		}
 
