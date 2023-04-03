@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>비플제로페이</title>
+<link rel="stylesheet" href="../../resource/css/style.css">
+<link rel="stylesheet" href="../../resource/css/zero.css">
+</head>
+
+<body>
+	<!-- wrap -->
+	<div class="wrap">
+		<div class="header floating-back-header floating-sticky">
+			<h1>선물하기</h1>
+			<a href="#" class="btn-history-back">뒤로가기</a>
+		</div><!-- // header -->
+		<!-- container -->
+
+		<div class="container">
+			<!-- content -->
+			<div class="content">
+				<div class="br_gift_rn">
+					<div class="product buy addBtn-pb58">
+						<!-- 상품 이미지박스 -->
+						<div class="img_bx"><img src="../../resource/images/brand/br_n_dummy_origin2.png" alt=""></div>
+						<!-- 브랜드 명, 상품명, 가격, 공유하기 -->
+						<div class="info_bx"><!-- 특가상품의 경우 label_special 추가 -->
+							<!-- 브랜드 명 -->
+							<p class="brand">
+								CU
+								<span class="label">특가상품</span>
+							</p>
+							<!-- 상품 명 -->
+							<p class="name">모바일금액권 1만원권</p>
+						</div>
+
+						<!-- 구매정보 -->
+						<div class="present_info">
+							<!-- 보내는 사람 -->
+							<div class="con_bx">
+								<p class="tit">보내는 사람</p>
+								<div class="bg_bx">
+									<input type="text" value="홍길동" readonly>
+								</div>
+							</div>
+							<!-- 받는 사람 -->
+							<div class="con_bx">
+								<p class="tit">받는 사람</p>
+								<p class="call_load"><a href="#none">연락처 불러오기</a></p>
+								<!-- 선물 대상자 정보입력 -->
+								<div class="send_info">
+									<div class="send_list"><!-- 삭제버튼 추가 시 add_del 클래스 추가 -->
+										<div class="bg_bx">
+											<input type="text" placeholder="받는 분 이름">
+										</div>
+										<div class="bg_bx">
+											<input type="text" placeholder="휴대폰 번호 입력">
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 메시지 입력 -->
+							<div class="con_bx">
+								<p class="tit">메시지 입력 (선택)</p>
+								<p class="txt_count"><span>0/</span>100</p>
+								<div class="bg_bx autoresize">
+									<textarea placeholder="전달 메시지 (최대 100자)" spellcheck="false" ></textarea>
+								</div>
+							</div>
+							<!-- 선물하기 안내 메세지 -->
+							<p class="present_message">결제가 완료되면 받는 분에게 알림톡이 전송됩니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // content -->
+			<!-- 하단 고정버튼 -->
+			<div class="btn_botFix_w brand_rn_btn">
+				<div class="inner bg_white">
+					<a href="#none" class="btn_default round_r8 btn-style-h48 on">선물하기</a>
+				</div>
+			</div>
+			<!-- //하단 고정버튼 -->
+		</div>
+		<!-- // container -->
+	</div>
+	<!-- // wrap -->
+<script type="text/javascript" src="../../resource/js/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../resource/js/swiper.min.js"></script>
+<link rel="stylesheet" href="../../resource/css/swiper.min.css">
+</body>
+</html>
+<!-- 텍스트박스 높이값 변경 -->
+<script>
+	// $(function(){
+	// 	const txtAr = $(".autoresize textarea");
+	
+	// 	msgAreaHeight();
+	// 	txtAr.on('keydown keyup', msgAreaHeight);
+	
+	// 	function msgAreaHeight() {
+	// 		if(txtAr.prop("scrollHeight") > 24){
+	// 			txtAr.height(48);
+	// 		}
+	// 		if(txtAr.prop("scrollHeight") > 48){
+	// 			txtAr.height(72);
+	// 		}
+	// 		if(txtAr.prop("scrollHeight") > 72){
+	// 			txtAr.height(96);
+	// 		}
+	// 		if(txtAr.prop("scrollHeight") > 86){
+	// 			txtAr.height(120);
+	// 		}
+	// 		if(txtAr.val() === ""){
+	// 			txtAr.height(24);
+	// 		}
+	// 	}
+	// })
+</script>
+<!-- //텍스트박스 높이값 변경 -->
+
+<script>
+$(function(){
+	var vtTxtAr;
+
+	$(".autoresize textarea").on('keydown, keyup', testCnt)
+
+	function countLines() {
+		if (vtTxtAr == null) {
+			vtTxtAr = document.createElement('textarea');
+			vtTxtAr.style.height = '0';
+			document.body.appendChild(vtTxtAr);
+		}
+
+		var txtAr = $(".autoresize textarea");
+		vtTxtAr.style.height = (txtAr.outerHeight()) + 'px';
+
+		var result = Math.floor(vtTxtAr.scrollHeight);
+		if (result == 0) result = 1;
+		return result;
+	}
+
+	function testCnt(e){
+		$('.con_bx .present_message').textContent = countLines(e.target);
+		this.style.height = "";
+		this.style.height = this.scrollHeight + "px"
+	}
+})
+</script>
