@@ -35995,11 +35995,40 @@ h1.brand_tooltip .tooltip strong {
 
 <script>
 $(function(){
-	$(".autoresize textarea").on('keydown, keyup', testCnt)
-	function testCnt(){
-		$(window).scrollTop($(".autoresize").parent().offset().top);
-		this.style.height = "";
-		this.style.height = this.scrollHeight + "px"
-	}
+
+		var tAreaClone;
+		var textArea = $('.autoresize textarea');
+
+		function scrollHCalc(){
+			var textAreaW = parseInt(textArea.css('width'));
+			var textAreaLineH = parseInt(textArea.css('line-height'));
+
+			if(tAreaClone == null){
+				tAreaClone = textArea.clone().appendTo('body');
+				tAreaClone.width(textAreaW);
+				tAreaClone.height(0);
+				tAreaClone.css({'font-size':14, 'font-family':'NanumSquareR', 'line-height':textAreaLineH + 'px'});
+				tAreaClone.css({'z-index':-1, 'position':'absolute', 'top':-999999 + 'px', 'left': -999999 + 'px'});
+				tAreaClone.css({'outline':'none', 'border':'0 none'});
+			}
+			// 높이값 반영
+			tAreaClone.text(textArea.val());
+			scrollH = Math.floor(tAreaClone.prop('scrollHeight'));
+			cloneScrollH = scrollH;
+
+			setTimeout(function(){
+				scrollHend = cloneScrollH;
+				textArea.height(scrollHend);
+			},10)
+		}
+
+		textArea.on({
+			keydown : function(){
+				scrollHCalc()
+			},
+			keyup : function(){
+				scrollHCalc()
+			}
+		})
 })
 </script>
