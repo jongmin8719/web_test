@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Ent App</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../../ent_resource/css/ent_reset.css"><!-- 태그 기본설정, 폰트 -->
+    <!-- <link rel="stylesheet" href="../../ent_resource/css/ent_style.css">스타일 관련 css -->
+    <link rel="stylesheet" href="../../ent_resource/css/swiper.min.css"><!-- swiper.js -->
+    <!-- 스크립트 -->
+    <script type="text/javascript" src="../../ent_resource/js/jQuery 3.7.0.js"></script>
+    <script type="text/javascript" src="../../ent_resource/js/swiper.min.js"></script>
+    <script type="text/javascript" src="../../ent_resource/js/ent_ui.js"></script>
+</head>
+
+<body>
+    <div class="wrap js-wrap">
+        <!-- 헤더 영역 -->
+        <header class="header position-sticky">
+            <!-- 헤더 네비 -->
+            <nav class="header-nav">
+                <a href="#none"class="hd-btn back"><span class="blind-i">뒤로가기</span></a>
+            </nav>
+            <!-- 헤더 타이틀 -->
+            <div class="page-title">
+                <h1 class="header-title">카드 등록</h1>
+            </div>
+        </header>
+        <!-- 컨텐츠 영역 -->
+        <main class="container-wrap js-container-wrap">
+            <section class="account-container card-regist js-keypad-call"><!-- 2024-01-12 js-keypad-call 추가 -->
+                <!-- 컨테이너 헤더 -->
+                <div class="container-hd">
+                    <p class="container__hd-text fz-large">본인명의의 카드정보를 입력해 주세요.</p>
+                </div>
+                <!-- 동의박스 -->
+                <div class="agree-box js-drop_box mgt32">
+                    <dl>
+                        <!-- 전체동의 -->
+                        <dt class="agree__box-hd form-box js-agree-all">
+                            <div class="form-item form-checkbox type-bg">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <strong>전체 동의하기</strong>
+                                </label>
+                                <button href="#none" class="btn-trigger js-drop_trigger"><span class="blind-i">열기/닫기</span></button>
+                            </div>
+                        </dt>
+                        <!-- 개별동의 -->
+                        <dd class="agree__box-con js-drop_con js-agree-con" style="display: none;">
+                            <ul class="pd-lr15">
+                                <li class="form-box">
+                                    <div class="form-item form-checkbox">
+                                        <label>
+                                            <input type="checkbox" checked>
+                                            <strong>전자금융거래 기본약관</strong>
+                                        </label>
+                                        <a href="#none" class="btn-view">보기</a>
+                                    </div>
+                                </li>
+                                <li class="form-box">
+                                    <div class="form-item form-checkbox">
+                                        <label>
+                                            <input type="checkbox" checked>
+                                            <strong>개인정보의 수집 및 이용에 대한 동의</strong>
+                                        </label>
+                                        <a href="#none" class="btn-view">보기</a>
+                                    </div>
+                                </li>
+                                <li class="form-box">
+                                    <div class="form-item form-checkbox">
+                                        <label>
+                                            <input type="checkbox" checked>
+                                            <strong>개인정보의 제 3자 제공 동의</strong>
+                                        </label>
+                                        <a href="#none" class="btn-view">보기</a>
+                                    </div>
+                                </li>
+                                <li class="form-box">
+                                    <div class="form-item form-checkbox">
+                                        <label>
+                                            <input type="checkbox" checked>
+                                            <strong>개인정보의 처리위탁 동의</strong>
+                                        </label>
+                                        <a href="#none" class="btn-view">보기</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <!-- 카드정보 입력 영역 -->
+                <article class="account__item-wrap form_type-input">
+                    <!-- 입력 form box -->
+                    <div class="form-box">
+                        <!-- 박스 헤더 -->
+                        <div class="box-hd">
+                            <p class="form-label">카드번호</p>
+                        </div>
+                        <!-- 박스 컨텐츠 -->
+                        <div class="form-item form-input js-vkey-board"><!-- 2024-01-08 -->
+                            <input type="tel" value="0000-0000-****-****" placeholder="0000-0000-0000-0000">
+                        </div>
+                    </div>
+                    <!-- 입력 form box -->
+                    <div class="form-box">
+                        <!-- 박스 헤더 -->
+                        <div class="box-hd">
+                            <p class="form-label">유효기간</p>
+                        </div>
+                        <!-- 박스 컨텐츠 -->
+                        <div class="form-item form-input js-vkey-board"><!-- 2024-01-08 -->
+                            <input type="tel" value="03/11" maxlength="5" placeholder="MM/YY">
+                        </div>
+                    </div>
+                    <!-- 입력 form box -->
+                    <div class="form-box">
+                        <!-- 박스 헤더 -->
+                        <div class="box-hd">
+                            <p class="form-label">생년월일</p>
+                        </div>
+                        <!-- 박스 컨텐츠 -->
+                        <div class="form-item form-input">
+                            <input type="tel" value="960408" maxlength="6" placeholder="생년월일 6자리">
+                        </div>
+                    </div>
+                    <!-- 입력 form box -->
+                    <div class="form-box">
+                        <!-- 박스 헤더 -->
+                        <div class="box-hd">
+                            <p class="form-label">카드 비밀번호</p>
+                        </div>
+                        <!-- 박스 컨텐츠 -->
+                        <div class="form-item form-input js-vkey-board"><!-- 2024-01-08 -->
+                            <input type="password" value="12" maxlength="2" placeholder="비밀번호 앞 2자리">
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 플로팅 박스 -->
+            <section class="floating-container bottom js-floating-wrap">
+                <!-- 메인 버튼영역 -->
+                <article class="main_btn-box bg-white">
+                    <div class="btn-main">
+                        <a href="#none" class="btn-default radius-mid btn-style-h48 on">등록하기</a><!-- 비활성 시 on 클래스 제거 / 활성 시 on 클래스 추가 -->
+                    </div>
+                </article>
+                <!-- 2024-01-16 가상키패드 영역 추가  -->
+                <div class="transkey position-fixed bottom js-keypad" style="display: ;">
+                    <button type="button" class="key">1</button>
+                    <button type="button" class="key">8</button>
+                    <button type="button" class="key">3</button>
+                    <button type="button" class="key">9</button>
+                    <button type="button" class="key">2</button>
+                    <button type="button" class="key">4</button>
+                    <button type="button" class="key">5</button>
+                    <button type="button" class="key">6</button>
+                    <button type="button" class="key">7</button>
+                    <button type="button" class="close">닫기</button>
+                    <button type="button" class="key">0</button>
+                    <button type="button" class="backspace">←</button>
+                </div>
+                <!-- // 2024-01-16  -->
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+
+<style>
+.transkey {
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  background-color: var(--g-bg-grey-type2);
+  padding: 0.8rem 0;
+}
+.transkey .key, .transkey .backspace, .transkey .close {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2.4rem;
+  font-family: "Pretendard";
+  color: var(--g-fc-main);
+  line-height: 2.9rem;
+  font-weight: 500;
+  height: 60px;
+}
+.transkey .backspace {
+  position: relative;
+  text-indent: -99999px;
+}
+.transkey .backspace::after {
+  content: "지우기";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, calc(-50% + 1px));
+      -ms-transform: translate(-50%, calc(-50% + 1px));
+          transform: translate(-50%, calc(-50% + 1px));
+  display: block;
+  width: 2.1rem;
+  height: 1.7rem;
+  background-image: url("../img/icon/icon_arr_back-21.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
+.transkey .key:active::before, .transkey .backspace:active::before, .transkey .close:active::before {
+  z-index: -1;
+  content: "선택됨";
+  text-indent: -99999px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: calc(100% - 20px);
+  height: calc(100% - 10px);
+  border-radius: 8px;
+  -webkit-animation-name: keypadHoverEffect;
+          animation-name: keypadHoverEffect;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+.transkey .close {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  color: var(--g-fc-info);
+}
+@keyframes keypadHoverEffect {
+    from {
+        display:block;
+        background-color:transparent;
+    }
+    to {
+        display:none;
+        background-color:#eee;
+    }
+}
+</style>
