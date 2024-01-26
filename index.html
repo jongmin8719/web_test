@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>Ent App</title>
     <!-- css -->
-    <!-- <link rel="stylesheet" href="../../ent_resource/css/ent_reset.css">태그 기본설정, 폰트 -->
-    <!-- <link rel="stylesheet" href="../../ent_resource/css/ent_style.css">스타일 관련 css -->
+    <link rel="stylesheet" href="../../ent_resource/css/ent_reset.css"><!-- 태그 기본설정, 폰트 -->
+    <link rel="stylesheet" href="../../ent_resource/css/ent_style.css"><!-- 스타일 관련 css -->
     <link rel="stylesheet" href="../../ent_resource/css/swiper.min.css"><!-- swiper.js -->
     <!-- 스크립트 -->
     <script type="text/javascript" src="../../ent_resource/js/jQuery 3.7.0.js"></script>
@@ -743,30 +743,28 @@ input:focus, textarea:focus, select:focus, button:focus {
   background-position: 0 0;
   background-size: 100% 100%;
 }
+.transkey .key.on::before, .transkey .backspace.on::before, .transkey .close.on::before {
+  z-index: -1;
+  content: "선택됨";
+  text-indent: -99999px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: calc(100% - 20px);
+  height: calc(100% - 10px);
+  border-radius: 8px;
+  -webkit-animation-name: keypadHoverEffect;
+          animation-name: keypadHoverEffect;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
 .transkey .close {
   font-size: 1.7rem;
   line-height: 2rem;
   color: var(--g-fc-info);
-}
-@media (hover: none) and (pointer: coarse) {
-  .transkey .key:hover::before, .transkey .backspace:hover::before, .transkey .close:hover::before {
-    z-index: -1;
-    content: "선택됨";
-    text-indent: -99999px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    width: calc(100% - 20px);
-    height: calc(100% - 10px);
-    border-radius: 8px;
-    -webkit-animation-name: keypadHoverEffect;
-            animation-name: keypadHoverEffect;
-    -webkit-animation-duration: 0.3s;
-            animation-duration: 0.3s;
-  }
 }
 @-webkit-keyframes keypadHoverEffect {
   from {
@@ -788,4 +786,30 @@ input:focus, textarea:focus, select:focus, button:focus {
     background-color: #eee;
   }
 }
+
+
+
 </style>
+
+
+<script>
+$(function(){
+
+
+    let timer;
+
+$('.js-keypad > .key').on({
+    touchstart : function(e){
+        clearTimeout(timer);
+
+        $(e.target).addClass('on');
+
+        timer = setTimeout(function(){
+            $('.js-keypad > .key').removeClass('on');
+        },150)
+    }
+})
+
+    
+})
+</script>
