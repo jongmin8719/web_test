@@ -1,4 +1,4 @@
-const dummyData = [
+[
     {
         "name": "Alice",
         "age": 28,
@@ -29,4 +29,4 @@ const dummyData = [
         "occupation": "Designer",
         "location": "Daejeon"
     }
-];
+]
