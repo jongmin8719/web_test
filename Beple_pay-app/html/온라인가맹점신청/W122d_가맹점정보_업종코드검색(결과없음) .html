@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>비플제로페이</title>
+<link rel="stylesheet" href="../../resource/css/style.css">
+<link rel="stylesheet" href="../../resource/css/zero.css">
+</head>
+<body>
+
+<div class="wrap">
+	<div class="header floating-back-header floating-sticky">
+		<h1>업종코드 검색</h1>
+		<a href="#" class="btn-out-page">종료하기</a>
+	</div>
+	<!-- // header -->
+
+	<div class="container">
+		<div class="content">
+			<!-- 컨텐츠 영역 -->
+				<div class="new_store search">
+				<!-- 검색영역 -->
+				<div class="local_sch">
+					<!-- 2024-05-30 검색버튼 위치변경, 검색내용 삭제버튼 제거, 힌트문구 수정 -->
+					<div class="bg btn_right">
+						<input type="text" placeholder="업종명 또는 업종코드 입력" value="">
+						<a class="btn search_right"><span class="blind">검색</span></a>
+					</div>
+					<!-- // 2024-05-30 검색버튼 위치변경, 검색내용 삭제버튼 제거, 힌트문구 수정 -->
+				</div>
+				<!-- 검색결과 -->
+				<div class="search_result-container">
+					<!-- 결과없음 -->
+					<div class="result_empty">
+						<p class="result_text">검색 결과가 없습니다.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- 하단 고정버튼 -->
+			<div class="btn_botFix_w">
+				<div class="inner bg_white pdt10">
+					<a href="#" class="btn_default btn-style-h48 round_r6"><!-- 활성/비활성 시 on클래스 추가/삭제 -->
+						<span>확인</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div><!-- // container -->
+</div>
+<script type="text/javascript" src="../../resource/js/lib/jquery-1.8.3.min.js"></script>
+</body>
+</html>
