@@ -46,7 +46,7 @@ $(function(){
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(function() {
                     scrollToElement(lastFocusedElement);
-                }, 300);
+                }, 0);
             }
         }
         lastHeight = currentHeight;
@@ -61,8 +61,8 @@ $(function(){
         
         // 플랫폼 별 오프셋 조정
         let scrollOffset = 72;
-        if (isIOS) scrollOffset = 100;
-        if (isAndroid) scrollOffset = 150;
+        if (isIOS) scrollOffset = 72;
+        if (isAndroid) scrollOffset = 72;
         
         $('html, body').stop().animate(
             { scrollTop: elementOffset - scrollOffset }, 
