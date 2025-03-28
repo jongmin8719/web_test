@@ -46,11 +46,12 @@ $(function(){
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(function() {
                     scrollToElement(lastFocusedElement);
+
+                    lastHeight = currentHeight;
+                    alert('최종 높이' + currentHeight);
                 }, isIOS ? 300 : 300); // iOS는 키패드 표시가 더 느림
             }
         }
-        lastHeight = currentHeight;
-        alert('최종 높이' + currentHeight);
     });
 
     // 안전한 스크롤 함수
