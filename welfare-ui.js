@@ -23,69 +23,68 @@ $(function(){
         containerBottomSpace(); // 컨테이너 하단 여백
     }, 150)
 
-    // form
-    function formHandler(){
-        let formItem = $('.js-form-item');
+function formHandler() {
+    let formItem = $('.js-form-item');
+    let initialHeight = window.innerHeight; // 초기 화면 높이 저장
 
-        formItem.on({
-            click : function(e){
-                let target = $(e.target);
+    // 모바일 키보드 감지 및 스크롤 튐 방지
+    $(window).on('resize', function () {
+        if (window.innerHeight < initialHeight) {
+            $('html, body').css({ overflow: 'hidden', height: '100%' }).scrollTop(0);
+        } else {
+            $('html, body').css({ overflow: '', height: '' });
+        }
+    });
 
-                if(
-                    target.closest('.input-type--box').length > 0 ||
-                    target.closest('.input-type--line').length > 0 ||
-                    target.closest('.input-type--textbox').length > 0
-                ){
-                    target.find('input').focus();
-                    // 스크롤 이동
-			setTimeout(function(){
-				$('html, body').stop().animate({scrollTop: target.offset().top - 72}, 50);
-				alert('스크롤 높이: ' + $(window).scrollTop());
-				alert('타겟 스크롤 위치: ' + (target.offset().top - 72));
-			}, 2000)
-			
-		
+    formItem.on({
+        click: function (e) {
+            let target = $(e.target);
+
+            if (
+                target.closest('.input-type--box').length > 0 ||
+                target.closest('.input-type--line').length > 0 ||
+                target.closest('.input-type--textbox').length > 0
+            ) {
+                let inputField = target.find('input, textarea');
+                if (inputField.length) {
+                    inputField.focus();
+
+                    // 모바일 키보드 대응 스크롤 이동
+                    setTimeout(function () {
+                        inputField[0].scrollIntoView({ block: 'start', behavior: 'smooth' });
+                    }, 300);
                 }
-            },
-            focusin : function(e){
-                let target = $(e.target);
-                if(
-                    target.closest('.input-type--box').length > 0 ||
-                    target.closest('.input-type--line').length > 0 ||
-                    target.closest('.input-type--textbox').length > 0
-                ){
-                    target.closest(formItem).addClass('item--on')
-                    target.find('input').focus();
-                }
-            },
-            focusout : function(){
-                formItem.removeClass('item--on')
             }
-        })
-
-        // 텍스트박스 플레이스 홀더 제어
-        formItem.find('.input-type--textbox').each(function() {
-            const container = $(this);
-            const textarea = container.find('textarea');
-            const placeholder = container.find('.js-placeholder');
-
-            // 입력 시 placeholder 제어
-            textarea.on('input', function() {
-                if (textarea.val().trim() === '') {
-                    placeholder.show(); // 값 있을 시 placeholder 표시
-                } else {
-                    placeholder.hide(); // 값이 없을 시 placeholder 숨김
-                }
-            });
-
-            // 초기화: 페이지 로드 시 상태 설정
-            if (textarea.val().trim() === '') {
-                placeholder.show();
-            } else {
-                placeholder.hide();
+        },
+        focusin: function (e) {
+            let target = $(e.target);
+            if (
+                target.closest('.input-type--box').length > 0 ||
+                target.closest('.input-type--line').length > 0 ||
+                target.closest('.input-type--textbox').length > 0
+            ) {
+                target.closest('.js-form-item').addClass('item--on');
             }
-        });
-    }// formHandler()
+        },
+        focusout: function () {
+            formItem.removeClass('item--on');
+        }
+    });
+
+    // 텍스트박스 placeholder 제어 최적화
+    formItem.find('.input-type--textbox').each(function () {
+        const container = $(this);
+        const textarea = container.find('textarea');
+        const placeholder = container.find('.js-placeholder');
+
+        function togglePlaceholder() {
+            placeholder.toggle(textarea.val().trim() === '');
+        }
+
+        textarea.on('input', togglePlaceholder);
+        togglePlaceholder(); // 초기화: 페이지 로드 시 상태 설정
+    });
+}
 
     // 드롭박스
 	function dropDownHandler(target){
