@@ -27,15 +27,6 @@ function formHandler() {
     let formItem = $('.js-form-item');
     let initialHeight = window.innerHeight; // 초기 화면 높이 저장
 
-    // 모바일 키보드 감지 및 스크롤 튐 방지
-    $(window).on('resize', function () {
-        if (window.innerHeight < initialHeight) {
-            $('html, body').css({ overflow: 'hidden', height: '100%' }).scrollTop(0);
-        } else {
-            $('html, body').css({ overflow: '', height: '' });
-        }
-    });
-
     formItem.on({
         click: function (e) {
             let target = $(e.target);
