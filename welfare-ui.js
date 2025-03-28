@@ -95,7 +95,7 @@ $(function(){
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(function() {
                     scrollToElement($item);
-                }, isIOS ? 300 : 100); // iOS는 키패드 표시가 더 느림
+                }, isIOS ? 300 : 300); // iOS는 키패드 표시가 더 느림
             }
         });
         
