@@ -38,7 +38,138 @@ $(function(){
 
                     // 스크롤 이동
                     $('html, body').stop().animate({ scrollTop: target.closest('.js-form-item').offset().top - 72 }, 100);
-                }
+                }                // 개선된 코드
+                formItem.on({
+                    click: function (e) {
+                        let target = $(e.target);
+                
+                        // input이나 textarea 클릭 시 처리
+                        if (target.is('input, textarea') || target.closest('.input-type--box, .input-type--line, .input-type--textbox').length > 0) {
+                            target.focus();
+                            target.find('input').eq(0).focus();
+                
+                            // 키패드가 완전히 표시될 때까지 지연
+                            setTimeout(() => {
+                                // 스크롤 이동 - 요소의 위치 + 여백
+                                let targetOffset = target.closest('.js-form-item').offset().top;
+                                let viewportHeight = window.innerHeight;
+                                let scrollPosition = targetOffset - 120; // 상단에 더 여유 공간 제공
+                                
+                                $('html, body').stop().animate({ scrollTop: scrollPosition }, 200);
+                            }, 300); // 키보드 표시 시간을 고려한 지연
+                        }
+                    },
+                    // 나머지 코드는 동일...
+                });                // 기존 resize 이벤트 개선
+                let lastHeight = window.innerHeight;
+                let lastFocusedElement = null;
+                let scrollTimeout = null;
+                
+                $(window).on('resize', function() {
+                    // 키보드가 열리면 일반적으로 높이가 감소함
+                    if (window.innerHeight < lastHeight) {
+                        // 키보드가 올라온 경우
+                        if (lastFocusedElement) {
+                            clearTimeout(scrollTimeout);
+                            scrollTimeout = setTimeout(function() {
+                                let targetOffset = lastFocusedElement.offset().top;
+                                let adjustedPosition = targetOffset - 120;
+                                $('html, body').stop().animate({ scrollTop: adjustedPosition }, 150);
+                            }, 150);
+                        }
+                    }
+                    lastHeight = window.innerHeight;
+                });
+                
+                // focus 이벤트에서 마지막 포커스된 요소 기록
+                formItem.on({
+                    // 기존 코드 유지...
+                    focusin: function(e) {
+                        let target = $(e.target);
+                        if (target.is('input, textarea')) {
+                            target.closest('.js-form-item').addClass('item--on');
+                            lastFocusedElement = target.closest('.js-form-item');
+                        }
+                    },
+                    // 기존 코드 유지...
+                });                // formHandler() 함수 내에 추가
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px 0px -50% 0px', // 화면 하단 50%가 뷰포트 밖으로 나가면 감지
+                    threshold: 0
+                };
+                
+                const inputObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting && document.activeElement === entry.target.querySelector('input, textarea')) {
+                            // 포커스된 요소가 화면에 보이지 않으면 스크롤
+                            const targetOffset = $(entry.target).offset().top;
+                            const scrollPosition = targetOffset - 100;
+                            $('html, body').stop().animate({ scrollTop: scrollPosition }, 150);
+                        }
+                    });
+                }, observerOptions);
+                
+                // 모든 입력 필드를 감시
+                formItem.each(function() {
+                    inputObserver.observe(this);
+                });                // formHandler() 함수 시작 부분에 추가
+                let isScrolling = false;
+                
+                // 스크롤 제어 함수
+                const scrollToElement = (element) => {
+                    if (isScrolling) return;
+                    
+                    isScrolling = true;
+                    const targetOffset = element.offset().top;
+                    const scrollPosition = targetOffset - 120;
+                    
+                    $('html, body').stop().animate({ scrollTop: scrollPosition }, 200, function() {
+                        isScrolling = false;
+                    });
+                };
+                
+                // 이벤트 핸들러 내에서 사용
+                formItem.on({
+                    click: function (e) {
+                        // ... 기존 코드
+                        scrollToElement(target.closest('.js-form-item'));
+                    },
+                    // 기타 이벤트 핸들러
+                });                // iOS와 Android 구분
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                const isAndroid = /Android/.test(navigator.userAgent);
+                
+                // 포커스 이벤트에서 플랫폼별 처리
+                formItem.on({
+                    focusin: function (e) {
+                        let target = $(e.target);
+                
+                        if (target.is('input, textarea')) {
+                            target.closest('.js-form-item').addClass('item--on');
+                            
+                            // 플랫폼별 조정
+                            setTimeout(() => {
+                                const targetOffset = target.closest('.js-form-item').offset().top;
+                                let scrollOffset = 72;
+                                
+                                // iOS는 키패드가 스크롤 영역을 조정하므로 더 적은 오프셋 필요
+                                if (isIOS) {
+                                    scrollOffset = 50;
+                                }
+                                // Android는 키패드가 화면을 가리므로 더 큰 오프셋 필요
+                                else if (isAndroid) {
+                                    scrollOffset = 150;
+                                }
+                                
+                                $('html, body').stop().animate({ 
+                                    scrollTop: targetOffset - scrollOffset 
+                                }, 150);
+                            }, isIOS ? 300 : 100); // iOS는 키패드 애니메이션이 더 느림
+                        }
+                    },
+                    // 기존 코드...
+                });
             },
             focusin: function (e) {
                 let target = $(e.target);
