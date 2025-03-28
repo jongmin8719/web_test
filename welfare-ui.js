@@ -50,6 +50,7 @@ $(function(){
             }
         }
         lastHeight = currentHeight;
+        alert('최종 높이' + currentHeight);
     });
 
     // 안전한 스크롤 함수
