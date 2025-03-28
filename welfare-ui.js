@@ -41,8 +41,8 @@ $(function(){
                     $('html, body').stop().animate({scrollTop: target.offset().top - 72}, 100);
 			setTimeout(function(){
 				alert('움직여라..')
-				alert('스크롤 높이' + $(window).scrollTop)
-				alert('타겟 스크롤 위치' + target.offset().top-72)
+				alert('스크롤 높이: ' + $(window).scrollTop());
+				alert('타겟 스크롤 위치: ' + (target.offset().top - 72));
 			}, 1000)
 			
 		
