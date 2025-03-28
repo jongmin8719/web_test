@@ -30,21 +30,19 @@ $(function(){
         formItem.on({
             click: function (e) {
                 let target = $(e.target);
-        
+
                 // input이나 textarea 클릭 시 처리
                 if (target.is('input, textarea') || target.closest('.input-type--box, .input-type--line, .input-type--textbox').length > 0) {
                     target.focus();
-			target.find('input').eq(0).focus();
-        
-                    // 스크롤 이동 (키보드에 가려지지 않도록 보정)
-                    $('html, body').stop().animate({ 
-                        scrollTop: target.closest('.js-form-item').offset().top - 72 
-                    }, 100);
+                    target.find('input').eq(0).focus();
+
+                    // 스크롤 이동
+                    $('html, body').stop().animate({ scrollTop: target.closest('.js-form-item').offset().top - 72 }, 100);
                 }
             },
             focusin: function (e) {
                 let target = $(e.target);
-        
+
                 // input, textarea가 포커스 될 때 처리
                 if (target.is('input, textarea')) {
                     target.closest('.js-form-item').addClass('item--on');
@@ -52,20 +50,11 @@ $(function(){
             },
             focusout: function (e) {
                 let target = $(e.target);
-        
+
                 // input, textarea에서 포커스 아웃될 때 처리
                 if (target.is('input, textarea')) {
                     target.closest('.js-form-item').removeClass('item--on');
                 }
-            }
-        });
-
-        // 키보드가 올라올 때 화면을 적절히 스크롤하여 가려지지 않도록 처리
-        $(window).on('resize', function () {
-            if (window.innerHeight < 500) {  // 키보드가 올라올 때 높이가 감소한다고 가정
-                $('html, body').stop().animate({ 
-                    scrollTop: $(document).height() - window.innerHeight 
-                }, 200);
             }
         });
 
@@ -92,6 +81,15 @@ $(function(){
             }
         });
     }// formHandler()
+
+    // 키보드가 올라올 때 화면을 적절히 스크롤하여 가려지지 않도록 처리
+    $(window).on('resize', function () {
+        if (window.innerHeight < 500) {  // 키보드가 올라올 때 높이가 감소한다고 가정
+            $('html, body').stop().animate({ 
+                scrollTop: $(document).height() - window.innerHeight 
+            }, 200);
+        }
+    });
 
     // 드롭박스
 	function dropDownHandler(target){
