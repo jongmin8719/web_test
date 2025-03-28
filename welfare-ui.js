@@ -40,17 +40,19 @@ $(function(){
 
         // 키보드가 활성화되면 윈도우 높이가 줄어듦
         const currentHeight = window.innerHeight;
+        
         if (currentHeight < lastHeight) {
             // 키보드가 올라옴
             if (lastFocusedElement) {
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(function() {
                     scrollToElement(lastFocusedElement);
-
-                    lastHeight = currentHeight;
-                    alert('최종 높이' + currentHeight);
-                }, isIOS ? 300 : 300); // iOS는 키패드 표시가 더 느림
+                    lastHeight = currentHeight; // 키보드가 올라온 상태의 높이 저장
+                }, isIOS ? 500 : 300); // iOS는 키패드 표시가 더 느림
             }
+        } else if (currentHeight > lastHeight) {
+            // 키보드가 내려감
+            lastHeight = currentHeight; // 키보드가 내려간 상태의 높이 저장
         }
     });
 
