@@ -73,7 +73,6 @@ $(function(){
     // 입력 필드 포커스 감지
     $(document).on('focus', 'input, textarea, select', function() {
         lastFocusedElement = $(this);
-        alert('포커스 감지 - 요소: ' + $(this).attr('id') || $(this).attr('name') || '알 수 없음');
     });
 
 
