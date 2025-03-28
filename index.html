@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="welfare_reset.css">
+<link rel="stylesheet" href="welfare.css">
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="welfare-ui.js"></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!-- 헤더 -->
+		<header class="header position-sticky">
+			<nav class="header__navi">
+				<a href="#none" class="header__btn btn-back">
+					<span class="blind">이전페이지로</span>
+				</a>
+			</nav>
+			<div class="header__title-wrap">
+				<h1 class="page-name"><span>본인인증</span></h1>
+			</div>
+		</header>
+
+		<!-- 메인 컨텐츠 -->
+		<main class="container-wrap js-container-wrap">
+			<!-- 컨테이너 -->
+			<div class="container page--auth js-container justify-spacing-def pdt24">
+				<sections class="container__body">
+					<div class="body__content">
+						<div class="flex-column">
+							<!-- 약관동의 -->
+							<div class="form-box auth__terms-agree freeze js-checked--handle">
+								<div class="form__item js-form-item item--disabled"><!-- 활성화 시 'item--on', 읽기전용, 비활성화 시 item--disabled, 오류 시 item--error -->
+									<!-- 전체 동의하기 -->
+									<div class="form__item-header">
+										<div class="input-type--check readonly"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
+											<label class="flex-row">
+												<input type="checkbox" class="js-all-check" checked><!-- [D] 인증번호 요청 시 readonly 추가 -->
+												<span>전체 동의하기</span>
+											</label>
+										</div>
+									</div>
+
+									<!-- 개별 동의하기 -->
+									<div class="form__item-wrap">
+										<!-- (필수) 통신사 이용약관 -->
+										<div class="input-type--check readonly"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
+											<label class="flex-row">
+												<input type="checkbox" checked>
+												<span>(필수) 통신사 이용약관</span>
+											</label>
+											<!-- 버튼 -->
+											<button class="terms-view--button" onclick="alert('1234')">
+												<i class="icon icon--arrow-16"></i>
+												<span class="blind">통신사 이용약관 보기</span>
+											</button>
+										</div>
+										<!-- (필수) 본인확인 서비스 이용약관 -->
+										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
+											<label class="flex-row">
+												<input type="checkbox">
+												<span>(필수) 본인확인 서비스 이용약관</span>
+											</label>
+											<!-- 버튼 -->
+											<button class="terms-view--button">
+												<i class="icon icon--arrow-16"></i>
+												<span class="blind">본인확인 서비스 이용약관 보기</span>
+											</button>
+										</div>
+										<!-- (필수) 개인정보 수집 · 이용 · 취급 · 위탁 동의 -->
+										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
+											<label class="flex-row">
+												<input type="checkbox">
+												<span>(필수) 개인정보 수집 · 이용 · 취급 · 위탁 동의</span>
+											</label>
+											<!-- 버튼 -->
+											<button class="terms-view--button">
+												<i class="icon icon--arrow-16"></i>
+												<span class="blind">개인정보 수집 · 이용 · 취급 · 위탁 동의 약관 보기</span>
+											</button>
+										</div>
+										<!-- (필수) 고유식별정보 처리 동의 -->
+										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
+											<label class="flex-row">
+												<input type="checkbox">
+												<span>(필수) 고유식별정보 처리 동의</span>
+											</label>
+											<!-- 버튼 -->
+											<button class="terms-view--button">
+												<i class="icon icon--arrow-16"></i>
+												<span class="blind">고유식별정보 처리 동의 약관 보기</span>
+											</button>
+										</div>
+										<!-- [D] 알뜰폰 선택 시 노출 - 체크 비활성화 -->
+										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
+											<label class="flex-row">
+												<input type="checkbox">
+												<span>(필수) 알뜰폰 개인정보 제3자 제공 동의</span>
+											</label>
+											<!-- 버튼 -->
+											<button class="terms-view--button">
+												<i class="icon icon--arrow-16"></i>
+												<span class="blind">알뜰폰 개인정보 제3자 제공 동의 약관 보기</span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- 정보입력 -->
+							<div class="form-box js-form-box gap-10">
+								<!-- 이름 -->
+								<div class="form__item js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
+									<div class="form__item-wrap">
+										<div class="input-type--box">
+											<input type="text" value="" placeholder="이름(실명) 입력"><!-- [D] 이름 입력 -->
+											<button type="button" class="input__unit" style="display: none;"><i class="icon icon--close_cr-16"></i></button>
+										</div>
+									</div>
+								</div>
+
+								<!-- 주민등록번호 -->
+								<div class="form__item regist-code js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
+									<div class="form__item-wrap">
+										<div class="input-type--box">
+											<input type="text" value="" placeholder="생년월일 6자리" maxlength="6">
+											<span class="between-bar">-</span>
+											<input type="text" value="" placeholder="0" maxlength="1">
+											<div class="currency-box">
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 휴대폰번호 입력 -->
+								<div class="form__item phone-box js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
+									<div class="form__item-wrap">
+										<div class="input-type--box">
+											<button type="button" class="input-unit fc-placeholder js-select--result js-popup-open" data-modal="popup-select--telecom">
+												<span class="target">통신사 선택</span><i class="icon icon--arrow-16 pointer-bottom"></i>
+											</button>
+											<input type="tel" value="" placeholder="휴대폰번호 입력" maxlength="11">
+										</div>
+									</div>
+								</div>
+
+								<!-- 인증번호 입력 -->
+								<div class="form__item cert-box item--disabled js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 제거 -->
+									<div class="form__item-wrap flex-row">
+										<div class="input-type--box">
+											<input type="tel" value="" placeholder="인증번호 6자리" maxlength="6">
+											<span class="shrink-n">05:00</span>
+										</div>
+										<button class="button button-large button--lv4 js-cert-button">
+											<span>인증번호 요청</span>
+										</button>
+									</div>
+								</div>
+								<!-- 주민등록번호 -->
+								<div class="form__item regist-code js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
+									<div class="form__item-wrap">
+										<div class="input-type--box">
+											<input type="text" value="" placeholder="생년월일 6자리" maxlength="6">
+											<span class="between-bar">-</span>
+											<input type="text" value="" placeholder="0" maxlength="1">
+											<div class="currency-box">
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 휴대폰번호 입력 -->
+								<div class="form__item phone-box js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
+									<div class="form__item-wrap">
+										<div class="input-type--box">
+											<button type="button" class="input-unit fc-placeholder js-select--result js-popup-open" data-modal="popup-select--telecom">
+												<span class="target">통신사 선택</span><i class="icon icon--arrow-16 pointer-bottom"></i>
+											</button>
+											<input type="tel" value="" placeholder="휴대폰번호 입력" maxlength="11">
+										</div>
+									</div>
+								</div>
+
+								<!-- 인증번호 입력 -->
+								<div class="form__item cert-box item--disabled js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 제거 -->
+									<div class="form__item-wrap flex-row">
+										<div class="input-type--box">
+											<input type="tel" value="" placeholder="인증번호 6자리" maxlength="6">
+											<span class="shrink-n">05:00</span>
+										</div>
+										<button class="button button-large button--lv4 js-cert-button">
+											<span>인증번호 요청</span>
+										</button>
+									</div>
+								</div>
+								<!-- 주민등록번호 -->
+								<div class="form__item regist-code js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
+									<div class="form__item-wrap">
+										<div class="input-type--box">
+											<input type="text" value="" placeholder="생년월일 6자리" maxlength="6">
+											<span class="between-bar">-</span>
+											<input type="text" value="" placeholder="0" maxlength="1">
+											<div class="currency-box">
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+												<p class="currency-bullet"></p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 휴대폰번호 입력 -->
+								<div class="form__item phone-box js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
+									<div class="form__item-wrap">
+										<div class="input-type--box">
+											<button type="button" class="input-unit fc-placeholder js-select--result js-popup-open" data-modal="popup-select--telecom">
+												<span class="target">통신사 선택</span><i class="icon icon--arrow-16 pointer-bottom"></i>
+											</button>
+											<input type="tel" value="" placeholder="휴대폰번호 입력" maxlength="11">
+										</div>
+									</div>
+								</div>
+
+								<!-- 인증번호 입력 -->
+								<div class="form__item cert-box item--disabled js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 제거 -->
+									<div class="form__item-wrap flex-row">
+										<div class="input-type--box">
+											<input type="tel" value="" placeholder="인증번호 6자리" maxlength="6">
+											<span class="shrink-n">05:00</span>
+										</div>
+										<button class="button button-large button--lv4 js-cert-button">
+											<span>인증번호 요청</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</sections>
+			</div>
+
+			<!-- 플로팅 컨테이너 -->
+			<div class="container-floating js-floating-container">
+				<article class="floating__box button-box-spacing">
+					<a href="#none" class="button button-xl button--lv1 dis"><!-- [D] 활성화 시 'dis' 클래스 제거  -->
+						<span>인증하기</span>
+					</a>
+				</article>
+			</div>
+		</main>
+		<!-- // 메인 컨텐츠 -->
+
+
+		<!-- 팝업 - 통신사 선택 -->
+		<div class="popup-wrap js-popup-wrap" data-modal="popup-select--telecom">
+			<div class="popup-container popup--bottom popup-select--type1 box-padding--type2 js-popup-select">
+				<section class="popup-container__body">
+					<div class="flex-column justify-spacing-def">
+						<button type="button" class="select__button js-select-content js-popup-close">
+							<span>SKT</span><i class="icon icon--check-24_primary"></i>
+						</button>
+						<button type="button" class="select__button js-select-content js-popup-close">
+							<span>KT</span><i class="icon icon--check-24_primary"></i>
+						</button>
+						<button type="button" class="select__button js-select-content js-popup-close select"><!-- 선택 시 select 클래스 추가 -->
+							<span>LG U+</span><i class="icon icon--check-24_primary"></i>
+						</button>
+						<button type="button" class="select__button js-select-content js-popup-close">
+							<span>SKT 알뜰폰</span><i class="icon icon--check-24_primary"></i>
+						</button>
+						<button type="button" class="select__button js-select-content js-popup-close">
+							<span>KT 알뜰폰</span><i class="icon icon--check-24_primary"></i>
+						</button>
+						<button type="button" class="select__button js-select-content js-popup-close">
+							<span class="target">LG U+ 알뜰폰</span><i class="icon icon--check-24_primary"></i>
+						</button>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+<script>
+	$(function(){
+		// 체크박스 상태 동기화
+		let allChk = $('.js-all-check');
+		let checkbox = $('.js-checked--handle input').not(allChk);
+
+		// 'allChk' 클릭 시, 모든 개별 체크박스 상태 동기화
+		allChk.on('click', function () {
+			const isChecked = $(this).prop('checked');
+			checkbox.prop('checked', isChecked);
+		});
+
+		// 개별 체크박스 클릭 시, allChk 상태 업데이트
+		checkbox.on('click', function () {
+			const total = checkbox.length;
+			const checkedCount = checkbox.filter(':checked').length;
+
+			allChk.prop('checked', total === checkedCount);
+		});
+
+	})
+</script>
