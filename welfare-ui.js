@@ -38,11 +38,11 @@ $(function(){
                 ){
                     target.find('input').focus();
                     // 스크롤 이동
-                    $('html, body').stop().animate({scrollTop: target.offset().top - 72}, 100);
 			setTimeout(function(){
+				$('html, body').stop().animate({scrollTop: target.offset().top - 72}, 50);
 				alert('스크롤 높이: ' + $(window).scrollTop());
 				alert('타겟 스크롤 위치: ' + (target.offset().top - 72));
-			}, 5000)
+			}, 2000)
 			
 		
                 }
