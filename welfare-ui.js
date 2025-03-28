@@ -67,7 +67,7 @@ $(function(){
                 lastHeight = currentHeight;
                 alert('키보드 DOWN - 높이 업데이트: ' + lastHeight + 'px');
             }
-        }, 100); // 리사이즈 이벤트 종료 100ms 후 실행
+        }, 500); // 리사이즈 이벤트 종료 100ms 후 실행
     });
 
     // 입력 필드 포커스 감지
