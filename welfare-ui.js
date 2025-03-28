@@ -23,7 +23,143 @@ $(function(){
         containerBottomSpace(); // 컨테이너 하단 여백
     }, 150)
 
-    scrollToElement(target.closest('.js-form-item')); // 스크롤 이동
+    // 디바이스 탐지
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isAndroid = /Android/.test(navigator.userAgent);
+    const isMobile = isIOS || isAndroid;
+
+    // 스크롤 제어 관련 변수
+    let isScrolling = false;
+    let lastFocusedElement = null;
+    let lastHeight = window.innerHeight;
+    let scrollTimeout = null;
+
+    // 윈도우 리사이즈(키보드 표시) 감지
+    $(window).on('resize', function() {
+        if (!isMobile) return; // 모바일 디바이스만 처리
+
+        // 키보드가 활성화되면 윈도우 높이가 줄어듦
+        const currentHeight = window.innerHeight;
+        if (currentHeight < lastHeight) {
+            // 키보드가 올라옴
+            if (lastFocusedElement) {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                    scrollToElement(lastFocusedElement);
+                }, 300);
+            }
+        }
+        lastHeight = currentHeight;
+    });
+
+    // 안전한 스크롤 함수
+    function scrollToElement(element) {
+        if (isScrolling) return;
+        
+        isScrolling = true;
+        const elementOffset = element.offset().top;
+        
+        // 플랫폼 별 오프셋 조정
+        let scrollOffset = 72;
+        if (isIOS) scrollOffset = 100;
+        if (isAndroid) scrollOffset = 150;
+        
+        $('html, body').stop().animate(
+            { scrollTop: elementOffset - scrollOffset }, 
+            150, 
+            function() {
+                isScrolling = false;
+            }
+        );
+    }
+
+    // form
+    function formHandler(){
+        let formItem = $('.js-form-item');
+        
+        // 입력 요소에 focus 이벤트 직접 바인딩
+        formItem.find('input, textarea').on('focus', function() {
+            const $this = $(this);
+            const $item = $this.closest('.js-form-item');
+            
+            // 활성 상태 설정
+            formItem.removeClass('item--on');
+            $item.addClass('item--on');
+            
+            // 현재 포커스된 요소 저장
+            lastFocusedElement = $item;
+            
+            // 모바일 환경에서만 스크롤 조정
+            if (isMobile) {
+                // 키패드가 완전히 표시될 때까지 기다림
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                    scrollToElement($item);
+                }, isIOS ? 300 : 100); // iOS는 키패드 표시가 더 느림
+            }
+        });
+        
+        // 포커스 아웃 시 스타일 제거
+        formItem.find('input, textarea').on('blur', function() {
+            setTimeout(function() {
+                // 다른 입력 필드로 포커스가 옮겨진 경우는 제외
+                if (!formItem.find('input:focus, textarea:focus').length) {
+                    formItem.removeClass('item--on');
+                    lastFocusedElement = null;
+                }
+            }, 10);
+        });
+
+        // 컨테이너 클릭 시 입력 필드에 포커스
+        formItem.on('click', function(e) {
+            const $target = $(e.target);
+            const $item = $(this);
+            
+            // 이미 포커스된 요소 다시 클릭 시 스크롤 방지
+            if ($item.hasClass('item--on') && lastFocusedElement && $item.is(lastFocusedElement)) {
+                return;
+            }
+            
+            // 입력 영역 클릭 시
+            if (
+                $target.closest('.input-type--box').length > 0 ||
+                $target.closest('.input-type--line').length > 0 ||
+                $target.closest('.input-type--textbox').length > 0
+            ) {
+                // 입력 요소 찾기
+                const $input = $target.closest('.input-type--box, .input-type--line, .input-type--textbox').find('input, textarea').first();
+                
+                if ($input.length) {
+                    // 포커스 설정
+                    $input.focus();
+                    lastFocusedElement = $item;
+                }
+            }
+        });
+
+        // 텍스트박스 플레이스 홀더 제어
+        formItem.find('.input-type--textbox').each(function() {
+            const container = $(this);
+            const textarea = container.find('textarea');
+            const placeholder = container.find('.js-placeholder');
+
+            // 입력 시 placeholder 제어
+            textarea.on('input', function() {
+                if (textarea.val().trim() === '') {
+                    placeholder.show(); // 값이 없을 시 placeholder 표시
+                } else {
+                    placeholder.hide(); // 값 있을 시 placeholder 숨김
+                }
+            });
+
+            // 초기화: 페이지 로드 시 상태 설정
+            if (textarea.val().trim() === '') {
+                placeholder.show();
+            } else {
+                placeholder.hide();
+            }
+        });
+    }// formHandler()
 
     // 드롭박스
 	function dropDownHandler(target){
