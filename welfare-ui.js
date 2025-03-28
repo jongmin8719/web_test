@@ -35,6 +35,9 @@ $(function(){
     let scrollTimeout = null;
     let resizeEndTimeout = null;
 
+    // 디버깅용 메시지 표시
+    alert('초기 창 높이: ' + lastHeight);
+
     // 윈도우 리사이즈(키보드 표시) 감지 - debounce 적용
     $(window).on('resize', function() {
         if (!isMobile) return; // 모바일 디바이스만 처리
@@ -45,6 +48,9 @@ $(function(){
             // 키보드 애니메이션이 완료된 후의 최종 높이
             const currentHeight = window.innerHeight;
             
+            // 높이 변화 감지 알림
+            alert('리사이즈 감지!\n이전 높이: ' + lastHeight + 'px\n현재 높이: ' + currentHeight + 'px\n차이: ' + (lastHeight - currentHeight) + 'px');
+            
             if (currentHeight < lastHeight) {
                 // 키보드가 올라옴
                 if (lastFocusedElement) {
@@ -53,11 +59,13 @@ $(function(){
                         scrollToElement(lastFocusedElement);
                         // 키보드 올라온 후 높이 저장
                         lastHeight = currentHeight;
+                        alert('키보드 UP - 높이 업데이트: ' + lastHeight + 'px');
                     }, isIOS ? 300 : 200);
                 }
             } else if (currentHeight > lastHeight) {
                 // 키보드가 내려감
                 lastHeight = currentHeight;
+                alert('키보드 DOWN - 높이 업데이트: ' + lastHeight + 'px');
             }
         }, 100); // 리사이즈 이벤트 종료 100ms 후 실행
     });
@@ -65,7 +73,9 @@ $(function(){
     // 입력 필드 포커스 감지
     $(document).on('focus', 'input, textarea, select', function() {
         lastFocusedElement = $(this);
+        alert('포커스 감지 - 요소: ' + $(this).attr('id') || $(this).attr('name') || '알 수 없음');
     });
+
 
     // 안전한 스크롤 함수
     function scrollToElement(element) {
