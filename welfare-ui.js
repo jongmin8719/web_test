@@ -39,6 +39,8 @@ $(function(){
                     target.find('input').focus();
                     // 스크롤 이동
                     $('html, body').stop().animate({scrollTop: target.offset().top-72}, 100);
+			alert('움직여라..')
+		
                 }
             },
             focusin : function(e){
