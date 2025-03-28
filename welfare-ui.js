@@ -34,6 +34,7 @@ $(function(){
                 // input이나 textarea 클릭 시 처리
                 if (target.is('input, textarea') || target.closest('.input-type--box, .input-type--line, .input-type--textbox').length > 0) {
                     target.focus();
+			target.find('input').eq(0).focus();
         
                     // 스크롤 이동 (키보드에 가려지지 않도록 보정)
                     $('html, body').stop().animate({ 
