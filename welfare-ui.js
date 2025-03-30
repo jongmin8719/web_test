@@ -37,15 +37,21 @@ $(function(){
                     target.closest('.input-type--textbox').length > 0
                 ){
                     target.find('input').focus();
-                    // 스크롤 이동 - Visual Viewport API 사용
+
                     setTimeout(() => {
-                        // Visual Viewport 높이 가져오기 (키보드가 올라온 상태를 반영)
+                        // visualViewport API를 사용하여 현재 뷰포트 높이 가져오기 (키보드 올라온 상태 반영)
                         const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-                        // 요소가 화면 상단에서 1/4 지점에 위치하도록 계산 (키보드 영역을 고려)
-                        const scrollPosition = target.offset().top - (viewportHeight / 4);
-                        $('html, body').stop().animate({scrollTop: scrollPosition}, 100);    
-                    }, 300); // 키보드가 올라올 시간을 고려하여 타이머 증가
-                    
+                        
+                        // 스크롤할 대상 위치 계산 (헤더 높이 72px 고려)
+                        const targetElement = target instanceof jQuery ? target[0] : target;
+                        const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 72;
+                        
+                        // 뷰포트 높이를 고려하여 요소가 화면 중앙에 오도록 조정 (선택적)
+                        const centeredScrollPosition = scrollPosition - (viewportHeight/4) + (targetElement.offsetHeight/2);
+                        
+                        // jQuery 사용 애니메이션 스크롤
+                        $('html, body').stop().animate({scrollTop: centeredScrollPosition}, 100);
+                    }, 300); // 키보드가 올라올 시간을 고려한 지연
                 }
             },
             focusin : function(e){
