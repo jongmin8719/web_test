@@ -52,7 +52,7 @@ $(function(){
                         // jQuery 사용 애니메이션 스크롤
                         $('html, body').stop().animate({scrollTop: centeredScrollPosition}, 100);
                         $('h1').text('화면 실제높이' + viewportHeight)
-                    }, 300); // 키보드가 올라올 시간을 고려한 지연
+                    }, 500); // 키보드가 올라올 시간을 고려한 지연
                 }
             },
             focusin : function(e){
