@@ -37,14 +37,14 @@ $(function(){
                     target.closest('.input-type--textbox').length > 0
                 ){
                     target.find('input').focus();
-                    // 스크롤 이동 - 비주얼 뷰포트 기준으로 수정
+                    // 스크롤 이동 - Visual Viewport API 사용
                     setTimeout(() => {
-                        // 뷰포트 높이 가져오기
-                        const viewportHeight = window.innerHeight;
-                        // 요소가 화면 상단에서 1/3 지점에 위치하도록 계산
-                        const scrollPosition = target.offset().top - (viewportHeight / 3);
+                        // Visual Viewport 높이 가져오기 (키보드가 올라온 상태를 반영)
+                        const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+                        // 요소가 화면 상단에서 1/4 지점에 위치하도록 계산 (키보드 영역을 고려)
+                        const scrollPosition = target.offset().top - (viewportHeight / 4);
                         $('html, body').stop().animate({scrollTop: scrollPosition}, 100);    
-                    }, 100);
+                    }, 300); // 키보드가 올라올 시간을 고려하여 타이머 증가
                     
                 }
             },
