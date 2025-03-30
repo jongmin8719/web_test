@@ -23,143 +23,46 @@ $(function(){
         containerBottomSpace(); // 컨테이너 하단 여백
     }, 150)
 
-    // 디바이스 탐지
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    const isAndroid = /Android/.test(navigator.userAgent);
-    const isMobile = isIOS || isAndroid;
-
-    // 스크롤 제어 관련 변수
-    let isScrolling = false;
-    let lastFocusedElement = null;
-    let lastHeight = window.innerHeight;
-    let scrollTimeout = null;
-    let resizeEndTimeout = null;
-
-    // 디버깅용 메시지 표시
-    alert('초기 창 높이: ' + lastHeight);
-
-    // 윈도우 리사이즈(키보드 표시) 감지 - debounce 적용
-    $(window).on('resize', function() {
-        if (!isMobile) return; // 모바일 디바이스만 처리
-
-        // 리사이즈 완료 시점 감지를 위한 debounce 처리
-        clearTimeout(resizeEndTimeout);
-        resizeEndTimeout = setTimeout(function() {
-            // 키보드 애니메이션이 완료된 후의 최종 높이
-            const currentHeight = window.innerHeight;
-            
-            // 높이 변화 감지 알림
-            alert('리사이즈 감지!\n이전 높이: ' + lastHeight + 'px\n현재 높이: ' + currentHeight + 'px\n차이: ' + (lastHeight - currentHeight) + 'px');
-            
-            if (currentHeight < lastHeight) {
-                // 키보드가 올라옴
-                if (lastFocusedElement) {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(function() {
-                        scrollToElement(lastFocusedElement);
-                        // 키보드 올라온 후 높이 저장
-                        lastHeight = currentHeight;
-                        alert('키보드 UP - 높이 업데이트: ' + lastHeight + 'px');
-                    }, isIOS ? 300 : 200);
-                }
-            } else if (currentHeight > lastHeight) {
-                // 키보드가 내려감
-                lastHeight = currentHeight;
-                alert('키보드 DOWN - 높이 업데이트: ' + lastHeight + 'px');
-            }
-        }, 500); // 리사이즈 이벤트 종료 100ms 후 실행
-    });
-
-    // 입력 필드 포커스 감지
-    $(document).on('focus', 'input, textarea, select', function() {
-        lastFocusedElement = $(this);
-    });
-
-
-    // 안전한 스크롤 함수
-    function scrollToElement(element) {
-        if (isScrolling) return;
-        
-        isScrolling = true;
-        const elementOffset = element.offset().top;
-        
-        // 플랫폼 별 오프셋 조정
-        let scrollOffset = 72;
-        if (isIOS) scrollOffset = 72;
-        if (isAndroid) scrollOffset = 72;
-        
-        $('html, body').stop().animate(
-            { scrollTop: elementOffset - scrollOffset }, 
-            150, 
-            function() {
-                isScrolling = false;
-            }
-        );
-    }
-
     // form
     function formHandler(){
         let formItem = $('.js-form-item');
-        
-        // 입력 요소에 focus 이벤트 직접 바인딩
-        formItem.find('input, textarea').on('focus', function() {
-            const $this = $(this);
-            const $item = $this.closest('.js-form-item');
-            
-            // 활성 상태 설정
-            formItem.removeClass('item--on');
-            $item.addClass('item--on');
-            
-            // 현재 포커스된 요소 저장
-            lastFocusedElement = $item;
-            
-            // 모바일 환경에서만 스크롤 조정
-            if (isMobile) {
-                // 키패드가 완전히 표시될 때까지 기다림
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(function() {
-                    scrollToElement($item);
-                }, isIOS ? 300 : 300); // iOS는 키패드 표시가 더 느림
-            }
-        });
-        
-        // 포커스 아웃 시 스타일 제거
-        formItem.find('input, textarea').on('blur', function() {
-            setTimeout(function() {
-                // 다른 입력 필드로 포커스가 옮겨진 경우는 제외
-                if (!formItem.find('input:focus, textarea:focus').length) {
-                    formItem.removeClass('item--on');
-                    lastFocusedElement = null;
-                }
-            }, 10);
-        });
 
-        // 컨테이너 클릭 시 입력 필드에 포커스
-        formItem.on('click', function(e) {
-            const $target = $(e.target);
-            const $item = $(this);
-            
-            // 이미 포커스된 요소 다시 클릭 시 스크롤 방지
-            if ($item.hasClass('item--on') && lastFocusedElement && $item.is(lastFocusedElement)) {
-                return;
-            }
-            
-            // 입력 영역 클릭 시
-            if (
-                $target.closest('.input-type--box').length > 0 ||
-                $target.closest('.input-type--line').length > 0 ||
-                $target.closest('.input-type--textbox').length > 0
-            ) {
-                // 입력 요소 찾기
-                const $input = $target.closest('.input-type--box, .input-type--line, .input-type--textbox').find('input, textarea').first();
-                
-                if ($input.length) {
-                    // 포커스 설정
-                    $input.focus();
-                    lastFocusedElement = $item;
+        formItem.on({
+            click : function(e){
+                let target = $(e.target);
+
+                if(
+                    target.closest('.input-type--box').length > 0 ||
+                    target.closest('.input-type--line').length > 0 ||
+                    target.closest('.input-type--textbox').length > 0
+                ){
+                    target.find('input').focus();
+                    // 스크롤 이동 - 비주얼 뷰포트 기준으로 수정
+                    setTimeout(() => {
+                        // 뷰포트 높이 가져오기
+                        const viewportHeight = window.innerHeight;
+                        // 요소가 화면 상단에서 1/3 지점에 위치하도록 계산
+                        const scrollPosition = target.offset().top - (viewportHeight / 3);
+                        $('html, body').stop().animate({scrollTop: scrollPosition}, 100);    
+                    }, 100);
+                    
                 }
+            },
+            focusin : function(e){
+                let target = $(e.target);
+                if(
+                    target.closest('.input-type--box').length > 0 ||
+                    target.closest('.input-type--line').length > 0 ||
+                    target.closest('.input-type--textbox').length > 0
+                ){
+                    target.closest(formItem).addClass('item--on')
+                    target.find('input').focus();
+                }
+            },
+            focusout : function(){
+                formItem.removeClass('item--on')
             }
-        });
+        })
 
         // 텍스트박스 플레이스 홀더 제어
         formItem.find('.input-type--textbox').each(function() {
@@ -170,9 +73,9 @@ $(function(){
             // 입력 시 placeholder 제어
             textarea.on('input', function() {
                 if (textarea.val().trim() === '') {
-                    placeholder.show(); // 값이 없을 시 placeholder 표시
+                    placeholder.show(); // 값 있을 시 placeholder 표시
                 } else {
-                    placeholder.hide(); // 값 있을 시 placeholder 숨김
+                    placeholder.hide(); // 값이 없을 시 placeholder 숨김
                 }
             });
 
@@ -394,6 +297,8 @@ $(function(){
     }// bepleKeyAction()
     // 비플 키패드 클릭 동작
     bepleKeyAction();
+
+
 
     function padInit() {
         const transKeypads = $('.transkey');
