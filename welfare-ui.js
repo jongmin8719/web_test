@@ -47,10 +47,11 @@ $(function(){
                         const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 72;
                         
                         // 뷰포트 높이를 고려하여 요소가 화면 중앙에 오도록 조정 (선택적)
-                        const centeredScrollPosition = scrollPosition - (viewportHeight/4) + (targetElement.offsetHeight/2);
+                        const centeredScrollPosition = scrollPosition - (viewportHeight/2) + (targetElement.offsetHeight/2);
                         
                         // jQuery 사용 애니메이션 스크롤
                         $('html, body').stop().animate({scrollTop: centeredScrollPosition}, 100);
+                        $('h1').text('화면 실제높이' + viewportHeight)
                     }, 300); // 키보드가 올라올 시간을 고려한 지연
                 }
             },
