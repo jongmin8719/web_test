@@ -44,10 +44,11 @@ $(function(){
                         
                         // 스크롤할 대상 위치 계산 (헤더 높이 72px 고려)
                         const targetElement = target instanceof jQuery ? target[0] : target;
-                        const scrollPosition = targetElement.getBoundingClientRect().top - window.scrollY - 72;
+                        const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 72;
                         $('html, body').height(viewportHeight)
 
                         // jQuery 사용 애니메이션 스크롤
+                        console.log('타겟 위치' + targetElement.getBoundingClientRect().top)
                         $('html, body').stop().animate({scrollTop: scrollPosition}, 100);
                         $('h1').text('스크롤 위치' + viewportHeight)
                     }, 500); // 키보드가 올라올 시간을 고려한 지연
