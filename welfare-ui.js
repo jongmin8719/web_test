@@ -44,14 +44,12 @@ $(function(){
                         
                         // 스크롤할 대상 위치 계산 (헤더 높이 72px 고려)
                         const targetElement = target instanceof jQuery ? target[0] : target;
-                        const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 72;
-                        
-                        // 뷰포트 높이를 고려하여 요소가 화면 중앙에 오도록 조정 (선택적)
-                        const centeredScrollPosition = scrollPosition - (viewportHeight/2) + (targetElement.offsetHeight/2);
-                        
+                        const scrollPosition = targetElement.getBoundingClientRect().top - window.scrollY - 72;
+                        $('html, body').height(viewportHeight)
+
                         // jQuery 사용 애니메이션 스크롤
-                        $('html, body').stop().animate({scrollTop: centeredScrollPosition}, 100);
-                        $('h1').text('화면 실제높이' + viewportHeight)
+                        $('html, body').stop().animate({scrollTop: scrollPosition}, 100);
+                        $('h1').text('스크롤 위치' + viewportHeight)
                     }, 500); // 키보드가 올라올 시간을 고려한 지연
                 }
             },
@@ -68,6 +66,7 @@ $(function(){
             },
             focusout : function(){
                 formItem.removeClass('item--on')
+                $('html, body').height('')
             }
         })
 
