@@ -3,294 +3,641 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title></title>
-<link rel="stylesheet" href="welfare_reset.css">
-<link rel="stylesheet" href="welfare.css">
-<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="welfare-ui.js"></script>
+<title>비플페이</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="zero.css">
 </head>
 
 <body>
-	<div class="wrap">
-		<!-- 헤더 -->
-		<header class="header position-sticky">
-			<nav class="header__navi">
-				<a href="#none" class="header__btn btn-back">
-					<span class="blind">이전페이지로</span>
-				</a>
-			</nav>
-			<div class="header__title-wrap">
-				<h1 class="page-name"><span>본인인증3</span></h1>
-			</div>
-		</header>
+<div class="wrap map_view">
+	<!-- header -->
+	<div class="header">
+		<h1>비플페이</h1>
+		<a href="#" class="btn_map_close">닫기</a>
+	</div>
 
-		<!-- 메인 컨텐츠 -->
-		<main class="container-wrap js-container-wrap">
-			<!-- 컨테이너 -->
-			<div class="container page--auth js-container justify-spacing-def pdt24">
-				<sections class="container__body">
-					<div class="body__content">
-						<div class="flex-column">
-							<!-- 약관동의 -->
-							<div class="form-box auth__terms-agree freeze js-checked--handle">
-								<div class="form__item js-form-item item--disabled"><!-- 활성화 시 'item--on', 읽기전용, 비활성화 시 item--disabled, 오류 시 item--error -->
-									<!-- 전체 동의하기 -->
-									<div class="form__item-header">
-										<div class="input-type--check readonly"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
-											<label class="flex-row">
-												<input type="checkbox" class="js-all-check" checked><!-- [D] 인증번호 요청 시 readonly 추가 -->
-												<span>전체 동의하기</span>
-											</label>
-										</div>
+	<!-- container -->
+	<div class="container">
+		<!-- 컨텐츠 영역 -->
+		<div class="content">
+			<div class="map_w">
+				<!-- 현 위치 가맹점 리스트/지도 -->
+				<div class="con_bx half" style="display: ;"><!-- [D] 2025-03-26 미사용 시 style="display: none;" / 접힘 시 'fold' 클래스 추가 / 로딩 시 'loading'클래스 추가 / 검색결과 돌아가기 버튼노출 시 btn 클래스추가 -->
+					<!-- 가맹점 목록 -->
+					<ul class="st_list">
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_agri.png" alt=""><!-- 농산물/청과 -->
+										</p>
+										<h2 class="name">밴건디 야채가게</h2>
 									</div>
-
-									<!-- 개별 동의하기 -->
-									<div class="form__item-wrap">
-										<!-- (필수) 통신사 이용약관 -->
-										<div class="input-type--check readonly"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
-											<label class="flex-row">
-												<input type="checkbox" checked>
-												<span>(필수) 통신사 이용약관</span>
-											</label>
-											<!-- 버튼 -->
-											<button class="terms-view--button" onclick="alert('1234')">
-												<i class="icon icon--arrow-16"></i>
-												<span class="blind">통신사 이용약관 보기</span>
-											</button>
-										</div>
-										<!-- (필수) 본인확인 서비스 이용약관 -->
-										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
-											<label class="flex-row">
-												<input type="checkbox">
-												<span>(필수) 본인확인 서비스 이용약관</span>
-											</label>
-											<!-- 버튼 -->
-											<button class="terms-view--button">
-												<i class="icon icon--arrow-16"></i>
-												<span class="blind">본인확인 서비스 이용약관 보기</span>
-											</button>
-										</div>
-										<!-- (필수) 개인정보 수집 · 이용 · 취급 · 위탁 동의 -->
-										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
-											<label class="flex-row">
-												<input type="checkbox">
-												<span>(필수) 개인정보 수집 · 이용 · 취급 · 위탁 동의</span>
-											</label>
-											<!-- 버튼 -->
-											<button class="terms-view--button">
-												<i class="icon icon--arrow-16"></i>
-												<span class="blind">개인정보 수집 · 이용 · 취급 · 위탁 동의 약관 보기</span>
-											</button>
-										</div>
-										<!-- (필수) 고유식별정보 처리 동의 -->
-										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
-											<label class="flex-row">
-												<input type="checkbox">
-												<span>(필수) 고유식별정보 처리 동의</span>
-											</label>
-											<!-- 버튼 -->
-											<button class="terms-view--button">
-												<i class="icon icon--arrow-16"></i>
-												<span class="blind">고유식별정보 처리 동의 약관 보기</span>
-											</button>
-										</div>
-										<!-- [D] 알뜰폰 선택 시 노출 - 체크 비활성화 -->
-										<div class="input-type--check"><!-- [D] 인증번호 요청 시 readonly 클래스 추가 -->
-											<label class="flex-row">
-												<input type="checkbox">
-												<span>(필수) 알뜰폰 개인정보 제3자 제공 동의</span>
-											</label>
-											<!-- 버튼 -->
-											<button class="terms-view--button">
-												<i class="icon icon--arrow-16"></i>
-												<span class="blind">알뜰폰 개인정보 제3자 제공 동의 약관 보기</span>
-											</button>
-										</div>
-									</div>
-								</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층 가나다라마바사아자차카타파하
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
 							</div>
-
-							<!-- 정보입력 -->
-							<div class="form-box js-form-box gap-10">
-								<!-- 이름 -->
-								<div class="form__item js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
-									<div class="form__item-wrap">
-										<div class="input-type--box">
-											<input type="text" value="" placeholder="이름(실명) 입력"><!-- [D] 이름 입력 -->
-											<button type="button" class="input__unit" style="display: none;"><i class="icon icon--close_cr-16"></i></button>
-										</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_beauty.png" alt="">
+										</p>
+										<h2 class="name">옷가게</h2>
 									</div>
-								</div>
-
-								<!-- 주민등록번호 -->
-								<div class="form__item regist-code js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
-									<div class="form__item-wrap">
-										<div class="input-type--box">
-											<input type="text" value="" placeholder="생년월일 6자리" maxlength="6">
-											<span class="between-bar">-</span>
-											<input type="text" value="" placeholder="0" maxlength="1">
-											<div class="currency-box">
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- 휴대폰번호 입력 -->
-								<div class="form__item phone-box js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
-									<div class="form__item-wrap">
-										<div class="input-type--box">
-											<button type="button" class="input-unit fc-placeholder js-select--result js-popup-open" data-modal="popup-select--telecom">
-												<span class="target">통신사 선택</span><i class="icon icon--arrow-16 pointer-bottom"></i>
-											</button>
-											<input type="tel" value="" placeholder="휴대폰번호 입력" maxlength="11">
-										</div>
-									</div>
-								</div>
-
-								<!-- 인증번호 입력 -->
-								<div class="form__item cert-box item--disabled js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 제거 -->
-									<div class="form__item-wrap flex-row">
-										<div class="input-type--box">
-											<input type="tel" value="" placeholder="인증번호 6자리" maxlength="6">
-											<span class="shrink-n">05:00</span>
-										</div>
-										<button class="button button-large button--lv4 js-cert-button">
-											<span>인증번호 요청</span>
-										</button>
-									</div>
-								</div>
-								<!-- 주민등록번호 -->
-								<div class="form__item regist-code js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
-									<div class="form__item-wrap">
-										<div class="input-type--box">
-											<input type="text" value="" placeholder="생년월일 6자리" maxlength="6">
-											<span class="between-bar">-</span>
-											<input type="text" value="" placeholder="0" maxlength="1">
-											<div class="currency-box">
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- 휴대폰번호 입력 -->
-								<div class="form__item phone-box js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
-									<div class="form__item-wrap">
-										<div class="input-type--box">
-											<button type="button" class="input-unit fc-placeholder js-select--result js-popup-open" data-modal="popup-select--telecom">
-												<span class="target">통신사 선택</span><i class="icon icon--arrow-16 pointer-bottom"></i>
-											</button>
-											<input type="tel" value="" placeholder="휴대폰번호 입력" maxlength="11">
-										</div>
-									</div>
-								</div>
-
-								<!-- 인증번호 입력 -->
-								<div class="form__item cert-box item--disabled js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 제거 -->
-									<div class="form__item-wrap flex-row">
-										<div class="input-type--box">
-											<input type="tel" value="" placeholder="인증번호 6자리" maxlength="6">
-											<span class="shrink-n">05:00</span>
-										</div>
-										<button class="button button-large button--lv4 js-cert-button">
-											<span>인증번호 요청</span>
-										</button>
-									</div>
-								</div>
-								<!-- 주민등록번호 -->
-								<div class="form__item regist-code js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
-									<div class="form__item-wrap">
-										<div class="input-type--box">
-											<input type="text" value="" placeholder="생년월일 6자리" maxlength="6">
-											<span class="between-bar">-</span>
-											<input type="text" value="" placeholder="0" maxlength="1">
-											<div class="currency-box">
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-												<p class="currency-bullet"></p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- 휴대폰번호 입력 -->
-								<div class="form__item phone-box js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 추가 -->
-									<div class="form__item-wrap">
-										<div class="input-type--box">
-											<button type="button" class="input-unit fc-placeholder js-select--result js-popup-open" data-modal="popup-select--telecom">
-												<span class="target">통신사 선택</span><i class="icon icon--arrow-16 pointer-bottom"></i>
-											</button>
-											<input type="tel" value="" placeholder="휴대폰번호 입력" maxlength="11">
-										</div>
-									</div>
-								</div>
-
-								<!-- 인증번호 입력 -->
-								<div class="form__item cert-box item--disabled js-form-item"><!-- [D] 인증번호 요청 시 'item--disabled' 클래스 제거 -->
-									<div class="form__item-wrap flex-row">
-										<div class="input-type--box">
-											<input type="tel" value="" placeholder="인증번호 6자리" maxlength="6">
-											<span class="shrink-n">05:00</span>
-										</div>
-										<button class="button button-large button--lv4 js-cert-button">
-											<span>인증번호 요청</span>
-										</button>
-									</div>
-								</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
 							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_edu.png" alt="">
+										</p>
+										<h2 class="name">밴건디 학원</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_grocery.png" alt="">
+										</p>
+										<h2 class="name">밴건디 반찬가게</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_interior.png" alt="">
+										</p>
+										<h2 class="name">밴건디 인테리어</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_meat.png" alt="">
+										</p>
+										<h2 class="name">밴건디 정육점</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_medi.png" alt="">
+										</p>
+										<h2 class="name">밴건디 병원</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_multi.png" alt="">
+										</p>
+										<h2 class="name">밴건디 스테이크하우스 외2</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232 
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_restr.png" alt="">
+										</p>
+										<h2 class="name">밴건디 스테이크하우스</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_retail.png" alt="">
+										</p>
+										<h2 class="name">다판다</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_seafood.png" alt="">
+										</p>
+										<h2 class="name">밴건디 횟집</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="inner">
+								<a href="#none">
+									<div class="name_w">
+										<p class="ico">
+											<img src="../../resource/images/mapview/ico_detail_services.png" alt="">
+										</p>
+										<h2 class="name">밴건디 서비스</h2>
+									</div>
+									<p class="address">
+										서울시 서초구 신반포대로 234 밴건빌딩 2층
+									</p>
+								</a>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</div>
+						</li>
+					</ul>
+
+					<!-- 다수 가맹점 핀 선택 시 (버튼 활성/비활성 시 con_bx 에 "btn" 클래스 추가/제거 -->
+					<p class="search_back_btn" style="display:none;">
+						<a href="#none">
+							검색결과 돌아가기
+						</a>
+					</p>
+
+					<!-- 검색지역 상품권 없을 시 -->
+					<div class="st_none" style="display:none;">
+						<p>
+							현재 지역에서 조회된 가맹점이 없습니다.<br>
+							다른 지역으로 이동하여 조회하세요.
+						</p>
+						<p class="btn">
+							<a href="#none">조회하기</a>
+						</p>
+					</div>
+
+					<!-- 2025-03-26 추가 -->
+					<div class="list-close">
+						<button type="button" class="close--button"><!-- 2025-03-26 [D] 버튼 클릭 시 상단 'con_bx' div에 'fold' 클래스 추가/제거 -->
+							<span>목록닫기</span>
+						</button>
+					</div>
+					<!-- // 2025-03-26 -->
+				</div>
+				<!-- 2025-03-26 추가 -->
+				<div class="lottie-box"></div>
+				<!-- // 2025-03-26 -->
+
+				<!-- 2025-03-26 -->
+				<div class="categori-filter"><!-- [D] 버튼 클릭 시 'open' 클래스 추가, 업종 선택 완료 시 'selected' 클래스 추가 -->
+					<div class="filter-trigger">
+						<button type="button" class="trigger--button">
+							<span class="categori-name">전체 업종</span>
+							<i class="icon icon-more"></i>
+						</button>
+					</div>
+
+					<div class="filter--list-wrap">
+						<div class="filter--list-head">
+							<h3 class="filter--list-headline">업종 선택</h3>
+							<button type="button" class="filter--list-close"><!-- [D] 버튼 클릭 시 'open' 클래스 제거 -->
+								<span>닫기</span>
+							</button>
+						</div>
+						<div class="filter--list">
+							<button type="button" class="filter--button selected"><!-- [D] 선택 시 'selected' 클래스 추가 -->
+								<img src="../../resource/images/mapview/ico_detail_multi.png" class="categori-icon" alt="전체 업종">
+								<img src="../../resource/images/mapview/ico_detail_multi_m.png" class="categori-icon-mobile" alt="전체 업종">
+								<span class="categori-name">전체 업종</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_edu.png" class="categori-icon" alt="학원/교육">
+								<img src="../../resource/images/mapview/ico_detail_edu_m.png" class="categori-icon-mobile" alt="학원/교육">
+								<span class="categori-name">학원/교육</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_restr.png" class="categori-icon" alt="음식점/카페">
+								<img src="../../resource/images/mapview/ico_detail_restr_m.png" class="categori-icon-mobile" alt="음식점/카페">
+								<span class="categori-name">음식점/카페</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_grocery.png" class="categori-icon" alt="식료품/반찬">
+								<img src="../../resource/images/mapview/ico_detail_grocery_m.png" class="categori-icon-mobile" alt="식료품/반찬">
+								<span class="categori-name">식료품/반찬</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_agri.png" class="categori-icon" alt="농산물/청과">
+								<img src="../../resource/images/mapview/ico_detail_agri_m.png" class="categori-icon-mobile" alt="농산물/청과">
+								<span class="categori-name">농산물/청과</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_meat.png" class="categori-icon" alt="축산물/정육">
+								<img src="../../resource/images/mapview/ico_detail_meat_m.png" class="categori-icon-mobile" alt="축산물/정육">
+								<span class="categori-name">축산물/정육</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_seafood.png" class="categori-icon" alt="수산물/횟집">
+								<img src="../../resource/images/mapview/ico_detail_seafood_m.png" class="categori-icon-mobile" alt="수산물/횟집">
+								<span class="categori-name">수산물/횟집</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_medi.png" class="categori-icon" alt="의료/보건">
+								<img src="../../resource/images/mapview/ico_detail_medi_m.png" class="categori-icon-mobile" alt="의료/보건">
+								<span class="categori-name">의료/보건</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_beauty.png" class="categori-icon" alt="미용/패션">
+								<img src="../../resource/images/mapview/ico_detail_beauty_m.png" class="categori-icon-mobile" alt="미용/패션">
+								<span class="categori-name">미용/패션</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_interior.png" class="categori-icon" alt="가전/가구">
+								<img src="../../resource/images/mapview/ico_detail_interior_m.png" class="categori-icon-mobile" alt="가전/가구">
+								<span class="categori-name">가전/가구</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_services.png" class="categori-icon" alt="서비스">
+								<img src="../../resource/images/mapview/ico_detail_services_m.png" class="categori-icon-mobile" alt="서비스">
+								<span class="categori-name">서비스</span>
+							</button>
+							<button type="button" class="filter--button">
+								<img src="../../resource/images/mapview/ico_detail_retail.png" class="categori-icon" alt="기타/도소매">
+								<img src="../../resource/images/mapview/ico_detail_retail_m.png" class="categori-icon-mobile" alt="기타/도소매">
+								<span class="categori-name">기타/도소매</span>
+							</button>
 						</div>
 					</div>
-				</sections>
-			</div>
+				</div>
+				<!-- // 2025-03-26 -->
 
-			<!-- 플로팅 컨테이너 -->
-			<div class="container-floating js-floating-container">
-				<article class="floating__box button-box-spacing">
-					<a href="#none" class="button button-xl button--lv1 dis"><!-- [D] 활성화 시 'dis' 클래스 제거  -->
-						<span>인증하기</span>
-					</a>
-				</article>
+				<!-- 지도 -->
+				<div class="map_bx" style="display: ;">
+					<!-- 지도 삽입부분 -->
+					<div class="map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.230590910683!2d126.90398813367491!3d37.52606126832966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9ee718caa21b%3A0xdfc527ea21868c62!2za25r65SU7KeA7YS47YOA7JuM!5e0!3m2!1sko!2skr!4v1644305336040!5m2!1sko!2skr" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+
+					<!-- 핀 선택 박스 -->
+					<div class="pick_bx">
+						<div class="inner">
+							<div class="map_name_w">
+								<h2 class="name">밴건디 스테이크하우스</h2>
+								<p class="more">외 4개</p><!-- 다수 가맹점 선택 시 노출 -->
+							</div>
+							<p class="address">서울시 서초구 신반포대로 234 밴건빌딩 2층서울시 서초구 신반포대로 234 밴건빌딩 2층</p>
+							<p>
+								<a href="tel:02-2093-3232" class="phone">
+									02-2093-3232
+								</a>
+							</p>
+						</div>
+					</div>
+
+					<!-- 현 지도 검색 버튼 -->
+					<p class="map_search_btn">
+						<a href="#none">
+							<span>현 지도에서 검색</span>
+						</a>
+					</p>
+
+					<!-- 현재위치 -->
+					<p class="locationBtn">
+						<a href="#none">현재위치</a>
+					</p>
+				</div>
 			</div>
-		</main>
-		<!-- // 메인 컨텐츠 -->
+		</div>
+		<!-- //컨텐츠 영역 -->
 	</div>
+	<!-- // container -->
+</div>
+<!-- // wrap -->
+
+<script type="text/javascript" src="../../resource/js/lib/jquery-1.8.3.min.js"></script>
 </body>
 </html>
 
+<script>
+$(function(){
 
+	function updateSearchBtnPosition() {
+		var $conBx = $('.con_bx');
+		var $mapSearchBtn = $('.map_search_btn');
+		
+		if ($conBx.is(':visible')) {
+			// con_bx가 보이는 경우
+			if ($conBx.hasClass('fold')) {
+				// 접혀있는 경우 - 목록 닫기 버튼의 높이만큼 위에 위치
+				var foldedHeight = $('.list-close').outerHeight();
+				$mapSearchBtn.css('bottom', (foldedHeight + 20) + 'px');
+			} else {
+				// 펼쳐져 있는 경우 - 전체 con_bx 높이만큼 위에 위치
+				var windowHeight = $(window).height();
+				var conBxTop = $conBx.offset().top;
+				var conBxHeight = $conBx.outerHeight();
+				
+				// con_bx의 화면 하단부터의 위치 계산 
+				var bottomPosition = $(window).innerHeight() - conBxTop + 43;
+				$mapSearchBtn.css('bottom', bottomPosition + 'px');
+			}
+		} else {
+			// con_bx가 숨겨진 경우
+			$mapSearchBtn.css('bottom', '40px');
+		}
+	}
+
+	// 초기 실행
+	updateSearchBtnPosition();
+
+	// 터치 디바이스 감지
+	var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+	// 드래그 관련 변수
+	var isDragging = false;
+	var startY = 0;
+	var touchTimeout;
+	var touchTreshold = 10; // 드래그로 인식할 최소 이동 거리
+
+	// 마우스/터치 이벤트
+	$('.close--button').on('mousedown touchstart', function(e) {
+		var event = (e.type === 'touchstart') ? e.originalEvent.touches[0] : e;
+		startY = event.pageY;
+		isDragging = false;
+		
+		// 터치 디바이스에서는 click 이벤트를 방지하기 위한 플래그
+		if (e.type === 'touchstart') {
+			$(this).data('touchStarted', true);
+
+			// 짧은 탭을 구별하기 위한 타임아웃 설정
+			clearTimeout(touchTimeout);
+
+			touchTimeout = setTimeout(function() {
+				$(this).data('touchStarted', false);
+			}.bind(this), 300);
+		}
+		
+		return true;
+	});
+
+	// 이동 이벤트
+	$(document).on('touchmove', function(e) {
+		if (startY === 0) return;
+		
+		var event = (e.type === 'touchmove') ? e.originalEvent.touches[0] : e;
+		var moveY = event.pageY;
+		var diffY = startY - moveY;
+		
+		// 일정 거리 이상 이동했을 때만 드래그로 간주
+		if (Math.abs(diffY) > touchTreshold) {
+			isDragging = true;
+
+		}
+	});
+
+	$(document).on('touchend', function(e) {
+		if (startY === 0) return;
+		
+		var $button = $('.close--button');
+		var $conBx = $('.con_bx');
+		var endY = (e.type === 'touchend') ? e.originalEvent.changedTouches[0].pageY : e.pageY;
+		var direction = startY - endY;
+		
+		// 드래그 상태일 때만 처리
+		if (isDragging) {
+			if (Math.abs(direction) > touchTreshold) {
+				// 현재 상태 확인
+				var currentState = 'full';
+				if ($conBx.hasClass('fold')) {
+					currentState = 'folded';
+				} else if ($conBx.hasClass('half')) {
+					currentState = 'half';
+				}
+				
+				if (direction > 0) { // 위로 스와이프
+					switch(currentState) {
+						case 'folded':
+							// 접힘 상태에서 위로 스와이프: half 상태로 변경
+							$conBx.removeClass('fold').addClass('half');
+							$button.find('span').text('더보기');
+							break;
+						case 'half':
+							// half 상태에서 위로 스와이프: 완전 펼침
+							$conBx.removeClass('half');
+							$button.find('span').text('목록닫기');
+							break;
+						// full에서 위로 스와이프는 무시 (이미 최대)
+					}
+				} else { // 아래로 스와이프
+					switch(currentState) {
+						case 'full':
+							// 완전 펼침 상태에서 아래로 스와이프: half 상태로
+							$conBx.addClass('half');
+							$button.find('span').text('더보기');
+							break;
+						case 'half':
+							// half 상태에서 아래로 스와이프: 접힘 상태로
+							$conBx.removeClass('half').addClass('fold');
+							$button.find('span').text('목록열기');
+							break;
+						// folded에서 아래로 스와이프는 무시 (이미 최소)
+					}
+				}
+				setTimeout(function(){
+					updateSearchBtnPosition();
+				}, 320)
+			}
+			
+			// 터치 디바이스에서는 click 이벤트 방지
+			if (e.type === 'touchend') {
+				$button.data('touchStarted', false);
+			}
+		}
+		
+		// 상태 초기화
+		startY = 0;
+		isDragging = false;
+	});
+
+	// 클릭 이벤트(터치 디바이스가 아닐 때만 동작)
+	$('.close--button').on('click', function(e) {
+			// 데스크톱 환경에서의 클릭만 처리
+			if (!isTouchDevice) {
+				var $conBx = $('.con_bx');
+				var $button = $(this);
+
+				if($(window).width() < 720){
+					// 현재 상태 확인
+					if ($conBx.hasClass('fold')) {
+						// 접힌 상태에서 클릭: half 상태로
+						$conBx.removeClass('fold').addClass('half');
+						$button.find('span').text('더보기');
+					} else if ($conBx.hasClass('half')) {
+						if($conBx.find('.st_list li').length <= 1){
+							$conBx.addClass('fold');
+							$button.find('span').text('목록열기');
+						}
+						// half 상태에서 클릭: 완전 펼침
+						$conBx.removeClass('half');
+						$button.find('span').text('목록닫기');
+					} else {
+						// 펼쳐진 상태에서 클릭: 접기
+						$conBx.addClass('fold');
+						$button.find('span').text('목록열기');
+					}
+
+					// 위치 업데이트
+					setTimeout(() => {
+						updateSearchBtnPosition();
+					}, 320);
+
+				}else if($(window).width() >= 721){
+					// 현재 상태 확인
+					if ($conBx.hasClass('fold')) {
+						// 접힌 상태에서 클릭: half 상태로 변경
+						$conBx.removeClass('fold');
+						$conBx.removeClass('half'); // half 상태 추가
+						$button.find('span').text('목록열기');
+					} else {
+						// 펼쳐진 상태에서 클릭: 접기
+						$conBx.addClass('fold');
+						$conBx.removeClass('half'); // half 상태도 해제
+						$button.find('span').text('더보기');
+					}
+				}
+			}
+	});
+
+	// 윈도우 리사이즈 시 위치 재계산
+	$(window).on('resize', function() {
+		updateSearchBtnPosition();
+	});
+
+	// con_bx의 display 속성이 변경될 경우를 대비한 MutationObserver 설정
+	var observer = new MutationObserver(function(mutations) {
+		mutations.forEach(function(mutation) {
+			if (mutation.attributeName === 'style') {
+				updateSearchBtnPosition();
+			}
+		});
+	});
+
+	// con_bx 요소 감시 설정
+	var config = { attributes: true, attributeFilter: ['style'] };
+	observer.observe($('.con_bx')[0], config);
+	});
+</script>
+
+<!-- 2025-03-26 [D] 로딩 애니메이션 -->
 <script>
 	$(function(){
-		// 체크박스 상태 동기화
-		let allChk = $('.js-all-check');
-		let checkbox = $('.js-checked--handle input').not(allChk);
+		// 애니메이션 JSON
+		const animationData = {"v":"5.8.1","fr":30,"ip":0,"op":60,"w":300,"h":300,"nm":"loading_6","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Shape Layer 2","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[0]},{"t":60,"s":[360]}],"ix":10},"p":{"a":0,"k":[150.00000000000003,150.00000000000003,0],"ix":2,"l":2},"a":{"a":0,"k":[0,0,0],"ix":1,"l":2},"s":{"a":0,"k":[30.000000000000004,30.000000000000004,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"d":1,"ty":"el","s":{"a":0,"k":[300,300],"ix":2},"p":{"a":0,"k":[0,0],"ix":3},"nm":"Ellipse Path 1","mn":"ADBE Vector Shape - Ellipse","hd":false,"_render":true},{"ty":"st","c":{"a":0,"k":[0.050980392156862744,0.5176470588235295,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":50,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false,"_render":true},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform","_render":true}],"nm":"Ellipse 1","np":3,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false,"_render":true},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":10,"s":[0]},{"t":60,"s":[99]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":0,"s":[1]},{"t":50,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[0]},{"t":60,"s":[3]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false,"_render":true}],"ip":0,"op":300,"st":0,"bm":0,"completed":true},{"ddd":0,"ind":2,"ty":4,"nm":"Shape Layer 1","sr":1,"ks":{"o":{"a":0,"k":30,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[150.00000000000003,150.00000000000003,0],"ix":2,"l":2},"a":{"a":0,"k":[0,0,0],"ix":1,"l":2},"s":{"a":0,"k":[30.000000000000004,30.000000000000004,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"d":1,"ty":"el","s":{"a":0,"k":[300,300],"ix":2},"p":{"a":0,"k":[0,0],"ix":3},"nm":"Ellipse Path 1","mn":"ADBE Vector Shape - Ellipse","hd":false,"_render":true},{"ty":"st","c":{"a":0,"k":[0.050980392156862744,0.5176470588235295,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":50,"ix":5},"lc":1,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false,"_render":true},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform","_render":true}],"nm":"Ellipse 1","np":3,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false,"_render":true}],"ip":0,"op":300,"st":0,"bm":0,"completed":true}],"markers":[],"__complete":true};
 
-		// 'allChk' 클릭 시, 모든 개별 체크박스 상태 동기화
-		allChk.on('click', function () {
-			const isChecked = $(this).prop('checked');
-			checkbox.prop('checked', isChecked);
+		var $lottieItem = document.createElement('div');
+		$lottieItem.className = 'lottie-item';
+		$('.lottie-box').append($lottieItem).addClass();
+
+		// 생성한 div를 lottie 애니메이션 컨테이너로 사용
+		var anim = lottie.loadAnimation({
+			container: $lottieItem, // 새로 생성한 div를 컨테이너로 지정
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			animationData: animationData,
 		});
 
-		// 개별 체크박스 클릭 시, allChk 상태 업데이트
-		checkbox.on('click', function () {
-			const total = checkbox.length;
-			const checkedCount = checkbox.filter(':checked').length;
-
-			allChk.prop('checked', total === checkedCount);
+		// 애니메이션이 로드되면 SVG에도 클래스 추가 (필요한 경우)
+		anim.addEventListener('DOMLoaded', function() {
+			var svg = $lottieItem.querySelector('svg');
+			if (svg) {
+				svg.classList.add('lottie-svg');
+			}
 		});
-
 	})
 </script>
+<!-- 2025-03-26 [D] 로딩 애니메이션 -->
