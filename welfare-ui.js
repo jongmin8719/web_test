@@ -64,7 +64,7 @@ $(function(){
                             $('html, body').height(visualHeight);
                             $('html, body').css('min-height', visualHeight);
                             $('html, body').css('overflow', 'scroll');
-                            $('html, body').animate({scrollTop: target.closest('.js-form-item').offset().top - 57}, 150);
+                            $('html, body').animate({scrollTop: target.closest('.item--on').offset().top - 57}, 150);
 
                             $('h1').text(visualHeight);
                         }, 500)
