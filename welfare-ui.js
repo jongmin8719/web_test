@@ -56,14 +56,15 @@ $(function(){
 
                     if(!isIOS){
                         clearTimeout(outTimer, visualTimer);
-                        let visualViewPort = window.visualViewport;
-                        let visualHeight = visualViewPort.height;
 
                         visualTimer = setTimeout(function(){
+                            let visualViewPort = window.visualViewport;
+                            let visualHeight = visualViewPort.height;
+
                             $('html, body').height(visualHeight);
                             $('html, body').css('min-height', visualHeight);
                             $('html, body').animate({scrollTop: target.closest(formItem).offset().top - 57}, 150);
-                        }, 350)
+                        }, 500)
 
                         $('h1').text(visualHeight);
                     }
