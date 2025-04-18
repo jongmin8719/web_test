@@ -24,7 +24,15 @@ $(function(){
     }, 150)
 
     // form
-    function formHandler(){
+    function formHandler(){ 
+        // os 감지 (ios 인 경우와 ios가 아닌 경우만 감지.)
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isIOS = /iphone|ipad|ipod/.test(userAgent);
+
+        let visualViewPort = window.visualViewport;
+        let visualHeight = visualViewPort.height;
+        let outTimer, visualTimer;
+
         let formItem = $('.js-form-item');
 
         formItem.on({
@@ -37,21 +45,6 @@ $(function(){
                     target.closest('.input-type--textbox').length > 0
                 ){
                     target.find('input').focus();
-
-                    setTimeout(() => {
-                        // visualViewport API를 사용하여 현재 뷰포트 높이 가져오기 (키보드 올라온 상태 반영)
-                        const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-                        
-                        // 스크롤할 대상 위치 계산 (헤더 높이 72px 고려)
-                        const targetElement = target instanceof jQuery ? target[0] : target;
-                        const scrollPosition = targetElement.getBoundingClientRect().top + window.scrollY - 72;
-                        $('html, body').height(viewportHeight)
-
-                        // jQuery 사용 애니메이션 스크롤
-                        console.log('타겟 위치' + targetElement.getBoundingClientRect().top)
-                        $('html, body').stop().animate({scrollTop: scrollPosition}, 100);
-                        $('h1').text('스크롤 위치' + viewportHeight)
-                    }, 500); // 키보드가 올라올 시간을 고려한 지연
                 }
             },
             focusin : function(e){
@@ -63,11 +56,24 @@ $(function(){
                 ){
                     target.closest(formItem).addClass('item--on')
                     target.find('input').focus();
+
+                    if(!isIOS){
+                        clearTimeout(outTimer, visualTimer);
+
+                        visualTimer = setTimeout(function(){
+                            $('html, body').height(visualHeight);
+                            $('html, body').css('min-height', visualHeight);
+                            $('html, body').animate({scrollTop: target.closest(formItem).offset().top - 57}, 150);
+                        }, 350)
+                    }
                 }
             },
             focusout : function(){
                 formItem.removeClass('item--on')
-                $('html, body').height('')
+
+                outTimer = setTimeout(function(){
+                    $('html, body').removeAttr('style');
+                }, 500)
             }
         })
 
