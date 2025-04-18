@@ -63,10 +63,10 @@ $(function(){
 
                             $('html, body').height(visualHeight);
                             $('html, body').css('min-height', visualHeight);
-                            $('html, body').animate({scrollTop: target.closest(formItem).offset().top - 57}, 150);
-                        }, 500)
+                            $('html, body').animate({scrollTop: target.closest('.js-form-item').offset().top - 57}, 150);
 
-                        $('h1').text(visualHeight);
+                            $('h1').text(visualHeight);
+                        }, 500)
                     }
                 }
             },
