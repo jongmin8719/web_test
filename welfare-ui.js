@@ -65,6 +65,8 @@ $(function(){
                             $('html, body').css('min-height', visualHeight);
                             $('html, body').animate({scrollTop: target.closest(formItem).offset().top - 57}, 150);
                         }, 350)
+
+                        $('h1').text(visualHeight);
                     }
                 }
             },
