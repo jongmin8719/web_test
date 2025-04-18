@@ -28,9 +28,6 @@ $(function(){
         // os 감지 (ios 인 경우와 ios가 아닌 경우만 감지.)
         const userAgent = navigator.userAgent.toLowerCase();
         const isIOS = /iphone|ipad|ipod/.test(userAgent);
-
-        let visualViewPort = window.visualViewport;
-        let visualHeight = visualViewPort.height;
         let outTimer, visualTimer;
 
         let formItem = $('.js-form-item');
@@ -59,6 +56,8 @@ $(function(){
 
                     if(!isIOS){
                         clearTimeout(outTimer, visualTimer);
+                        let visualViewPort = window.visualViewport;
+                        let visualHeight = visualViewPort.height;
 
                         visualTimer = setTimeout(function(){
                             $('html, body').height(visualHeight);
